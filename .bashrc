@@ -1,5 +1,10 @@
+# functionality
+HISTCONTROL=ignoreboth  # do not store duplicate lines or lines that start with space
+HISTSIZE=2000           # lines stored for the current session
+HISTFILESIZE=2000       # lines stored between sessions
+shopt -s globstar       # support ** wildcards
 
-
+# style
 setup_prompts() {
 	if tput setaf 1 >&/dev/null; then
 		local prompt_start='\[\e[32m\e[1m\]'
