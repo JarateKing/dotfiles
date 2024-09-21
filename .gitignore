@@ -6,4 +6,6 @@
 !.gitmodules
 !readme.md
 !.bashrc
+!scripts/
+!scripts/**
 

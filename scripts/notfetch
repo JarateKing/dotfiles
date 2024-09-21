@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+# draw text centered horizontally in terminal
+center() {
+	local termwidth="$(tput cols)"
+	local padding="$(printf '%0.1s' ' '{1..500})"
+	local strlen="$(echo -n -e "$1" | sed "s/$(echo -e "\e")[^m]*m//g")"
+	local leftpad="$(((termwidth - ${#strlen})/2))"
+	local rightpad="$(((termwidth - ${#strlen} + 1)/2))"
+	
+	printf '%*.*s%b%*.*s\n' 0 "$leftpad" "$padding" "$1" 0 "$rightpad" "$padding"
+}
+
+# draw two bits of text, with a horizontally centered divider between them
+# $1 is the left text, $2 is the divider text, #3 is the right text
+split_center() {
+	local termwidth="$(tput cols)"
+	local padding="$(printf '%0.1s' ' '{1..500})"
+	local strlen1="$(echo -n -e "$1" | sed "s/$(echo -e "\e")[^m]*m//g")"
+	local strlen2="$(echo -n -e "$2" | sed "s/$(echo -e "\e")[^m]*m//g")"
+	local strlen3="$(echo -n -e "$3" | sed "s/$(echo -e "\e")[^m]*m//g")"
+	local leftpad="$(((termwidth - ${#strlen1} * 2 - ${#strlen2})/2))"
+	local rightpad="$(((termwidth - ${#strlen3} * 2 - ${#strlen2} + 1)/2))"
+	
+	printf '%*.*s%b%b%s%*.*s\n' 0 "$leftpad" "$padding" "$1" "$2" "$3" 0 "$rightpad" "$padding"
+}
+
+# fetch the system data that we'll be printing
+setup_variables() {
+	local parentprocess="$(grep -i -F "PPid:" "/proc/${1:-$PPID}/status" | sed "s/[^0-9]*//g")"
+	local terminalname="$(< "/proc/${!:-$parentprocess}/comm")"
+	
+	# we assume that these will work, and don't check for other distros
+	# in other words, this only works for fedora with gnome
+	# support for other distros is a TODO but low priority
+	notfetch_osname=$(hostnamectl --json=pretty | grep -o '"OperatingSystemPrettyName" : "[^"]*' | grep -o '[^"]*$')
+	notfetch_bashversion=$BASH_VERSION
+	notfetch_kernel=$(uname -sr | sed "s/Linux //g")
+	notfetch_desktopenvironment=$(gnome-shell --version | sed "s/Shell //g")
+	notfetch_terminal=$(echo $terminalname | sed "s/-$//g")
+}
+
+# print system data
+print_notfetch() {
+	local divider="\e[90m │ \e[39m"
+	local start="\e[32m\e[1m"
+	local end="\e[0m\e[39m"
+
+	split_center "$start Operating System$end" "$divider" "$notfetch_osname"
+	split_center "$start Desktop Environment$end" "$divider" "$notfetch_desktopenvironment"
+	split_center "$start Kernel Version$end" "$divider" "$notfetch_kernel"
+	split_center "$start Bash Version$end" "$divider" "$notfetch_bashversion"
+	split_center "$start Terminal Emulator$end" "$divider" "$notfetch_terminal"
+}
+
+# print the color palette
+print_colors() {
+	local top="▄▄"
+	local bot="▀▀"
+	local div=" "
+
+	center "\e[90m$top$div\e[91m$top$div\e[93m$top$div\e[92m$top$div\e[96m$top$div\e[94m$top$div\e[95m$top$div\e[97m$top\e[0m"
+	center "\e[30m$bot$div\e[31m$bot$div\e[33m$bot$div\e[32m$bot$div\e[36m$bot$div\e[34m$bot$div\e[35m$bot$div\e[37m$bot\e[0m"
+}
+
+setup_variables
+echo ""
+print_notfetch
+echo ""
+print_colors

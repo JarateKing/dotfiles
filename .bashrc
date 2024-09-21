@@ -4,6 +4,10 @@ HISTSIZE=2000           # lines stored for the current session
 HISTFILESIZE=2000       # lines stored between sessions
 shopt -s globstar       # support ** wildcards
 
+# path
+if ! [[ "$PATH" =~ "$HOME/scripts:" ]]; then PATH="$HOME/scripts:$PATH"; fi
+export PATH
+
 # style
 setup_prompts() {
 	if tput setaf 1 >&/dev/null; then
