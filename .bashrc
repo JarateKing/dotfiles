@@ -10,6 +10,7 @@ export PATH
 
 # aliases
 alias reload_bashrc="source ~/.bashrc"
+alias reload_inputrc="bind -f ~/.inputrc"
 
 # style
 setup_prompts() {
