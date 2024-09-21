@@ -1,0 +1,8 @@
+# ignore everything by default
+*
+
+# selectively include things
+!.gitignore
+!.gitmodules
+!readme.md
+
