@@ -8,6 +8,9 @@ shopt -s globstar       # support ** wildcards
 if ! [[ "$PATH" =~ "$HOME/scripts:" ]]; then PATH="$HOME/scripts:$PATH"; fi
 export PATH
 
+# aliases
+alias reload_bashrc="source ~/.bashrc"
+
 # style
 setup_prompts() {
 	if tput setaf 1 >&/dev/null; then
