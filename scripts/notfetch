@@ -48,9 +48,9 @@ print_notfetch() {
 
 	split_center "$start Operating System$end" "$divider" "$notfetch_osname"
 	split_center "$start Desktop Environment$end" "$divider" "$notfetch_desktopenvironment"
-	split_center "$start Kernel Version$end" "$divider" "$notfetch_kernel"
-	split_center "$start Bash Version$end" "$divider" "$notfetch_bashversion"
-	split_center "$start Terminal Emulator$end" "$divider" "$notfetch_terminal"
+	split_center "$start Kernel$end" "$divider" "$notfetch_kernel"
+	#split_center "$start Bash Version$end" "$divider" "$notfetch_bashversion"
+	split_center "$start Shell$end" "$divider" "$notfetch_terminal"
 }
 
 # print the color palette
