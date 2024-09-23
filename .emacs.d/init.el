@@ -8,4 +8,4 @@
 (scroll-bar-mode -1)                            ; remove scrollbars
 (menu-bar-mode -1)                              ; remove dropdown menus
 (tool-bar-mode -1)                              ; remove toolbar ribbon
-
+(load "~/.emacs.d/theme.el")
