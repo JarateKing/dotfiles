@@ -1,6 +1,7 @@
 ;; packages
 (require 'package)
 (package-initialize)
+(setq custom-file "~/.emacs.d/custom.el")
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
@@ -29,4 +30,4 @@
 
 (load "~/.emacs.d/settings.el")
 (load "~/.emacs.d/theme.el")
-
+(load custom-file)
