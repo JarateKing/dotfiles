@@ -4,3 +4,9 @@
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'initial-frame-alist '(top-visible . 100))
 (set-face-foreground 'vertical-border "#000000")
+
+;;; setup line highlighting
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#1b2128")
+(set-face-foreground 'highlight 'nil)
+
