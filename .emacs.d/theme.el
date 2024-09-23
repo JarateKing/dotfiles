@@ -1,3 +1,11 @@
+;; window style
+(setq-default frame-title-format '("%b %f"))    ; simplify window title
+(set-fringe-mode 0)                             ; remove padding on sides
+(scroll-bar-mode -1)                            ; remove scrollbars
+(menu-bar-mode -1)                              ; remove dropdown menus
+(tool-bar-mode -1)                              ; remove toolbar ribbon
+
+;; theme
 (add-to-list 'default-frame-alist '(foreground-color . "#D3E8F3"))
 (add-to-list 'default-frame-alist '(background-color . "#0B1118"))
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
