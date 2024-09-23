@@ -16,3 +16,10 @@ The intended usage of this is `curl -s https://raw.githubusercontent.com/JarateK
 
 This repo includes my dotfiles used for NixOS.
 
+## Emacs
+
+Setup:
+
+- the first run will spend time getting packages and thus have a slow startup
+- when you're able, run `M-x all-the-icons-install-fonts` once
+
