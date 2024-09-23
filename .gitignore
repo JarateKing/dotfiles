@@ -9,4 +9,8 @@
 !.inputrc
 !scripts/
 !scripts/**
+!.emacs.d/
+!.emacs.d/**
 
+# re-ignore some things
+.emacs.d/eln-cache/
