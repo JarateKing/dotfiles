@@ -18,6 +18,6 @@
 
 ;; line highlighting
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#1b2128")
+(set-face-background 'hl-line "#0e1a28")
 (set-face-foreground 'highlight 'nil)
 
