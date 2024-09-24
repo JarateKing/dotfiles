@@ -2,6 +2,9 @@
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
 
+;; no bell
+(setq ring-bell-function 'ignore)
+
 ;; neotree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq neo-show-hidden-files t)
