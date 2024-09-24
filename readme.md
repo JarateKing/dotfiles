@@ -3,7 +3,7 @@
     echo 'installing dotfiles'
     cd ~/
     rm -rf ./dotfiles
-    git clone https://github.com/JarateKing/dotfiles.git ./dotfiles
+    git clone https://github.com/JarateKing/dotfiles-nix.git ./dotfiles
     rsync -a --remove-source-files ./dotfiles/ ./
     rm -rf ./dotfiles
     git submodule update --init --recursive
