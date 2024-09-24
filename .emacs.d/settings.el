@@ -13,7 +13,6 @@
 ;; setup powerline theme
 (require 'powerline)
 (powerline-default-theme)
-(setq powerline-arrow-shape 'curve)
 (set-face-attribute 'mode-line nil :foreground "#FFFFFF" :background "#0B4677" :box nil)
 (set-face-attribute 'mode-line-inactive nil :foreground "#AAAAAA" :background "#0B2A4E" :box nil)
 (set-face-attribute 'powerline-active0 nil :foreground "#FFFFFF" :background "#0B4677" :box nil)
