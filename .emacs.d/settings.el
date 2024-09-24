@@ -5,6 +5,9 @@
 ;; no bell
 (setq ring-bell-function 'ignore)
 
+;; default window size
+(if (window-system) (set-frame-size (selected-frame) 180 40))
+
 ;; neotree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq neo-show-hidden-files t)
