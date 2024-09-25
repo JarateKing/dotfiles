@@ -14,6 +14,11 @@
 (neotree-show)
 (other-window 1)
 
+;; line numbers
+(require 'right-linum)
+(add-hook 'prog-mode-hook 'right-linum-mode)
+(add-hook 'conf-mode-hook 'right-linum-mode)
+
 ;; powerline theme
 (require 'powerline)
 (powerline-default-theme)
@@ -30,3 +35,4 @@
 (use-package treesit-auto
   :config
   (global-treesit-auto-mode))
+
