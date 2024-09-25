@@ -13,7 +13,7 @@
 (setq neo-show-hidden-files t)
 (neotree-show)
 
-;; setup powerline theme
+;; powerline theme
 (require 'powerline)
 (powerline-default-theme)
 (set-face-attribute 'mode-line nil :foreground "#FFFFFF" :background "#0B4677" :box nil)
@@ -24,3 +24,8 @@
 (set-face-attribute 'powerline-inactive0 nil :foreground "#FFFFFF" :background "#0B2A4E" :box nil)
 (set-face-attribute 'powerline-inactive1 nil :foreground "#FFFFFF" :background "#0d213a" :box nil)
 (set-face-attribute 'powerline-inactive2 nil :foreground "#FFFFFF" :background "#0e1a28" :box nil)
+
+;; treesitter
+(use-package treesit-auto
+  :config
+  (global-treesit-auto-mode))
