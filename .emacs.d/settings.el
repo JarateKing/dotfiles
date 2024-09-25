@@ -12,6 +12,7 @@
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq neo-show-hidden-files t)
 (neotree-show)
+(other-window 1)
 
 ;; powerline theme
 (require 'powerline)
