@@ -30,4 +30,5 @@
 
 (load "~/.emacs.d/settings.el")
 (load "~/.emacs.d/theme.el")
+(load "~/.emacs.d/keybinds.el")
 (load custom-file)
