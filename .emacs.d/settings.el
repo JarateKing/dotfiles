@@ -2,6 +2,9 @@
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
 
+;; backups
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
 ;; no bell
 (setq ring-bell-function 'ignore)
 
