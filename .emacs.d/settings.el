@@ -32,6 +32,17 @@
 (add-hook 'prog-mode-hook 'right-linum-mode)
 (add-hook 'conf-mode-hook 'right-linum-mode)
 
+;; minimap
+(require 'demap)
+(setq demap-minimap-window-width 13)
+(demap-open)
+(face-spec-set 'demap-minimap-font-face `((t :background, "#0b1118" :inherit unspecified :family "minimap" :height 10)))
+(face-spec-set 'demap-visible-region-face `((t :background, "#0e1a28" :inherit unspecified)))
+(face-spec-set 'demap-visible-region-inactive-face `((t :background, "#0e1a28" :inherit unspecified)))
+(face-spec-set 'demap-current-line-face `((t :background, "#0e1a28" :inherit unspecified)))
+(face-spec-set 'demap-current-line-inactive-face `((t :background, "#0e1a28" :inherit unspecified)))
+
+
 ;; powerline theme
 (require 'powerline)
 (powerline-default-theme)

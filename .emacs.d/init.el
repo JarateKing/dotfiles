@@ -6,7 +6,7 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (defvar packages-to-install
-	'(all-the-icons neotree powerline markdown-mode magit treesit-auto restart-emacs smooth-scrolling)
+	'(all-the-icons neotree powerline markdown-mode magit treesit-auto restart-emacs smooth-scrolling demap)
 	"Packages to install via package manager")
 
 (defvar package-contents-refreshed nil)
