@@ -63,8 +63,20 @@ print_colors() {
 	center "\e[30m$bot$div\e[31m$bot$div\e[33m$bot$div\e[32m$bot$div\e[36m$bot$div\e[34m$bot$div\e[35m$bot$div\e[37m$bot\e[0m"
 }
 
+# print blank lines until at the bottom of the screen
+print_blanks() {
+    local linecount=8
+    local linetotal=$(tput lines)
+    local linestoprint=$((linetotal - $linecount - 1))
+
+    for i in $(seq 1 $linestoprint); do
+        echo ""
+    done
+}
+
 setup_variables
 echo ""
 print_notfetch
 echo ""
 print_colors
+print_blanks
