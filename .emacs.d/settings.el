@@ -11,6 +11,11 @@
 ;; default window size
 (if (window-system) (set-frame-size (selected-frame) 180 40))
 
+;; tabs
+(setq-default tab-width 4)
+(setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode nil)
+
 ;; scrolling
 (require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
