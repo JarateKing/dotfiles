@@ -11,6 +11,11 @@
 ;; default window size
 (if (window-system) (set-frame-size (selected-frame) 180 40))
 
+;; scrolling
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
+(setq smooth-scroll-margin 5)
+
 ;; neotree
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq neo-show-hidden-files t)
