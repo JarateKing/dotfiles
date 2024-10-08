@@ -28,10 +28,10 @@
   `(whitespace-trailing               ((t (:foreground, "#1e2a38"))))
   `(whitespace-empty                  ((t (:foreground, "#1e2a38")))))
 (setq-default whitespace-display-mappings '(
-  (space-mark 32 [183] [46])           ;; space -> · else .
-  (newline-mark ?\n [92 ?\n])          ;; new line -> \
-  (newline-mark ?\r [92])              ;; carriage return -> \
-  (tab-mark ?\t [9474 ?\t] [124 ?\t] [62 ?\t]))) ;; tabs -> │ else |
+  (space-mark 32 [183] [46])            ;; space -> · else .
+  (newline-mark ?\n [92 ?\n])           ;; new line -> \
+  (newline-mark ?\r [92])               ;; carriage return -> \
+  (tab-mark ?\t [9474 ?\t] [124 ?\t]))) ;; tabs -> │ else |
 
 ;; cursor
 (add-to-list 'default-frame-alist '(cursor-color . "#55BCDA"))
