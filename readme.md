@@ -23,4 +23,4 @@ Setup:
 - the first run will spend time getting packages and thus have a slow startup
 - when you're able, run `M-x all-the-icons-install-fonts` once
 - install https://github.com/davestewart/minimap-font/tree/master
-
+- install https://www.jetbrains.com/lp/mono/

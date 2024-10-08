@@ -5,6 +5,9 @@
 (menu-bar-mode -1)                              ; remove dropdown menus
 (tool-bar-mode -1)                              ; remove toolbar ribbon
 
+;; font
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono-10"))
+
 ;; theme
 (add-to-list 'default-frame-alist '(foreground-color . "#D3E8F3"))
 (add-to-list 'default-frame-alist '(background-color . "#0B1118"))
