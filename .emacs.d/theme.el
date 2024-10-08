@@ -16,6 +16,18 @@
 (set-face-foreground 'vertical-border "#000000")
 (set-face-attribute 'region nil :background "#123040")
 
+;; whitespace-mode
+(setq-default whitespace-style '(face spaces empty tabs newline trailing space-mark tab-mark newline-mark))
+(custom-set-faces
+  `(whitespace-newline                ((t (:foreground, "#1e2a38"))))
+  `(whitespace-missing-newline-at-eof ((t (:foreground, "#1e2a38"))))
+  `(whitespace-space                  ((t (:foreground, "#1e2a38"))))
+  `(whitespace-space-after-tab        ((t (:foreground, "#1e2a38"))))
+  `(whitespace-space-before-tab       ((t (:foreground, "#1e2a38"))))
+  `(whitespace-tab                    ((t (:foreground, "#1e2a38"))))
+  `(whitespace-trailing               ((t (:foreground, "#1e2a38"))))
+  `(whitespace-empty                  ((t (:foreground, "#1e2a38")))))
+
 ;; cursor
 (add-to-list 'default-frame-alist '(cursor-color . "#55BCDA"))
 (setq-default cursor-type 'bar)
