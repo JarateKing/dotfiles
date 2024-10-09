@@ -13,7 +13,7 @@
 (add-to-list 'default-frame-alist '(background-color . "#0B1118"))
 (add-to-list 'initial-frame-alist '(internal-border-width . 8))
 (add-to-list 'initial-frame-alist '(top-visible . 100))
-(set-face-foreground 'vertical-border "#000000")
+(set-face-foreground 'vertical-border "#0b1118")
 (set-face-attribute 'region nil :background "#123040")
 
 ;; whitespace-mode
