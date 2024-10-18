@@ -33,6 +33,18 @@
   (newline-mark ?\r [92])               ;; carriage return -> \
   (tab-mark ?\t [9474 ?\t] [124 ?\t]))) ;; tabs -> │ else |
 
+;; rainbow delimiters
+(custom-set-faces
+ `(rainbow-delimiters-depth-1-face ((t (:foreground, "#d26246"))))
+ `(rainbow-delimiters-depth-2-face ((t (:foreground, "#af7a00"))))
+ `(rainbow-delimiters-depth-3-face ((t (:foreground, "#7c8d00"))))
+ `(rainbow-delimiters-depth-4-face ((t (:foreground, "#00994e"))))
+ `(rainbow-delimiters-depth-5-face ((t (:foreground, "#009b82"))))
+ `(rainbow-delimiters-depth-6-face ((t (:foreground, "#0092c4"))))
+ `(rainbow-delimiters-depth-7-face ((t (:foreground, "#737eca"))))
+ `(rainbow-delimiters-depth-8-face ((t (:foreground, "#a66fb6"))))
+ `(rainbow-delimiters-depth-9-face ((t (:foreground, "#d15f6d")))))
+
 ;; cursor
 (add-to-list 'default-frame-alist '(cursor-color . "#55BCDA"))
 (setq-default cursor-type 'bar)
