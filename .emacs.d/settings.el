@@ -31,6 +31,7 @@
 (require 'right-linum)
 (add-hook 'prog-mode-hook 'right-linum-mode)
 (add-hook 'conf-mode-hook 'right-linum-mode)
+(add-hook 'markdown-mode-hook 'right-linum-mode)
 
 ;; minimap
 (require 'demap)
