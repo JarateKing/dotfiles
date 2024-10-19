@@ -46,3 +46,18 @@ Setup:
 - when you're able, run `M-x all-the-icons-install-fonts` once
 - install https://github.com/davestewart/minimap-font/tree/master
 - install https://www.jetbrains.com/lp/mono/
+
+## Philosophy
+
+There's a few things I wanted out of a dotfiles repo:
+
+1. To be managed with source control directly in the home directory. I did not want to have my dotfiles without any source control, or have actual dotfiles be in one place and attempt to replicate them under source control in a repo somewhere else, I didn't want to deal with the potential headache of symlinks, etc.
+2. To not require any sort of tooling or significantly transformative steps to install. Convenience in the form of an install script is fine, but I wanted this install process to be very simple and totally viable to do manually.
+3. To have as little amount of clutter as possible while doing the above.
+
+For this reason, our dotfiles are mostly just stored as-is, with a repo directly in the home directory, with a few additional files required:
+
+- a `readme.md` that describes the repo, documents the dotfiles, and acts as an install script
+- `.gitignore` to handle filtering files in/out of the repo, making managing dotfiles under source control much easier
+
+All in all we end up with a fairly minimal setup that doesn't require much dependencies (namely, `git` itself).
