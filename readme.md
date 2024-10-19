@@ -30,6 +30,12 @@ Manual installation can be done by cloning or downloading this repo and moving i
 
 When you're done installing, you can optionally delete the `.git` folder, `.gitignore`, and `readme.md` files. Doing so would mean your dotfiles are no longer under source control, but would still be functional as dotfiles.
 
+### Modifying
+
+If you wish to make changes to any files that have already been included, feel free! You can then commit and push them through git as usual.
+
+If you're adding new files, you may need to add them to `.gitignore`, in a format like `!.bashrc` to tell git to specifically *not* ignore these files (as our `.gitignore` ignores everything by default).
+
 ## Contents
 
 ### Emacs
