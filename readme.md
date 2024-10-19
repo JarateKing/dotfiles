@@ -7,6 +7,7 @@
     rsync -a --remove-source-files ./dotfiles/ ./
     rm -rf ./dotfiles
     git submodule update --init --recursive
+    ~/scripts/on_dotfiles_install.sh
     echo 'done! Please restart your computer'
     exit 0
 
