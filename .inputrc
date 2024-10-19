@@ -1,3 +1,6 @@
 # with multiple autocomplete options, scroll between them
 TAB: menu-complete
 
+# up/down searches for history that start with the same text
+"\e[A": history-search-backward
+"\e[B": history-search-forward
