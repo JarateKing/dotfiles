@@ -4,6 +4,7 @@
     cd ~/
     rm -rf ./dotfiles
     git clone https://github.com/JarateKing/dotfiles.git ./dotfiles
+    chmod -R 755 ./dotfiles
     rsync -a --remove-source-files ./dotfiles/ ./
     rm -rf ./dotfiles
     git submodule update --init --recursive
