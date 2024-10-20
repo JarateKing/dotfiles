@@ -41,7 +41,8 @@ If you're adding new files, you may need to add them to `.gitignore`, in a forma
 ### Bash
 
 - prompts are a green `>` by default, and then `.` for additional lines, `?` for `select` prompts, and `+` for `set -x` lines. In NixOS using nix shells, the prompt will be prefaced with the shell depth in grey.
-- `notfetch` is a quick-and-simple alternative to `neofetch` and programs like it, because I didn't really like anything of the existing options
+- `notfetch` is a quick-and-simple alternative to `neofetch` and programs like it, because I didn't really like anything of the existing options.
+- `show_prompts` will display each type of prompt (`$PS1-4`) as well as some information about them, useful for debugging.
 - `on_dotfiles_install.sh` is a script that's meant to run on install. This will just set some default settings in gnome.
 
 ### Emacs
