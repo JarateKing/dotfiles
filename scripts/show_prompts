@@ -1,0 +1,4 @@
+echo PS1: $(bash -ic 'echo -e $PS1' | sed 's=\\\[==g' | sed 's=\\\]==g') "| general prompt |" $(bash -ic 'echo $PS1')
+echo PS2: $(bash -ic 'echo -e $PS2' | sed 's=\\\[==g' | sed 's=\\\]==g') "| continued line |" $(bash -ic 'echo $PS2')
+echo PS3: $(bash -ic 'echo -e $PS3' | sed 's=\\\[==g' | sed 's=\\\]==g') "| select prompts |" $(bash -ic 'echo $PS3')
+echo PS4: $(bash -ic 'echo -e $PS4' | sed 's=\\\[==g' | sed 's=\\\]==g') "| set -x prompts |" $(bash -ic 'echo $PS4')
