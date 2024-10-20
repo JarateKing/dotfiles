@@ -56,7 +56,7 @@
 (set-face-attribute 'powerline-inactive2 nil :foreground "#FFFFFF" :background "#0e1a28" :box nil)
 
 ;; dired mode
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+(add-hook 'dired-mode-hook (lambda () (all-the-icons-dired-mode) (dired-hide-details-mode)))
 
 ;; treesitter
 (use-package treesit-auto
