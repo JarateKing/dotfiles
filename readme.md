@@ -18,7 +18,7 @@ The intended usage of this is `curl -s https://raw.githubusercontent.com/JarateK
 
 # NixOS Dotfiles
 
-This repo includes my dotfiles used for NixOS.
+This repo includes my dotfiles used for NixOS. A lot of this should be transferable to other distros and not depend specifically on NixOS, but I can't guarantee everything will work. I've attempted to make things fairly usable and general-purpose, but as they're dotfiles they are very opinionated.
 
 ## Usage
 
