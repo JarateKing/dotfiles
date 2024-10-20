@@ -43,7 +43,6 @@
 (face-spec-set 'demap-current-line-face `((t :background, "#0e1a28" :inherit unspecified)))
 (face-spec-set 'demap-current-line-inactive-face `((t :background, "#0e1a28" :inherit unspecified)))
 
-
 ;; powerline theme
 (require 'powerline)
 (powerline-default-theme)
@@ -55,6 +54,9 @@
 (set-face-attribute 'powerline-inactive0 nil :foreground "#FFFFFF" :background "#0B2A4E" :box nil)
 (set-face-attribute 'powerline-inactive1 nil :foreground "#FFFFFF" :background "#0d213a" :box nil)
 (set-face-attribute 'powerline-inactive2 nil :foreground "#FFFFFF" :background "#0e1a28" :box nil)
+
+;; dired mode
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; treesitter
 (use-package treesit-auto
