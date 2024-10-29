@@ -16,6 +16,9 @@
 (setq-default c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
 
+;; replace selected text
+(delete-selection-mode 1)
+
 ;; scrolling
 (require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
