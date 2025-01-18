@@ -39,7 +39,8 @@
 ;; minimap
 (require 'demap)
 (setq demap-minimap-window-width 13)
-(demap-open)
+(when (display-graphic-p)
+  (demap-open))
 (face-spec-set 'demap-minimap-font-face `((t :background, "#0b1118" :inherit unspecified :family "minimap" :height 10)))
 (face-spec-set 'demap-visible-region-face `((t :background, "#0e1a28" :inherit unspecified)))
 (face-spec-set 'demap-visible-region-inactive-face `((t :background, "#0e1a28" :inherit unspecified)))
