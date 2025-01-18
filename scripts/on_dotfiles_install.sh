@@ -1,3 +1,7 @@
+## Packages
+
+nix-env -i git emacs
+
 ## Gnome configuration
 
 ### remap capslock to ctrl
