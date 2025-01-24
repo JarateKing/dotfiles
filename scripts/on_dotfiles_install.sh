@@ -1,6 +1,6 @@
 ## Packages
 
-nix-env -i git emacs
+nix-env -i git emacs ccls
 
 ## Gnome configuration
 

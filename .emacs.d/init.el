@@ -6,7 +6,7 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 (defvar packages-to-install
-	'(all-the-icons all-the-icons-dired neotree powerline markdown-mode magit treesit-auto restart-emacs smooth-scrolling demap rainbow-delimiters)
+	'(all-the-icons all-the-icons-dired neotree powerline markdown-mode magit treesit-auto restart-emacs smooth-scrolling demap rainbow-delimiters use-package)
 	"Packages to install via package manager")
 
 (defvar package-contents-refreshed nil)
@@ -31,4 +31,5 @@
 (load "~/.emacs.d/settings.el")
 (load "~/.emacs.d/theme.el")
 (load "~/.emacs.d/keybinds.el")
+(load "~/.emacs.d/lsp.el")
 (load custom-file)
