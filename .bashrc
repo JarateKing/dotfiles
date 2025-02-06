@@ -12,6 +12,8 @@ export PATH
 alias reload_bashrc="source ~/.bashrc"
 alias reload_inputrc="bind -f ~/.inputrc"
 
+alias _emacs="nix-shell ~/nix-shells/emacs.nix --command emacs"
+
 # style
 setup_prompts() {
 	if tput setaf 1 >&/dev/null; then

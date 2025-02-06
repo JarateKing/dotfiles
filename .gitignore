@@ -11,6 +11,8 @@
 !scripts/**
 !.emacs.d/
 !.emacs.d/**
+!nix-shells/
+!nix-shells/**
 
 # re-ignore some things
 .emacs.d/eln-cache/
@@ -21,3 +23,5 @@
 .emacs.d/.cache/
 .emacs.d/tramp
 .emacs.d/.lsp-session*
+.emacs.d/.dap-*
+.emacs.d/eshell/
