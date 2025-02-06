@@ -7,5 +7,6 @@ pkgs.mkShellNoCC {
   packages = with pkgs; [
     ccls
     pyright
+    ltex-ls
   ];
 }

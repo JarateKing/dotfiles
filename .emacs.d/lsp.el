@@ -17,6 +17,10 @@
   :ensure t
   :custom (lsp-pyright-langserver-command "pyright")
   :hook (python-mode . (lambda () (require 'lsp-pyright) (lsp))))
+(use-package lsp-ltex
+  :ensure t
+  :hook (text-mode . (lambda () (require 'lsp-ltex) (lsp)))
+  :init (setq lsp-ltex-version "15.2.0"))
 
 (use-package flycheck
   :ensure t)
