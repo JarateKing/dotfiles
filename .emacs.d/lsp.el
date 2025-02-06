@@ -13,6 +13,11 @@
   (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
   :hook ((c-mode c++-mode objc-mode) .
          (lambda () (require 'ccls) (lsp))))
+(use-package lsp-pyright
+  :ensure t
+  :custom (lsp-pyright-langserver-command "pyright")
+  :hook (python-mode . (lambda () (require 'lsp-pyright) (lsp))))
+
 (use-package flycheck
   :ensure t)
 (use-package helm-lsp
@@ -21,4 +26,10 @@
   :ensure t
   :config (helm-mode))
 (use-package lsp-treemacs
+  :ensure t)
+(use-package company
+  :ensure t)
+(use-package which-key
+  :ensure t)
+(use-package dap-mode
   :ensure t)
