@@ -21,6 +21,19 @@
 (setq-default frame-title-format '("%b %f"))                  ; simplify window title
 (set-fringe-mode 0)                                           ; remove padding
 
+;; modes
+(use-package markdown-mode
+  :ensure t)
+
+;; dired
+(use-package all-the-icons-dired
+  :ensure t
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode) (dired-hide-details-mode))))
+
+;; magit
+(use-package magit
+  :ensure t)
+
 ;; line numbers
 (require 'right-linum)
 (add-hook 'prog-mode-hook 'right-linum-mode)
@@ -49,25 +62,12 @@
   (neotree-show)
   (other-window 1))
 
-;; dired
-(use-package all-the-icons-dired
-  :ensure t
-  :hook (dired-mode . (lambda () (all-the-icons-dired-mode) (dired-hide-details-mode))))
-
-;; magit
-(use-package magit
-  :ensure t)
-
 ;; scrolling
 (use-package smooth-scrolling
   :ensure t
   :config
   (smooth-scrolling-mode 1)
   (setq smooth-scroll-margin 5))
-
-;; modes
-(use-package markdown-mode
-  :ensure t)
 
 ;; whitespace
 (setq-default whitespace-style '(face spaces empty tabs newline trailing space-mark tab-mark newline-mark))
