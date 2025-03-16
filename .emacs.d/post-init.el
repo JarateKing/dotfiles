@@ -62,3 +62,12 @@
 ;; modes
 (use-package markdown-mode
   :ensure t)
+
+;; whitespace
+(setq-default whitespace-style '(face spaces empty tabs newline trailing space-mark tab-mark newline-mark))
+(setq-default whitespace-display-mappings '(
+  (space-mark 32 [183] [46])            ;; space -> · else .
+  (newline-mark ?\n [92 ?\n])           ;; new line -> \
+  (newline-mark ?\r [92])               ;; carriage return -> \
+  (tab-mark ?\t [9474 ?\t] [124 ?\t]))) ;; tabs -> │ else |
+
