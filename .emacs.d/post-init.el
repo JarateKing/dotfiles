@@ -26,3 +26,9 @@
   (setq demap-minimap-window-width 13)
   (demap-open))
 
+;; powerline
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme))
+
