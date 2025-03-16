@@ -71,3 +71,6 @@
   (newline-mark ?\r [92])               ;; carriage return -> \
   (tab-mark ?\t [9474 ?\t] [124 ?\t]))) ;; tabs -> │ else |
 
+;; delimiters
+(use-package rainbow-delimiters
+  :ensure t)
