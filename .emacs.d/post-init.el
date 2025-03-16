@@ -7,6 +7,8 @@
 ;; theme
 (mapc #'disable-theme custom-enabled-themes)
 (load-theme 'custom t)
+(use-package all-the-icons
+  :ensure t)
 
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
@@ -31,4 +33,13 @@
   :ensure t
   :config
   (powerline-default-theme))
+
+;; neotree
+(use-package neotree
+  :ensure t
+  :config
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq neo-show-hidden-files t)
+  (neotree-show)
+  (other-window 1))
 
