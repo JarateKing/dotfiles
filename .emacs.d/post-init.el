@@ -7,7 +7,6 @@
 ;; theme
 (mapc #'disable-theme custom-enabled-themes)
 (load-theme 'custom t)
-(add-to-list 'default-frame-alist '(font . "JetBrains Mono-10"))
 
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
