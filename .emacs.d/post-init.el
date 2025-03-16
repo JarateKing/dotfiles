@@ -48,3 +48,7 @@
   :ensure t
   :hook (dired-mode . (lambda () (all-the-icons-dired-mode) (dired-hide-details-mode))))
 
+;; magit
+(use-package magit
+  :ensure t)
+
