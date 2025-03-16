@@ -19,4 +19,10 @@
 (add-hook 'conf-mode-hook 'right-linum-mode)
 (add-hook 'markdown-mode-hook 'right-linum-mode)
 
+;; minimap
+(use-package demap
+  :ensure t
+  :config
+  (setq demap-minimap-window-width 13)
+  (demap-open))
 
