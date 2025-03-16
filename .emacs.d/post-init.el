@@ -58,3 +58,7 @@
   :config
   (smooth-scrolling-mode 1)
   (setq smooth-scroll-margin 5))
+
+;; modes
+(use-package markdown-mode
+  :ensure t)
