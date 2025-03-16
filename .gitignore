@@ -25,3 +25,4 @@
 .emacs.d/.lsp-session*
 .emacs.d/.dap-*
 .emacs.d/eshell/
+.emacs.d/custom.el
