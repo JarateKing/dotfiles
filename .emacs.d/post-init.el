@@ -10,6 +10,12 @@
 (use-package all-the-icons
   :ensure t)
 
+;; keybinds
+(bind-key* "C-v" 'yank)
+(bind-key* "C-s" 'save-buffer)
+(bind-key* "C-f" 'isearch-forward)
+(bind-key* "C-<tab>" 'usage-cycle)
+
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
 (setq-default frame-title-format '("%b %f"))                  ; simplify window title
