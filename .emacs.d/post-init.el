@@ -52,3 +52,9 @@
 (use-package magit
   :ensure t)
 
+;; scrolling
+(use-package smooth-scrolling
+  :ensure t
+  :config
+  (smooth-scrolling-mode 1)
+  (setq smooth-scroll-margin 5))
