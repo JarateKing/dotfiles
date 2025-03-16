@@ -74,3 +74,7 @@
 ;; delimiters
 (use-package rainbow-delimiters
   :ensure t)
+
+;; usage cycle
+(require 'usage-cycle)
+
