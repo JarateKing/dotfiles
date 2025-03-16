@@ -43,3 +43,8 @@
   (neotree-show)
   (other-window 1))
 
+;; dired
+(use-package all-the-icons-dired
+  :ensure t
+  :hook (dired-mode . (lambda () (all-the-icons-dired-mode) (dired-hide-details-mode))))
+
