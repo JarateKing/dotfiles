@@ -47,6 +47,8 @@ If you're adding new files, you may need to add them to `.gitignore`, in a forma
 
 ### Emacs
 
+My personal emacs config. Based off of James Cherti's [minimal .emacs.d](https://github.com/jamescherti/minimal-emacs.d) setup.
+
 Setup:
 
 - the first run will spend time getting packages and thus have a slow startup
