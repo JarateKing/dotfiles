@@ -46,11 +46,12 @@
 (add-hook 'markdown-mode-hook 'right-linum-mode)
 
 ;; minimap
-(use-package demap
-  :ensure t
-  :config
-  (setq demap-minimap-window-width 13)
-  (demap-open))
+(if (window-system)
+  (use-package demap
+    :ensure t
+    :config
+    (setq demap-minimap-window-width 13)
+    (demap-open)))
 
 ;; powerline
 (use-package powerline
@@ -59,13 +60,14 @@
   (powerline-default-theme))
 
 ;; neotree
-(use-package neotree
-  :ensure t
-  :config
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-  (setq neo-show-hidden-files t)
-  (neotree-show)
-  (other-window 1))
+(if (window-system)
+  (use-package neotree
+    :ensure t
+    :config
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+    (setq neo-show-hidden-files t)
+    (neotree-show)
+    (other-window 1)))
 
 ;; scrolling
 (use-package smooth-scrolling
