@@ -23,6 +23,9 @@
 (setq-default frame-title-format '("%b %f"))                  ; simplify window title
 (set-fringe-mode 0)                                           ; remove padding
 
+;; cursor
+(setq-default cursor-type 'bar)
+
 ;; modes
 (use-package markdown-mode
   :ensure t)
