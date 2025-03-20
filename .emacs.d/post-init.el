@@ -11,9 +11,11 @@
   :ensure t)
 
 ;; keybinds
-(bind-key* "C-v" 'yank)
+(cua-mode t)
+(setq cua-keep-region-after-copy t)
 (bind-key* "C-s" 'save-buffer)
 (bind-key* "C-f" 'isearch-forward)
+(bind-key* "C-y" 'undo-redo)
 (bind-key* "C-<tab>" 'usage-cycle)
 
 ;; window
