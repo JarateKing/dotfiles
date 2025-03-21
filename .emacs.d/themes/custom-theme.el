@@ -49,7 +49,10 @@
    `(demap-visible-region-face ((,class (:background "#0e1a28"))))
    `(demap-visible-region-inactive-face ((,class (:background "#0e1a28"))))
    `(demap-current-line-face ((,class (:background "#0e1a28"))))
-   `(demap-current-line-inactive-face ((,class (:background "#0e1a28"))))))
+   `(demap-current-line-inactive-face ((,class (:background "#0e1a28"))))
+   `(neo-dir-link-face ((,class (:foreground "#00bfd2"))))
+   `(neo-file-link-face ((,class (:foreground "#d3e8f3"))))))
 
 (provide-theme 'custom)
+
 
