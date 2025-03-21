@@ -7,9 +7,11 @@
 	(pcase (get 'usage-cycle-state 'state)
 		(0 (progn
 			(rainbow-delimiters-mode 0)
-			(whitespace-mode 0)))
+			(whitespace-mode 0)
+            (rainbow-mode 0)))
 		(1 (progn
 			(rainbow-delimiters-mode 1)
-			(whitespace-mode 1)))))
+			(whitespace-mode 1)
+            (rainbow-mode 1)))))
 
 (provide 'usage-cycle)

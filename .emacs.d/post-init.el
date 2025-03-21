@@ -38,6 +38,8 @@
 ;; modes
 (use-package markdown-mode
   :ensure t)
+(use-package rainbow-mode
+  :ensure t)
 
 ;; dired
 (use-package all-the-icons-dired
