@@ -24,7 +24,16 @@
 (set-fringe-mode 0)                                           ; remove padding
 
 ;; cursor
-(setq-default cursor-type 'bar)
+(defun contextual-cursor ()
+  "Set cursor basd on minor mode context"
+  (cond
+   (buffer-read-only
+    (setq cursor-type 'hbar))
+   (overwrite-mode
+    (setq cursor-type 'hollow))
+   (t
+    (setq cursor-type 'bar))))
+(add-hook 'post-command-hook 'contextual-cursor)
 
 ;; modes
 (use-package markdown-mode
