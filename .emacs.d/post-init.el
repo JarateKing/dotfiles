@@ -59,6 +59,7 @@
   (use-package demap
     :ensure t
     :config
+    (add-hook 'buffer-face-mode-hook (lambda () (setq mode-line-format nil)))
     (setq demap-minimap-window-width 13)
     (demap-open)))
 
@@ -73,6 +74,7 @@
   (use-package neotree
     :ensure t
     :config
+    (add-hook 'neo-after-create-hook (lambda (&optional dummy) (setq mode-line-format nil)))
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
     (setq neo-show-hidden-files t)
     (neotree-show)
