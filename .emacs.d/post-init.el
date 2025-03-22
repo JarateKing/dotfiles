@@ -41,6 +41,9 @@
 (use-package rainbow-mode
   :ensure t)
 
+;; word wrap
+(add-hook 'markdown-mode-hook 'visual-line-mode)
+
 ;; dired
 (use-package all-the-icons-dired
   :ensure t
