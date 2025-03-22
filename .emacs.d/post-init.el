@@ -154,3 +154,14 @@
   (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
   :hook ((c-mode c++-mode objc-mode) .
          (lambda () (require 'ccls) (lsp))))
+(use-package lsp-ltex
+  :ensure t
+  :hook (text-mode . (lambda () (require 'lsp-ltex) (lsp)))
+  :init (setq lsp-ltex-version "15.2.0"))
+(use-package flycheck
+  :ensure t)
+(use-package helm-lsp
+  :ensure t)
+(use-package helm
+  :ensure t
+  :config (helm-mode))
