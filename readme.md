@@ -58,6 +58,11 @@ Setup:
 
 Running `_emacs` on NixOS will automatically include LSP servers and any external tools needed. It will have a longer startup time though, so regular `emacs` is suited more for quick edits while `_emacs` is suitable as an IDE.
 
+Some important notes:
+- supports TUI mode, but with some features (project tree, minimap) disabled.
+- `C-<tab>` will cycle through displaying different information, ie. visible whitespace.
+- a lot of common editor keybinds (copy/paste/cut, save, find, undo/redo) use the de facto standard instead of emacs conventions.
+
 ## Philosophy
 
 There's a few things I wanted out of a dotfiles repo:
