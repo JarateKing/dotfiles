@@ -56,6 +56,8 @@ Setup:
 - install https://github.com/davestewart/minimap-font/tree/master
 - install https://www.jetbrains.com/lp/mono/
 
+Running `_emacs` on NixOS will automatically include LSP servers and any external tools needed. It will have a longer startup time though, so regular `emacs` is suited more for quick edits while `_emacs` is suitable as an IDE.
+
 ## Philosophy
 
 There's a few things I wanted out of a dotfiles repo:
