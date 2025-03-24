@@ -26,3 +26,5 @@
 .emacs.d/.dap-*
 .emacs.d/eshell/
 .emacs.d/custom.el
+.emacs.d/autosave/
+.emacs.d/projectile-bookmarks.eld
