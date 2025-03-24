@@ -9,4 +9,7 @@ pkgs.mkShellNoCC {
     pyright
     ltex-ls
   ];
+  shellHook = ''
+    export EMACS_LSP="enabled"
+  '';
 }

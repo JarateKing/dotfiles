@@ -60,6 +60,7 @@ Running `_emacs` on NixOS will automatically include LSP servers and any externa
 
 Some important notes:
 - supports TUI mode, but with some features (project tree, minimap) disabled.
+- `EMACS_LSP` must be defined to use `lsp-mode`. This will be defined when `_emacs` is run.
 - `C-<tab>` will cycle through displaying different information, ie. visible whitespace.
 - a lot of common editor keybinds (copy/paste/cut, save, find, undo/redo) use the de facto standard instead of emacs conventions.
 
