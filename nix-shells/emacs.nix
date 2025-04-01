@@ -8,6 +8,8 @@ pkgs.mkShellNoCC {
     ccls
     pyright
     ltex-ls
+    texliveTeTeX
+    ghostscript
     ollama
   ];
   shellHook = ''

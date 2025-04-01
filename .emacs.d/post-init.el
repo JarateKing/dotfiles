@@ -107,6 +107,10 @@
 ;; usage cycle
 (require 'usage-cycle)
 
+;; tex
+(use-package auctex
+  :ensure t)
+
 ;; LSP
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/lsp"))
 
