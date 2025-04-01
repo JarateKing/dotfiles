@@ -109,3 +109,6 @@
 
 ;; LSP
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/lsp"))
+
+;; LLM
+(if (getenv "EMACS_LLM") (load "~/.emacs.d/llm"))

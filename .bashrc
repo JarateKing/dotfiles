@@ -12,7 +12,7 @@ export PATH
 alias reload_bashrc="source ~/.bashrc"
 alias reload_inputrc="bind -f ~/.inputrc"
 
-alias _emacs="nix-shell ~/nix-shells/emacs.nix --command emacs"
+alias _emacs="nix-shell ~/nix-shells/emacs.nix"
 
 # style
 setup_prompts() {
