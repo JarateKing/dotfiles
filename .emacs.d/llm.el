@@ -1,3 +1,6 @@
+;; loaded from `post-init.el`
+;; requires the environment variable `EMACS_LLM` to be defined
+
 (use-package gptel
   :ensure t
   :config

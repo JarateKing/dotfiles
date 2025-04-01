@@ -1,3 +1,6 @@
+;; loaded from `post-init.el`
+;; requires the environment variable `EMACS_LSP` to be defined
+
 (use-package lsp-mode
   :ensure t
   :init
