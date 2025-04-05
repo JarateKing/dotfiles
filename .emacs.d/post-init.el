@@ -113,6 +113,10 @@
 (use-package auctex
   :ensure t)
 
+;; org
+(org-babel-do-load-languages
+ 'org-babel-load-languages '((shell . t) (python . t)))
+
 ;; LSP
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/lsp"))
 
