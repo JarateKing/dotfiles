@@ -7,6 +7,8 @@ pkgs.mkShellNoCC {
   packages = with pkgs; [
     ccls
     pyright
+    python312Full
+    python312Packages.python-lsp-server
     ltex-ls
     texliveTeTeX
     ghostscript
