@@ -43,6 +43,8 @@
 
 ;; word wrap
 (add-hook 'markdown-mode-hook 'visual-line-mode)
+(add-hook 'latex-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
 
 ;; dired
 (use-package all-the-icons-dired
