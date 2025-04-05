@@ -10,7 +10,7 @@ pkgs.mkShellNoCC {
     python312Full
     python312Packages.python-lsp-server
     ltex-ls
-    texliveTeTeX
+    texliveFull
     ghostscript
     ollama
   ];
