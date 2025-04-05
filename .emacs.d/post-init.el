@@ -41,6 +41,9 @@
 (use-package rainbow-mode
   :ensure t)
 
+;; mode-specific settings
+(add-hook 'LaTeX-mode-hook (lambda () (local-unset-key "\"")))
+
 ;; word wrap
 (add-hook 'markdown-mode-hook 'visual-line-mode)
 (add-hook 'latex-mode-hook 'visual-line-mode)
