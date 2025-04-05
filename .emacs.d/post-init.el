@@ -116,6 +116,7 @@
 ;; org
 (org-babel-do-load-languages
  'org-babel-load-languages '((shell . t) (python . t)))
+(setq org-support-shift-select t)
 
 ;; LSP
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/lsp"))
