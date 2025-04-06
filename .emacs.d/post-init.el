@@ -25,7 +25,7 @@
 
 ;; cursor
 (defun contextual-cursor ()
-  "Set cursor basd on minor mode context"
+  "Set cursor based on minor mode context"
   (cond
    (buffer-read-only
     (setq cursor-type 'hbar))
