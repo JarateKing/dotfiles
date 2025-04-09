@@ -78,10 +78,11 @@
   :ensure t
   :config
   (setq telephone-line-lhs
-	'((accent . (telephone-line-major-mode-segment))
-	  (nil . (telephone-line-minor-mode-segment))))
+	'((accent . (telephone-line-buffer-segment))
+      (nil . (telephone-line-major-mode-segment))
+      (nil . (telephone-line-minor-mode-segment))))
   (setq telephone-line-rhs
-	'((nil . (telephone-line-buffer-segment))
+	'((nil . (telephone-line-filesize-segment))
 	  (accent . (telephone-line-airline-position-segment))))
   (telephone-line-mode t))
 
