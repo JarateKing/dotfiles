@@ -74,10 +74,16 @@
     (demap-open)))
 
 ;; powerline
-(use-package powerline
+(use-package telephone-line
   :ensure t
   :config
-  (powerline-default-theme))
+  (setq telephone-line-lhs
+	'((accent . (telephone-line-major-mode-segment))
+	  (nil . (telephone-line-minor-mode-segment))))
+  (setq telephone-line-rhs
+	'((nil . (telephone-line-buffer-segment))
+	  (accent . (telephone-line-airline-position-segment))))
+  (telephone-line-mode t))
 
 ;; neotree
 (if (window-system)
