@@ -75,7 +75,7 @@
     (setq demap-minimap-window-width 13)
     (demap-open)))
 
-;; powerline
+;; modeline
 (use-package telephone-line
   :ensure t
   :config
