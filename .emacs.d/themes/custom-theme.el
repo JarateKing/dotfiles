@@ -16,6 +16,7 @@
    `(telephone-line-accent-active ((,class (:background "#0b4677" :foreground "#ffffff"))))
    `(telephone-line-accent-inactive ((,class (:background "#0b2a4e" :foreground "#ffffff"))))
    `(mode-line-highlight ((,class (:background "#112234" :foreground "#ffffff"))))
+   `(hl-line ((,class (:background "#0e1a28"))))
    `(font-lock-builtin-face ((,class (:foreground "#00c27a"))))
    `(font-lock-constant-face ((,class (:foreground "#54a3ff"))))
    `(font-lock-comment-face ((,class (:foreground "#445470"))))

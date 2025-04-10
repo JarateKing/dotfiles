@@ -35,6 +35,8 @@
     (setq cursor-type 'bar))))
 (add-hook 'post-command-hook 'contextual-cursor)
 
+(global-hl-line-mode 1)
+
 ;; modes
 (use-package markdown-mode
   :ensure t)
