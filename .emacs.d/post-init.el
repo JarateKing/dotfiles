@@ -17,6 +17,7 @@
 (bind-key* "C-f" 'isearch-forward)
 (bind-key* "C-y" 'undo-redo)
 (bind-key* "C-<tab>" 'usage-cycle)
+(bind-key* "C-t" 'eat)
 
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
@@ -130,6 +131,26 @@
  'org-babel-load-languages '((shell . t) (python . t)))
 (setq org-support-shift-select t)
 (setq org-confirm-babel-evaluate nil)
+
+;; terminal emulator
+(use-package hide-mode-line
+  :ensure t)
+(use-package eat
+  :ensure t
+  :hook
+  ((eshell-load-hook . eat-eshell-mode)
+   (eshell-load-hook . eat-eshell-visual-command-mode)
+   (eat-mode . hide-mode-line-mode))
+  :custom
+  (eat-term-name "xterm-256color")
+  :config
+  (setq eat-kill-buffer-on-exit t)
+  (add-to-list 'display-buffer-alist
+               '("\*eat\*"
+               (display-buffer-in-side-window)
+               (window-height . 0.25)     ; window % size of frame
+               (side . bottom)
+               (slot . 0))))
 
 ;; LSP
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/lsp"))
