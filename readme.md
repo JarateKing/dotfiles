@@ -61,7 +61,7 @@ Running `_emacs` on NixOS will automatically include LSP servers and any externa
 Some important notes:
 - supports TUI mode, but with some features (project tree, minimap) disabled.
 - `EMACS_LSP` must be defined to use `lsp-mode`. This will be defined when `_emacs` is run.
-- `EMACS_LLM` must be defined to use `gptel`. This will be defined when `_emacs` is run, along with running `ollama` with a local model in the background automatically. I don't personally use this (and have many complaints about LLMs), but I wanted to be informed about LLM use cases and was interested in the process to set it up and experiment with it, so I kept it included here.
+- `EMACS_LLM` must be defined to use `gptel`. This will be defined when `_emacs` is run, along with running `ollama` with a local model in the background automatically. I don't personally use this (and have many complaints about LLMs), but I wanted to be informed about LLM use cases and was interested in the process to set it up and experiment with it, so I kept it included here. With this, there are several different keybinds that begin with `C-o` (for ollama) that handle many common use cases.
 - `C-<tab>` will cycle through displaying different information, ie. visible whitespace.
 - `C-t` will open a terminal emulator, which will automatically go away when you `exit` the shell.
 - a lot of common editor keybinds (copy/paste/cut, save, find, undo/redo) use the de facto standard instead of emacs conventions.
