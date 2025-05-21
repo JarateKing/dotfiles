@@ -14,16 +14,17 @@
 (defun llm-info-with-prompt (start end prompt)
   "Use an LLM to describe something based on a prompt"
   (interactive "r")
-  (unless (region-active-p)
-    (error "you must have a region set"))
   (message "running LLM prompt...")
-  (let ((input (buffer-substring-no-properties (region-beginning) (region-end))))
+  (let ((input
+    (if (region-active-p)
+      (buffer-substring-no-properties (region-beginning) (region-end))
+      (thing-at-point 'word))))
     (gptel-request nil
-      :callback (lambda (response info)
-        (with-output-to-temp-buffer "*LLM*"
-          (print response)))
-      :system prompt
-      :context input)))
+        :callback (lambda (response info)
+          (with-output-to-temp-buffer "*LLM*"
+            (print response)))
+        :system prompt
+        :context input)))
 
 (defun llm-explain-region (start end)
   "Use an LLM to describe the current region."
