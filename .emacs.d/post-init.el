@@ -16,6 +16,7 @@
 (bind-key* "C-s" 'save-buffer)
 (bind-key* "C-f" 'isearch-forward)
 (bind-key* "C-y" 'undo-redo)
+(bind-key* "C-a" 'mark-whole-buffer)
 (bind-key* "C-<tab>" 'usage-cycle)
 (bind-key* "C-t" 'eat)
 
