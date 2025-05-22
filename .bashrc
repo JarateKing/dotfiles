@@ -20,12 +20,15 @@ setup_prompts() {
 		local prompt_start='\[\e[0m\[\e[32m\e[1m\]'
 		local prompt_end='\[\e[0m\e[39m\]'
 		local nixshell_start='\[\e[0m\[\e[90m\e[1m\]'
+        local directory_start='\[\e[0m\e[37m\]'
         local gitbranch_start='\[\e[0m\[\e[32m\e[2m\]'
 	fi
 
     local prompt_prefix="$prompt_start"
 
     local prompt_prefix="$gitbranch_start$(git branch --no-color 2> /dev/null | sed -e 's/^\* //') $prompt_prefix"
+
+    local prompt_prefix="$directory_start\w $prompt_prefix"
     
 	if [[ -n "$IN_NIX_SHELL" ]]; then
 		export NIX_SHELL_PRESERVE_PROMPT=1
