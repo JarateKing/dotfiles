@@ -20,7 +20,12 @@ parse_git_branch() {
 }
 parse_directory()
 {
-    echo -e "$(dirname $PWD)/\e[1m$(basename $PWD)"
+    local fulldir=$(dirs +0)
+    if [[ "$fulldir" = "~" ]]; then
+        echo "~"
+    else
+        echo -e "$(dirname $fulldir)/\e[1m$(basename $fulldir)"
+    fi
 }
 parse_infoline()
 {
