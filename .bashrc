@@ -12,12 +12,10 @@ export PATH
 alias q="exit"
 alias reload_bashrc="source ~/.bashrc"
 alias reload_inputrc="bind -f ~/.inputrc"
-
 alias _emacs="nix-shell ~/nix-shells/emacs.nix"
 
-# style
+# prompts
 parse_git_branch() {
-    # todo: apply style
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 setup_prompts() {
@@ -38,8 +36,11 @@ setup_prompts() {
 		export NIX_SHELL_PRESERVE_PROMPT=1
 		local infoline="${nixshell_start}Nix:$nixshell_number$(($SHLVL-1)) $infoline"
 	fi
-    
-	PS1="$infoline_bracket[${infoline::-1}$infoline_bracket]\n$prompt_start > $prompt_end"
+
+    local infoline_prompt="$infoline_bracket[${infoline::-1}$infoline_bracket]\n"
+
+    # apply to prompts
+	PS1="$infoline_prompt$prompt_start > $prompt_end"
 	PS2="$prompt_start . $prompt_end"
 	PS4="$prompt_start + $prompt_end"
 
