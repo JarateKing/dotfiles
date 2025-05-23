@@ -9,6 +9,7 @@ if ! [[ "$PATH" =~ "$HOME/scripts:" ]]; then PATH="$HOME/scripts:$PATH"; fi
 export PATH
 
 # aliases
+alias q="exit"
 alias reload_bashrc="source ~/.bashrc"
 alias reload_inputrc="bind -f ~/.inputrc"
 
