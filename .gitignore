@@ -28,3 +28,4 @@
 .emacs.d/custom.el
 .emacs.d/autosave/
 .emacs.d/projectile-bookmarks.eld
+.emacs.d/url/
