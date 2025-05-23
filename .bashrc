@@ -40,9 +40,15 @@ setup_prompts() {
 	fi
     
 	PS1="$infoline_bracket[${infoline::-1}$infoline_bracket]\n$prompt_start > $prompt_end"
-	PS2="$infoline_bracket[${infoline::-1}$infoline_bracket]\n$prompt_start . $prompt_end"
-	PS3="$infoline_bracket[${infoline::-1}$infoline_bracket]\n$prompt_start ? $prompt_end"
-	PS4="$infoline_bracket[${infoline::-1}$infoline_bracket]\n$prompt_start + $prompt_end"
+	PS2="$prompt_start . $prompt_end"
+	PS4="$prompt_start + $prompt_end"
+
+    # PS3 needs special handling for escape sequences
+	if tput setaf 1 >&/dev/null; then
+	    PS3=$'\e[0m\e[32m\e[1m ? \e[0m\e[39m'
+    else
+        PS3=" ? "
+    fi
 }
 setup_prompts
 
