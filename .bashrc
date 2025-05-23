@@ -19,34 +19,34 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 setup_prompts() {
-	if tput setaf 1 >&/dev/null; then
-		local prompt_start='\[\e[0m\e[32m\e[1m\]'
-		local prompt_end='\[\e[0m\e[39m\]'
+    if tput setaf 1 >&/dev/null; then
+        local prompt_start='\[\e[0m\e[32m\e[1m\]'
+        local prompt_end='\[\e[0m\e[39m\]'
         local infoline_bracket='\[\e[0m\e[90m\e[1m\e[2m\]'
-		local nixshell_start='\[\e[0m\e[37m\]'
+        local nixshell_start='\[\e[0m\e[37m\]'
         local nixshell_number='\[\e[0m\e[1m\e[2m\]'
         local directory_start='\[\e[0m\e[37m\]'
         local gitbranch_start='\[\e[0m\e[32m\e[2m\]'
-	fi
+    fi
     
     local infoline="$gitbranch_start$(parse_git_branch) $infoline"
     local infoline="$directory_start\w $infoline"
     
-	if [[ -n "$IN_NIX_SHELL" ]]; then
-		export NIX_SHELL_PRESERVE_PROMPT=1
-		local infoline="${nixshell_start}Nix:$nixshell_number$(($SHLVL-1)) $infoline"
-	fi
+    if [[ -n "$IN_NIX_SHELL" ]]; then
+        export NIX_SHELL_PRESERVE_PROMPT=1
+        local infoline="${nixshell_start}Nix:$nixshell_number$(($SHLVL-1)) $infoline"
+    fi
 
     local infoline_prompt="$infoline_bracket[${infoline::-1}$infoline_bracket]\n"
 
     # apply to prompts
-	PS1="$infoline_prompt$prompt_start > $prompt_end"
-	PS2="$prompt_start . $prompt_end"
-	PS4="$prompt_start + $prompt_end"
+    PS1="$infoline_prompt$prompt_start > $prompt_end"
+    PS2="$prompt_start . $prompt_end"
+    PS4="$prompt_start + $prompt_end"
 
     # PS3 needs special handling for escape sequences
-	if tput setaf 1 >&/dev/null; then
-	    PS3=$'\e[0m\e[32m\e[1m ? \e[0m\e[39m'
+    if tput setaf 1 >&/dev/null; then
+        PS3=$'\e[0m\e[32m\e[1m ? \e[0m\e[39m'
     else
         PS3=" ? "
     fi
