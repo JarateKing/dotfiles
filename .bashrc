@@ -22,13 +22,13 @@ parse_git_branch() {
 }
 setup_prompts() {
 	if tput setaf 1 >&/dev/null; then
-		local prompt_start='\[\e[0m\[\e[32m\e[1m\]'
+		local prompt_start='\[\e[0m\e[32m\e[1m\]'
 		local prompt_end='\[\e[0m\e[39m\]'
-        local infoline_bracket='\[\e[0m\[\e[90m\e[1m\]'
-		local nixshell_start='\[\e[0m\[\e[37m\]'
-        local nixshell_number='\[\e[2m\e[1m\]'
+        local infoline_bracket='\[\e[0m\e[90m\e[1m\e[2m\]'
+		local nixshell_start='\[\e[0m\e[37m\]'
+        local nixshell_number='\[\e[0m\e[1m\e[2m\]'
         local directory_start='\[\e[0m\e[37m\]'
-        local gitbranch_start='\[\e[0m\[\e[32m\e[2m\]'
+        local gitbranch_start='\[\e[0m\e[32m\e[2m\]'
 	fi
     
     local infoline="$gitbranch_start$(parse_git_branch) $infoline"
