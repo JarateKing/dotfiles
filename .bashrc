@@ -31,7 +31,6 @@ parse_infoline()
     local infoline=''
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
-        export NIX_SHELL_PRESERVE_PROMPT=1
         if tput setaf 1 >&/dev/null; then
             infoline+="\[\e[0m\e[37m\]Nix:\[\e[0m\e[1m\e[2m\]$(($SHLVL-1)) "
         else
@@ -46,7 +45,7 @@ parse_infoline()
         infoline+='$(parse_directory)'
         infoline+='$(parse_git_branch)'
     fi
-    
+
     echo -e $infoline
 }
 setup_prompts() {
@@ -66,6 +65,11 @@ setup_prompts() {
         PS3=$'\e[0m\e[32m\e[1m ? \e[0m\e[39m'
     else
         PS3=" ? "
+    fi
+
+    # make nix shells use our prompt
+    if [[ -n "$IN_NIX_SHELL" ]]; then
+        export NIX_SHELL_PRESERVE_PROMPT=1
     fi
 }
 setup_prompts
