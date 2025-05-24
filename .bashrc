@@ -16,10 +16,9 @@ alias _emacs="nix-shell ~/nix-shells/emacs.nix"
 
 # prompts
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
-parse_directory()
-{
+parse_directory() {
     local fulldir=$(dirs +0)
     if [[ "$fulldir" = "~" ]]; then
         echo "~"
@@ -29,33 +28,25 @@ parse_directory()
 }
 parse_infoline()
 {
-    if tput setaf 1 >&/dev/null; then
-        nixshell_start='\[\e[0m\e[37m\]'
-        nixshell_number='\[\e[0m\e[1m\e[2m\]'
-        directory_start='\[\e[0m\e[37m\]'
-        gitbranch_start='\[\e[0m\e[32m\e[2m\]'
-    fi
-    
     local infoline=''
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
         export NIX_SHELL_PRESERVE_PROMPT=1
         if tput setaf 1 >&/dev/null; then
-            infoline+="\[\e[0m\e[37m\]Nix:\[\e[0m\e[1m\e[2m\]$(($SHLVL-1))"
+            infoline+="\[\e[0m\e[37m\]Nix:\[\e[0m\e[1m\e[2m\]$(($SHLVL-1)) "
         else
-            infoline+="Nix:$(($SHLVL-1))"
+            infoline+="Nix:$(($SHLVL-1)) "
         fi
     fi
 
     if tput setaf 1 >&/dev/null; then
-        infoline+=' \[\e[0m\e[37m\]$(parse_directory)'
-        infoline+=' \[\e[0m\e[32m\e[2m\]$(parse_git_branch)'
+        infoline+='\[\e[0m\e[37m\]$(parse_directory)'
+        infoline+='\[\e[0m\e[32m\e[2m\]$(parse_git_branch)'
     else
-        infoline+=' $(parse_directory)'
-        infoline+=' $(parse_git_branch)'
+        infoline+='$(parse_directory)'
+        infoline+='$(parse_git_branch)'
     fi
     
-    #local infoline='$infoline_bracket[$(echo -e "$nixinfo $directory_start$(parse_directory) $gitbranch_start$(parse_git_branch)" | )$infoline_bracket]\n'
     echo -e $infoline
 }
 setup_prompts() {
