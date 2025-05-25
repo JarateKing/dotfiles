@@ -65,7 +65,7 @@ print_colors() {
 
 # print blank lines until at the bottom of the screen
 print_blanks() {
-    local linecount=8
+    local linecount=9
     local linetotal=$(tput lines)
     local linestoprint=$((linetotal - $linecount - 1))
 
@@ -75,6 +75,7 @@ print_blanks() {
 }
 
 setup_variables
+echo ""
 echo ""
 print_notfetch
 echo ""
