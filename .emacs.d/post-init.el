@@ -133,6 +133,9 @@
  'org-babel-load-languages '((shell . t) (python . t)))
 (setq org-support-shift-select t)
 (setq org-confirm-babel-evaluate nil)
+(use-package org-modern
+  :ensure t
+  :hook (org-mode . org-modern-mode))
 
 ;; terminal emulator
 (use-package hide-mode-line
