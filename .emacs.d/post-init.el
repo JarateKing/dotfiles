@@ -137,7 +137,11 @@
   :ensure t
   :hook (org-mode . org-modern-mode)
   :custom
-  (org-modern-fold-stars '(("▶" . "▼"))))
+  (org-modern-fold-stars '(("▶" . "▼")))
+  (org-modern-checkbox
+   '((?X . "■")
+    (?- . "◪")
+    (?\s . "□"))))
 
 ;; terminal emulator
 (use-package hide-mode-line
