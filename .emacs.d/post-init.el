@@ -135,7 +135,9 @@
 (setq org-confirm-babel-evaluate nil)
 (use-package org-modern
   :ensure t
-  :hook (org-mode . org-modern-mode))
+  :hook (org-mode . org-modern-mode)
+  :custom
+  (org-modern-fold-stars '(("▶" . "▼"))))
 
 ;; terminal emulator
 (use-package hide-mode-line
