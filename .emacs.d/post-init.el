@@ -19,6 +19,7 @@
 (bind-key* "C-a" 'mark-whole-buffer)
 (bind-key* "C-<tab>" 'usage-cycle)
 (bind-key* "C-t" 'eat)
+(bind-key* "C-n" 'yas-insert-snippet)
 
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
