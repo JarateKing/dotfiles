@@ -143,6 +143,12 @@
     (?- . "◪")
     (?\s . "□"))))
 
+;; snippets
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
 ;; terminal emulator
 (use-package hide-mode-line
   :ensure t)

@@ -1,0 +1,6 @@
+#+BEGIN_SRC shell :results output
+echo "Hello from bash!"
+#+END_SRC
+
+#+RESULTS:
+: Hello from bash!

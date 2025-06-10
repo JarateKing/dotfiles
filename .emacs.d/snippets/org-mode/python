@@ -1,0 +1,6 @@
+#+BEGIN_SRC python :results output
+print("Hello from python!")
+#+END_SRC
+
+#+RESULTS:
+: Hello from python!
