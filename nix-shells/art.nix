@@ -8,5 +8,6 @@ pkgs.mkShellNoCC {
     krita
     aseprite
     blender
+    inkscape
   ];
 }
