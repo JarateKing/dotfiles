@@ -13,6 +13,7 @@ alias q="exit"
 alias reload_bashrc="source ~/.bashrc"
 alias reload_inputrc="bind -f ~/.inputrc"
 alias _emacs="nix-shell ~/nix-shells/emacs.nix"
+alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.nix"
 
 # prompts
 parse_git_branch() {
