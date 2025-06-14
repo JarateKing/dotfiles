@@ -21,6 +21,7 @@
 (bind-key* "C-t" 'eat)
 (bind-key* "C-n" 'yas-insert-snippet)
 (bind-key* "C-d" 'org-create-and-open-drawing)
+(bind-key* "C-S-d" 'org-edit-drawing)
 
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
@@ -167,6 +168,11 @@
     (org-display-inline-images)
     ;; Open in Inkscape
     (start-process "inkscape" nil "inkscape" fullpath)))
+(defun org-edit-drawing ()
+  "Modify an existing drawing in inkscape."
+  (interactive)
+  (org-open-at-point)
+  (org-redisplay-inline-images))
 
 ;; snippets
 (use-package yasnippet
