@@ -21,6 +21,12 @@
 \usepackage{lmodern}
 \usepackage{mathtools}
 
+% citations
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{citations.bib}
+
 % utilities
 \usepackage[hidelinks]{hyperref}
 \usepackage{pdfpages}
