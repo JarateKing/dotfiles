@@ -13,6 +13,7 @@ pkgs.mkShellNoCC {
     texliveFull
     ghostscript
     ollama
+    inkscape
   ];
   shellHook = ''
     export EMACS_LSP="enabled"

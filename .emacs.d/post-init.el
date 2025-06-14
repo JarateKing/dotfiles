@@ -20,6 +20,7 @@
 (bind-key* "C-<tab>" 'usage-cycle)
 (bind-key* "C-t" 'eat)
 (bind-key* "C-n" 'yas-insert-snippet)
+(bind-key* "C-d" 'org-create-and-open-drawing)
 
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
@@ -130,6 +131,7 @@
   :ensure t)
 
 ;; org
+(add-hook 'org-mode-hook 'org-display-inline-images)
 (org-babel-do-load-languages
  'org-babel-load-languages '((shell . t) (python . t)))
 (setq org-support-shift-select t)
@@ -143,6 +145,28 @@
    '((?X . "■")
     (?- . "◪")
     (?\s . "□"))))
+;; https://www.reddit.com/r/emacs/comments/1la0ztn/whiteboard_workflow_for_orgmode_using_inkscape/
+(add-to-list 'org-file-apps '("\\.svg\\'" . "inkscape %s"))
+(defun org-create-and-open-drawing ()
+  "Insert a timestamped SVG drawing link, create the file, and open in inkscape."
+  (interactive)
+  (let* ((dir "drawings/")
+         (filename (concat "sketch-" (format-time-string "%Y%m%d-%H%M%S") ".svg"))
+         (fullpath (expand-file-name filename dir)))
+    ;; Ensure drawings dir exists
+    (unless (file-directory-p dir)
+      (make-directory dir))
+    ;; Create minimal SVG if it doesn't exist
+    (unless (file-exists-p fullpath)
+      (with-temp-file fullpath
+        (insert "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
+                "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"1024\" height=\"768\">\n"
+                "</svg>")))
+    ;; Insert link in org buffer
+    (insert (format "[[file:%s]]\n" fullpath))
+    (org-display-inline-images)
+    ;; Open in Inkscape
+    (start-process "inkscape" nil "inkscape" fullpath)))
 
 ;; snippets
 (use-package yasnippet
