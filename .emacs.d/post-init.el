@@ -130,6 +130,8 @@
 ;; tex
 (use-package auctex
   :ensure t)
+(setq TeX-parse-self t) ;; parse on load
+(setq TeX-auto-save t) ;; parse on save
 
 ;; org
 (add-hook 'org-mode-hook 'org-display-inline-images)
