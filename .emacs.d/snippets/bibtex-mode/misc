@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: misc
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# --
+@misc{${1:key},
+      title={${2:...}},
+      author={${3:...}},
+      year={${4:...}},
+      url={${5:...}},
+}
+
