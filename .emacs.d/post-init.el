@@ -200,8 +200,6 @@
                (side . bottom)
                (slot . 0))))
 
-;; LSP
-(if (getenv "EMACS_LSP") (load "~/.emacs.d/lsp"))
-
-;; LLM
-(if (getenv "EMACS_LLM") (load "~/.emacs.d/llm"))
+;; environment-based optional configuration
+(if (getenv "EMACS_LSP") (load "~/.emacs.d/optional/lsp"))
+(if (getenv "EMACS_LLM") (load "~/.emacs.d/optional/llm"))
