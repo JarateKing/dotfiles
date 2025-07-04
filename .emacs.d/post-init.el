@@ -13,7 +13,7 @@
 ;; keybinds
 (cua-mode t)
 (setq cua-keep-region-after-copy t)
-(bind-key* "C-s" 'save-buffer)
+(bind-key* "C-s" 'contextual-save)
 (bind-key* "C-f" 'isearch-forward)
 (bind-key* "C-y" 'undo-redo)
 (bind-key* "C-a" 'mark-whole-buffer)
@@ -22,6 +22,20 @@
 (bind-key* "C-n" 'yas-insert-snippet)
 (bind-key* "C-d" 'org-create-and-open-drawing)
 (bind-key* "C-S-d" 'org-edit-drawing)
+
+(defun contextual-save ()
+  "Save depending on mode"
+  (interactive)
+  (if (derived-mode-p 'chunk-edit-mode)
+      (chunk-edit-save-all-chunks)
+      (save-buffer)))
+
+(defun contextual-kill ()
+  "Kill buffer depending on context"
+  (interactive)
+  (if (derived-mode-p 'chunk-edit-mode)
+      (chunk-edit-quit)
+      (kill-buffer)))
 
 ;; window
 (if (window-system) (set-frame-size (selected-frame) 180 40)) ; default window size
@@ -201,6 +215,16 @@
                (window-height . 0.25)     ; window % size of frame
                (side . bottom)
                (slot . 0))))
+
+;; multiple files in one buffer
+(use-package chunk-edit
+  :vc (:url "https://github.com/vkazanov/chunk-edit.git"
+       :rev :newest))
+(defun multifile-buffer ()
+  "Opens a buffer with multiple files based on chunk-edit"
+  (interactive)
+  (let ((pop-up-windows nil))
+    (chunk-edit)))
 
 ;; environment-based optional configuration
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/optional/lsp"))
