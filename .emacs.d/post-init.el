@@ -76,6 +76,7 @@
 (if (window-system)
   (use-package demap
     :ensure t
+    :no-require t
     :config
     (add-hook 'buffer-face-mode-hook (lambda () (setq mode-line-format nil)))
     (setq demap-minimap-window-width 13)
