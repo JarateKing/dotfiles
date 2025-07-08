@@ -42,6 +42,7 @@ require("catppuccin").setup {
       base = "#d3e8f3",
       mantle = "#b5daed",
       crust = "#96cfed",
+      surface1 = "#2898d2"
     },
     frappe = {},
     macchiato = {},
