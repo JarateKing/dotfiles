@@ -53,8 +53,8 @@
    (t
     (setq cursor-type 'bar))))
 (add-hook 'post-command-hook 'contextual-cursor)
-
-(global-hl-line-mode 1)
+(define-globalized-minor-mode global-disableable-hl-line-mode hl-line-mode (lambda () (hl-line-mode 1)))
+(global-disableable-hl-line-mode 1)
 
 ;; modes
 (use-package markdown-mode
@@ -205,7 +205,8 @@
   :hook
   ((eshell-load-hook . eat-eshell-mode)
    (eshell-load-hook . eat-eshell-visual-command-mode)
-   (eat-mode . hide-mode-line-mode))
+   (eat-mode . hide-mode-line-mode)
+   (eat-mode . (lambda () (hl-line-mode -1))))
   :custom
   (eat-term-name "xterm-256color")
   :config
