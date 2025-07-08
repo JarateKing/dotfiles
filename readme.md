@@ -66,6 +66,10 @@ Some important notes:
 - `C-t` will open a terminal emulator, which will automatically go away when you `exit` the shell.
 - a lot of common editor keybinds (copy/paste/cut, save, find, undo/redo) use the de facto standard instead of emacs conventions.
 
+### Neovim
+
+I've fiddled around with making a neovim config, intended primarily for quick edits on the commandline rather than a full-fledged IDE to live in (that's what emacs is for) or anything like that. I primarily use emacs so the neovim config isn't as fleshed-out, but it is available.
+
 ## Philosophy
 
 There's a few things I wanted out of a dotfiles repo:
