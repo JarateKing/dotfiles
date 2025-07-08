@@ -227,6 +227,12 @@
   (let ((pop-up-windows nil))
     (chunk-edit)))
 
+;; keep scratch between sessions
+(use-package persistent-scratch
+  :ensure t
+  :config
+  (persistent-scratch-setup-default))
+
 ;; environment-based optional configuration
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/optional/lsp"))
 (if (getenv "EMACS_LLM") (load "~/.emacs.d/optional/llm"))

@@ -34,3 +34,4 @@
 .emacs.d/url/
 .emacs.d/session.*
 .emacs.d/projects
+.emacs.d/.persistent-scratch
