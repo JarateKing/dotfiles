@@ -13,6 +13,9 @@
 !.emacs.d/**
 !nix-shells/
 !nix-shells/**
+!.config/
+!.config/nvim/
+!.config/nvim/init.lua
 
 # re-ignore some things
 .emacs.d/eln-cache/
