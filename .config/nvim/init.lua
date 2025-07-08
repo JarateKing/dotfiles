@@ -19,13 +19,19 @@ vim.g.maplocalleader = "\\"
 
 -- packages
 local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "petertriho/nvim-scrollbar", name = "scrollbar", priority = 900 },
+  {
+    'ojroques/nvim-hardline'
+  }
 }
 local opts = { }
 require("lazy").setup(plugins, opts)
 
 -- general editor settings
 vim.opt.number = true
+vim.opt.tabstop = 4
+require("scrollbar").setup()
 
 -- theme
 vim.o.termguicolors = true
@@ -46,3 +52,19 @@ require("catppuccin").setup {
   }
 }
 vim.cmd.colorscheme "catppuccin"
+require('hardline').setup {
+  theme = 'custom',
+  custom_theme = {
+    text = {gui = "#0b1118", cterm = "NONE", cterm16 = "NONE"},
+    normal = {gui = "#96cfed", cterm = "NONE", cterm16 = "NONE"},
+    insert = {gui = "#96cfed", cterm = "NONE", cterm16 = "NONE"},
+    replace = {gui = "#96cfed", cterm = "NONE", cterm16 = "NONE"},
+    inactive_comment = {gui = "#a8d4eb", cterm = "NONE", cterm16 = "NONE"},
+    inactive_cursor = {gui = "#a8d4eb", cterm = "NONE", cterm16 = "NONE"},
+    inactive_menu = {gui = "#a8d4eb", cterm = "NONE", cterm16 = "NONE"},
+    visual = {gui = "#96cfed", cterm = "NONE", cterm16 = "NONE"},
+    command = {gui = "#96cfed", cterm = "NONE", cterm16 = "NONE"},
+    alt_text = {gui = "#0b1118", cterm = "NONE", cterm16 = "NONE"},
+    warning = {gui = "#96cfed", cterm = "NONE", cterm16 = "NONE"},
+  }
+}
