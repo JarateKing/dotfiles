@@ -21,7 +21,8 @@ vim.g.maplocalleader = "\\"
 local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "petertriho/nvim-scrollbar", name = "scrollbar", priority = 900 },
-  { "ojroques/nvim-hardline", name = "hardline", priority = 900 }
+  { "ojroques/nvim-hardline", name = "hardline", priority = 900 },
+  { "nvim-telescope/telescope.nvim", name = "telescope", dependencies = { "nvim-lua/plenary.nvim" } }
 }
 local opts = { }
 require("lazy").setup(plugins, opts)
@@ -74,3 +75,7 @@ require("scrollbar").setup({
     }
   }
 })
+
+-- utilities
+require('telescope').setup()
+
