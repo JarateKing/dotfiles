@@ -1,6 +1,6 @@
 ## Packages
 
-nix-env -i git emacs neovim
+nix-env -i git emacs neovim ripgrep
 
 ## Gnome configuration
 
