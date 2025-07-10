@@ -31,6 +31,8 @@ require("lazy").setup(plugins, opts)
 vim.opt.number = true
 vim.opt.tabstop = 4
 
+vim.opt.shortmess:append('I') -- disable startup message
+
 -- theme
 vim.o.termguicolors = true
 vim.opt.background = "light"
