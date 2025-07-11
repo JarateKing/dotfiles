@@ -26,6 +26,7 @@ local plugins = {
   { "stevearc/oil.nvim", name = "oil", lazy = false },
   { "benomahony/oil-git.nvim", name = "oil-git", dependencies = { "stevearc/oil.nvim" } },
   { "lewis6991/gitsigns.nvim", name = "gitsigns" },
+  { "lukas-reineke/indent-blankline.nvim", name = "ibl" },
 }
 local opts = { }
 require("lazy").setup(plugins, opts)
@@ -79,6 +80,14 @@ require("scrollbar").setup({
       color = "#96cfed"
     }
   }
+})
+local hooks = require "ibl.hooks"
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "IndentLineColor", { fg = "#b5daed" })
+end)
+require("ibl").setup({
+  scope = { enabled = false },
+  indent = { highlight = { "IndentLineColor" } }
 })
 
 -- utilities
