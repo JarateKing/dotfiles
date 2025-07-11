@@ -24,6 +24,7 @@ local plugins = {
   { "ojroques/nvim-hardline", name = "hardline", priority = 900 },
   { "nvim-telescope/telescope.nvim", name = "telescope", dependencies = { "nvim-lua/plenary.nvim" } },
   { "stevearc/oil.nvim", name = "oil", lazy = false },
+  { "benomahony/oil-git.nvim", name = "oil-git", dependencies = { "stevearc/oil.nvim" } },
 }
 local opts = { }
 require("lazy").setup(plugins, opts)
@@ -84,5 +85,15 @@ require('telescope').setup()
 require('oil').setup({
   view_options = {
     show_hidden = true
+  }
+})
+require("oil-git").setup({
+  highlights = {
+    OilGitAdded = { fg = "#40a02b" },     -- green
+    OilGitModified = { fg = "#df8e1d" },  -- yellow
+    OilGitDeleted = { fg = "#d20f39" },   -- red
+    OilGitRenamed = { fg = "#8839ef" },   -- purple
+    OilGitUntracked = { fg = "#1e66f5" }, -- blue
+    OilGitIgnored = { fg = "#6c6f85" },   -- gray
   }
 })
