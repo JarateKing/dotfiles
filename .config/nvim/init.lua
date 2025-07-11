@@ -22,7 +22,8 @@ local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "petertriho/nvim-scrollbar", name = "scrollbar", priority = 900 },
   { "ojroques/nvim-hardline", name = "hardline", priority = 900 },
-  { "nvim-telescope/telescope.nvim", name = "telescope", dependencies = { "nvim-lua/plenary.nvim" } }
+  { "nvim-telescope/telescope.nvim", name = "telescope", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "stevearc/oil.nvim", name = "oil", lazy = false },
 }
 local opts = { }
 require("lazy").setup(plugins, opts)
@@ -80,4 +81,8 @@ require("scrollbar").setup({
 
 -- utilities
 require('telescope').setup()
-
+require('oil').setup({
+  view_options = {
+    show_hidden = true
+  }
+})
