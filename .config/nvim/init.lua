@@ -107,4 +107,7 @@ require("oil-git").setup({
     OilGitIgnored = { fg = "#6c6f85" },   -- gray
   }
 })
-require("gitsigns").setup()
+require("gitsigns").setup({
+  signcolumn = false,
+  numhl = true,
+})
