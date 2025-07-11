@@ -25,6 +25,7 @@ local plugins = {
   { "nvim-telescope/telescope.nvim", name = "telescope", dependencies = { "nvim-lua/plenary.nvim" } },
   { "stevearc/oil.nvim", name = "oil", lazy = false },
   { "benomahony/oil-git.nvim", name = "oil-git", dependencies = { "stevearc/oil.nvim" } },
+  { "lewis6991/gitsigns.nvim", name = "gitsigns" },
 }
 local opts = { }
 require("lazy").setup(plugins, opts)
@@ -97,3 +98,4 @@ require("oil-git").setup({
     OilGitIgnored = { fg = "#6c6f85" },   -- gray
   }
 })
+require("gitsigns").setup()
