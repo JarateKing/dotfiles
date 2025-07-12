@@ -43,7 +43,6 @@ require("lazy").setup(plugins, opts)
 -- general editor settings
 vim.opt.number = true
 vim.opt.tabstop = 4
-
 vim.opt.shortmess:append('I') -- disable startup message
 
 -- theme
@@ -96,7 +95,9 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 end)
 require("ibl").setup({
   scope = { enabled = false },
-  indent = { highlight = { "IndentLineColor" } }
+  indent = {
+    highlight = { "IndentLineColor" },
+    char = "│"}
 })
 
 -- utilities
