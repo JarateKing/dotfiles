@@ -35,3 +35,4 @@
 .emacs.d/session.*
 .emacs.d/projects
 .emacs.d/.persistent-scratch
+.emacs.d/.mc-lists.el
