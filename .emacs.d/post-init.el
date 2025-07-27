@@ -240,6 +240,10 @@
   :config
   (persistent-scratch-setup-default))
 
+;; misc functionality
+(use-package define-word
+  :ensure t)
+
 ;; environment-based optional configuration
 (if (getenv "EMACS_LSP") (load "~/.emacs.d/optional/lsp"))
 (if (getenv "EMACS_LLM") (load "~/.emacs.d/optional/llm"))
