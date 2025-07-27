@@ -61,6 +61,8 @@
   :ensure t)
 (use-package rainbow-mode
   :ensure t)
+(use-package lua-mode
+  :ensure t)
 
 ;; mode-specific settings
 (add-hook 'LaTeX-mode-hook (lambda () (local-unset-key "\"")))
