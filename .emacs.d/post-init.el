@@ -22,6 +22,8 @@
 (bind-key* "C-n" 'yas-insert-snippet)
 (bind-key* "C-d" 'org-create-and-open-drawing)
 (bind-key* "C-S-d" 'org-edit-drawing)
+(bind-key* "C-/" 'mc/edit-lines)
+(bind-key* "C-?" 'mc/mark-all-dwim)
 
 (defun contextual-save ()
   "Save depending on mode"
@@ -55,6 +57,8 @@
 (add-hook 'post-command-hook 'contextual-cursor)
 (define-globalized-minor-mode global-disableable-hl-line-mode hl-line-mode (lambda () (hl-line-mode 1)))
 (global-disableable-hl-line-mode 1)
+(use-package multiple-cursors
+  :ensure t)
 
 ;; modes
 (use-package markdown-mode
