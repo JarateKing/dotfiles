@@ -86,4 +86,6 @@ For this reason, our dotfiles are mostly just stored as-is, with a repo directly
 - a `readme.md` that describes the repo, documents the dotfiles, and acts as an install script
 - `.gitignore` to handle filtering files in/out of the repo, making managing dotfiles under source control much easier
 
+One concern was that this would mean every subdirectory in the home directory would also consider itself a part of the dotfiles repo, but we were able to solve this by setting `GIT_CEILING_DIRECTORIES` and make it so that git only recognizes the dotfiles repo if our working directory is home, any subdirectories won't search the home directory for `.git`.
+
 All in all we end up with a fairly minimal setup that doesn't require much dependencies (namely, `git` itself). We do make use of some NixOS features, but we only use it in ways that would be easy to adjust for other distros (as opposed to features like flakes).
