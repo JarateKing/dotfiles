@@ -75,3 +75,7 @@ setup_prompts() {
 }
 setup_prompts
 
+# better handle dotfiles repo in the home directory
+# any subdirectories won't detect the .git inside ~
+# working directory needs to be ~ for dotfiles work
+export GIT_CEILING_DIRECTORIES="$HOME"
