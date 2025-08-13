@@ -10,6 +10,7 @@ export PATH
 
 # aliases
 alias q="exit"
+alias please="sudo -E "
 alias reload_bashrc="source ~/.bashrc"
 alias reload_inputrc="bind -f ~/.inputrc"
 alias _emacs="nix-shell ~/nix-shells/emacs.nix"
