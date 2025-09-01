@@ -1,6 +1,11 @@
+## Nix
+
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+export PATH=~/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
+
 ## Packages
 
-nix-env -i git emacs neovim ripgrep
+nix profile add nixpkgs#git nixpkgs#emacs nixpkgs#neovim nixpkgs#ripgrep
 
 ## Gnome configuration
 
