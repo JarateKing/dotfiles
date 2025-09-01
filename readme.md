@@ -16,9 +16,9 @@ The intended usage of this is `curl -s https://raw.githubusercontent.com/JarateK
 
 ---
 
-# NixOS Dotfiles
+# Dotfiles
 
-This repo includes my dotfiles used for NixOS. A lot of this should be transferable to other distros and not depend specifically on NixOS, but I can't guarantee everything will work. I've attempted to make things fairly usable and general-purpose, but as they're dotfiles they are very opinionated.
+This repo includes my dotfiles. My current setup is based on Fedora with nix as the package manager (which is installed alongside these dotfiles through the install script). This should be easily transfered to other distros, but I can't guarantee everything will work. I've attempted to make things fairly usable and general-purpose, but as they're dotfiles they are very opinionated.
 
 ## Usage
 
@@ -88,4 +88,4 @@ For this reason, our dotfiles are mostly just stored as-is, with a repo directly
 
 One concern was that this would mean every subdirectory in the home directory would also consider itself a part of the dotfiles repo, but we were able to solve this by setting `GIT_CEILING_DIRECTORIES` and make it so that git only recognizes the dotfiles repo if our working directory is home, any subdirectories won't search the home directory for `.git`.
 
-All in all we end up with a fairly minimal setup that doesn't require much dependencies (namely, `git` itself). We do make use of some NixOS features, but we only use it in ways that would be easy to adjust for other distros (as opposed to features like flakes).
+All in all we end up with a fairly minimal setup that doesn't require much dependencies (namely, `git` itself to clone this repo, and even that's optional).
