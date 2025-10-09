@@ -58,7 +58,7 @@ setup_prompts() {
     fi
     
     # apply to prompts
-    PS1="$infoline_bracket[$(parse_infoline)$infoline_bracket]\n$prompt_start > $prompt_end"
+    PS1="$infoline_bracket[$(parse_infoline)$infoline_bracket]"$'\n'"$prompt_start > $prompt_end"
     PS2="$prompt_start . $prompt_end"
     PS4="$prompt_start + $prompt_end"
 
