@@ -96,7 +96,7 @@
 (add-hook 'markdown-mode-hook 'right-linum-mode)
 
 ;; minimap
-(if (window-system)
+(if (and (window-system) (find-font (font-spec :name "Minimap")))
   (use-package demap
     :ensure t
     :no-require t
@@ -119,7 +119,7 @@
   (telephone-line-mode t))
 
 ;; neotree
-(if (window-system)
+(if (and (window-system) (find-font (font-spec :name "all-the-icons")))
   (use-package neotree
     :ensure t
     :config
