@@ -18,12 +18,15 @@
 (bind-key* "C-y" 'undo-redo)
 (bind-key* "C-a" 'mark-whole-buffer)
 (bind-key* "C-<tab>" 'usage-cycle)
-(bind-key* "C-t" 'eat)
 (bind-key* "C-n" 'yas-insert-snippet)
 (bind-key* "C-d" 'org-create-and-open-drawing)
 (bind-key* "C-S-d" 'org-edit-drawing)
 (bind-key* "C-/" 'mc/edit-lines)
 (bind-key* "C-?" 'mc/mark-all-dwim)
+
+(if (eq system-type 'windows-nt)
+  (bind-key* "C-t" 'windows-shell)
+  (bind-key* "C-t" 'eat))
 
 (defun contextual-save ()
   "Save depending on mode"
@@ -223,6 +226,10 @@
                (window-height . 0.25)     ; window % size of frame
                (side . bottom)
                (slot . 0))))
+(defun windows-shell ()
+  "Alternative to eat for windows os"
+  (interactive)
+  (shell))
 
 ;; multiple files in one buffer
 (use-package chunk-edit
