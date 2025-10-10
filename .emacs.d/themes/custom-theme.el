@@ -3,10 +3,13 @@
   :background-mode 'dark
   :kind 'color-scheme)
 
+(if (find-font (font-spec :name "JetBrains Mono"))
+    (set-face-attribute 'default nil :font "JetBrains Mono-10"))
+
 (let ((class '((class color) (min-colors 89))))
   (custom-theme-set-faces
    'custom
-   `(default ((,class (:background "#0b1118" :foreground "#d3e8f3" :font "JetBrains Mono-10"))))
+   `(default ((,class (:background "#0b1118" :foreground "#d3e8f3"))))
    `(cursor ((,class (:background "#55bcda"))))
    `(fringe ((,class ())))
    `(vertical-border ((,class (:foreground "#0b1118"))))
