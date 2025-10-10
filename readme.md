@@ -30,6 +30,12 @@ Manual installation can be done by cloning or downloading this repo and moving i
 
 When you're done installing, you can optionally delete the `.git` folder, `.gitignore`, and `readme.md` files. Doing so would mean your dotfiles are no longer under source control, but would still be functional as dotfiles.
 
+#### Windows
+
+For the most part these dotfiles can be installed on windows as well, by cloning this repo into the user's home directory. Not everything is guaranteed to work, however.
+
+Emacs on windows usually looks for `.emacs.d` in `%APPDATA%` rather than in the user's home directory. The easy way around this is with a symlink: `mklink "%APPDATA%/.emacs.d" "C:\Users\usernamehere\.emacs.d"`.
+
 ### Modifying
 
 If you wish to make changes to any files that have already been included, feel free! You can then commit and push them through git as usual.
