@@ -57,10 +57,10 @@ My personal emacs config. Based off of James Cherti's [minimal .emacs.d](https:/
 
 Setup:
 
-- the first run will spend time getting packages and thus have a slow startup
-- when you're able, run `M-x all-the-icons-install-fonts` once
 - install https://github.com/davestewart/minimap-font/tree/master
 - install https://www.jetbrains.com/lp/mono/
+- run `emacs`. The first run will spend time getting packages and thus have a slow startup. It may also require a few restarts if there are any errors.
+- when you're able, run `M-x all-the-icons-install-fonts` once
 
 Running `_emacs` on NixOS will automatically include LSP servers and any external tools needed. It will have a longer startup time though, so regular `emacs` is suited more for quick edits while `_emacs` is suitable as an IDE.
 
