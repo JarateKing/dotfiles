@@ -96,7 +96,7 @@
 (add-hook 'markdown-mode-hook 'right-linum-mode)
 
 ;; minimap
-(if (and (window-system) (not (eq system-type 'windows-nt)))
+(if (window-system)
   (use-package demap
     :ensure t
     :no-require t
