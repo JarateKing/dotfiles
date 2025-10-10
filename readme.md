@@ -34,7 +34,7 @@ When you're done installing, you can optionally delete the `.git` folder, `.giti
 
 For the most part these dotfiles can be installed on windows as well, by cloning this repo into the user's home directory. Not everything is guaranteed to work, however.
 
-Emacs on windows usually looks for `.emacs.d` in `%APPDATA%` rather than in the user's home directory. The easy way around this is with a symlink: `mklink "%APPDATA%/.emacs.d" "C:\Users\usernamehere\.emacs.d"`.
+Emacs on windows usually looks for `.emacs.d` in `%APPDATA%` rather than in the user's home directory. The easy way around this is with a symlink: `mklink "%AppData%\.emacs.d" "%UserProfile%\.emacs.d"`. Similar must be done for neovim: `mklink "%LocalAppData%\nvim" "%UserProfile%\.config\nvim"`.
 
 ### Modifying
 
