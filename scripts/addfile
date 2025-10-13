@@ -10,4 +10,9 @@ if [[ -z "$2" ]]; then
    exit 1
 fi
 
+if [ ! -f ~/scripts/addfile_data/$2 ]; then
+   echo "Invalid file template $2"
+   exit 1
+fi
+
 cp ~/scripts/addfile_data/$2 $1
