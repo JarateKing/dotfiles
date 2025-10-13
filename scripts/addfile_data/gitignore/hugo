@@ -1,0 +1,5 @@
+resources/*
+public/*
+*.exe
+static/pagefind/*
+.hugo_build.lock

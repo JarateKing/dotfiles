@@ -1,0 +1,29 @@
+# ignore compiled code
+*.exe
+*.jar
+
+# ignore middle steps for latex
+*.aux
+*.log
+*.out
+*.listing
+*.toc
+*.pygstyle
+*.pygtex
+*.idx
+*.ilg
+*.ind
+*.glsdefs
+*.xdy
+*.*-gls
+*.*-glo
+*.*-glg
+*.bbl
+*-blx.bib
+*.blg
+*.run.xml
+*.synctex.gz
+_minted-main
+
+# ignore any pdf's
+*.pdf

@@ -1,0 +1,11 @@
+*.exe
+
+# build output
+build/
+
+# visual studio output
+out/
+.vs/
+
+# clion output
+.idea/
