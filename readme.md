@@ -50,6 +50,7 @@ If you're adding new files, you may need to add them to `.gitignore`, in a forma
 - `notfetch` is a quick-and-simple alternative to `neofetch` and programs like it, because I didn't really like anything of the existing options.
 - `show_prompts` will display each type of prompt (`$PS1-4`) as well as some information about them, useful for debugging.
 - `on_dotfiles_install.sh` is a script that's meant to run on install. This will just install some key programs (ie. `git`, `emacs`) and set some default settings in gnome.
+- `addfile` is a cli utility for making a copy of some predefined file. For example, `addfile .gitignore gitignore/latex` will copy over the `~/scripts/addfile_data/gitignore/latex` file (a .gitignore suited for LaTeX) and use it as `.gitignore` in the local directory.
 
 ### Emacs
 
