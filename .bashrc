@@ -8,6 +8,9 @@ shopt -s globstar       # support ** wildcards
 if ! [[ "$PATH" =~ "$HOME/scripts:" ]]; then PATH="$HOME/scripts:$PATH"; fi
 export PATH
 
+# env
+export GIT_EDITOR="nvim +startinsert"
+
 # aliases
 alias q="exit"
 alias please="sudo -E "
