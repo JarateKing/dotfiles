@@ -1,0 +1,4 @@
+[general]
+collapsed_sections = ["recent_commits"]
+recent_commits_limit = 40
+

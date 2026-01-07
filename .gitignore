@@ -18,6 +18,8 @@
 !.config/nvim/init.lua
 !.config/zellij/
 !.config/zellij/config.kdl
+!.config/gitu/
+!.config/gitu/config.toml
 
 # re-ignore some things
 .emacs.d/eln-cache/
