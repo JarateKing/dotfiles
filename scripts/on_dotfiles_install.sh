@@ -5,7 +5,7 @@ export PATH=~/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH
 
 ## Packages
 
-nix profile add nixpkgs#git nixpkgs#emacs nixpkgs#neovim nixpkgs#ripgrep nixpkgs#alacritty nixpkgs#zellij nixpkgs#gitu
+nix profile add nixpkgs#git nixpkgs#emacs nixpkgs#neovim nixpkgs#ripgrep nixpkgs#zellij nixpkgs#gitu
 
 ## Gnome configuration
 
