@@ -18,6 +18,8 @@
 !.config/nvim/init.lua
 !.config/zellij/
 !.config/zellij/config.kdl
+!.config/zellij/themes/
+!.config/zellij/themes/custom-theme.kdl
 !.config/gitu/
 !.config/gitu/config.toml
 

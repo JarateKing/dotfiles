@@ -1,5 +1,5 @@
 // personal settings
-theme "ansi"
+theme "custom-theme"
 simplified_ui true
 pane_frames false
 show_startup_tips false
