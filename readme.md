@@ -1,14 +1,22 @@
 ###### This readme can be run on command line or piped into curl as an installer. Doing so will run the following commands:
 
     echo 'installing dotfiles'
+    
+    # download this repo
     cd ~/
     rm -rf ./dotfiles
     git clone https://github.com/JarateKing/dotfiles.git ./dotfiles
+    
+    # setup in home directory
     chmod -R 755 ./dotfiles
     rsync -a --remove-source-files ./dotfiles/ ./
     rm -rf ./dotfiles
     git submodule update --init --recursive
+    
+    # run install script
     ~/scripts/on_dotfiles_install.sh
+    
+    # finish up
     echo 'done! Please restart your computer'
     exit 0
 
