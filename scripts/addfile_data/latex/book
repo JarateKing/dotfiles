@@ -1,0 +1,39 @@
+\documentclass[11pt]{report}
+
+% set page margins
+\usepackage{geometry}
+\geometry{paperwidth=12.7cm,
+	paperheight=20.3cm,
+	lmargin=1.8cm,
+	rmargin=1.8cm,
+	tmargin=1.3cm,
+	bmargin=1.8cm
+}
+
+\setlength{\parskip}{0.65em}
+\setlength{\parindent}{0em}
+
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning}
+\usepackage{tcolorbox}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\graphicspath{{./pictures/}}
+
+\newcommand{\dividerline}{\rule{\textwidth}{0.4pt}}
+
+\usepackage{csquotes}
+\newcommand{\myquote}[1]{
+	\begin{displayquote}
+		"#1"
+	\end{displayquote}
+}
+
+\begin{document}
+
+% ...
+
+\end{document}
