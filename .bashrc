@@ -22,7 +22,9 @@ alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.n
 
 # functions
 cs() {
-    cd "$@"
+    if [ "$@" ]; then
+        cd "$@"
+    fi
     ls -A --color=auto
     if [ -d ".git" ]; then
         echo ""
