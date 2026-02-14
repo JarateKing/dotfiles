@@ -24,6 +24,10 @@ alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.n
 cs() {
     cd "$@"
     ls -A --color=auto
+    if [ -d ".git" ]; then
+        echo ""
+        git status -s -b
+    fi
 }
 
 # prompts
