@@ -20,6 +20,12 @@ alias reload_inputrc="bind -f ~/.inputrc"
 alias _emacs="nix-shell ~/nix-shells/emacs.nix"
 alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.nix"
 
+# functions
+cs() {
+    cd "$@"
+    ls -A --color=auto
+}
+
 # prompts
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
