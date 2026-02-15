@@ -10,3 +10,13 @@
   :config
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio"))))
+
+(use-package company
+  :ensure t
+  :hook (eglot-managed-mode . company-mode)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))

@@ -5,6 +5,7 @@ in
 
 pkgs.mkShellNoCC {
   packages = with pkgs; [
+    clang-tools
     clang
     pyright
     python312Full
