@@ -5,6 +5,7 @@ in
 
 pkgs.mkShellNoCC {
   packages = with pkgs; [
+    emacs-lsp-booster
     clang-tools
     clang
     pyright

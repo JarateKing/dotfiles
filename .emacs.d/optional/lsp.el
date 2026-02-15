@@ -12,6 +12,11 @@
   (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio")))
   (setopt eglot-ignored-server-capabilities (list :documentOnTypeFormattingProvider)))
 
+(use-package eglot-booster
+  :vc (:url "https://github.com/jdtsmith/eglot-booster.git" :rev :newest) 
+  :after eglot
+  :config (eglot-booster-mode))
+
 (use-package company
   :ensure t
   :hook (eglot-managed-mode . company-mode)
