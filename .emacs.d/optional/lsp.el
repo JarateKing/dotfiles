@@ -9,7 +9,8 @@
          (python-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-  (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio"))))
+  (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio")))
+  (setopt eglot-ignored-server-capabilities (list :documentOnTypeFormattingProvider)))
 
 (use-package company
   :ensure t

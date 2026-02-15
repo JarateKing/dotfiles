@@ -200,6 +200,11 @@
   (org-open-at-point)
   (org-redisplay-inline-images))
 
+;; c/c++
+(setq c-default-style "stroustrup")
+(setq c-basic-indent 4)
+(setq c-basic-offset 4)
+
 ;; snippets
 (use-package yasnippet
   :ensure t
