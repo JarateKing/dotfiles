@@ -22,4 +22,7 @@
   :hook (eglot-managed-mode . company-mode)
   :custom
   (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
+  (company-idle-delay 0.0)
+  (company-tooltip-align-annotations t)
+  (company-tooltip-minimum-width 70)
+  (company-tooltip-maximum-width 70))
