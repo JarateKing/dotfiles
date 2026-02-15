@@ -5,7 +5,7 @@ in
 
 pkgs.mkShellNoCC {
   packages = with pkgs; [
-    ccls
+    clang
     pyright
     python312Full
     python312Packages.python-lsp-server
