@@ -21,8 +21,10 @@
 (bind-key* "C-n" 'yas-insert-snippet)
 (bind-key* "C-d" 'org-create-and-open-drawing)
 (bind-key* "C-S-d" 'org-edit-drawing)
-(bind-key* "C-/" 'mc/edit-lines)
-(bind-key* "C-?" 'mc/mark-all-dwim)
+(bind-key* "C-/ n" 'multifile-buffer)
+(bind-key* "C-/ f" 'chunk-edit-insert-file)
+(bind-key* "C-/ e" 'mc/edit-lines)
+(bind-key* "C-/ m" 'mc/mark-all-dwim)
 
 (if (eq system-type 'windows-nt)
   (bind-key* "C-t" 'windows-shell)
