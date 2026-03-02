@@ -11,6 +11,7 @@ pkgs.mkShellNoCC {
     pyright
     python312Full
     python312Packages.python-lsp-server
+    vscode-langservers-extracted
     ltex-ls
     texliveFull
     ghostscript

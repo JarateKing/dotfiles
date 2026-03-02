@@ -6,10 +6,20 @@
   :defer t
   :hook ((c++-mode . eglot-ensure)
          (c-mode . eglot-ensure)
-         (python-mode . eglot-ensure))
+         (python-mode . eglot-ensure)
+         (js-mode . eglot-ensure)
+         (css-mode . eglot-ensure)
+         (mhtml-mode . eglot-ensure)
+         (js-json-mode . eglot-ensure)
+         (markdown-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
   (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio")))
+  (add-to-list 'eglot-server-programs '(js-mode . ("vscode-eslint-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs '(css-mode . ("vscode-css-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs '(mhtml-mode . ("vscode-html-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs '(js-json-mode . ("vscode-json-language-server" "--stdio")))
+  (add-to-list 'eglot-server-programs '(markdown-mode . ("vscode-markdown-language-server" "--stdio")))
   (setopt eglot-ignored-server-capabilities (list :documentOnTypeFormattingProvider)))
 
 (use-package eglot-booster
