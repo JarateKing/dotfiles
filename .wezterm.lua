@@ -52,4 +52,13 @@ config.visual_bell = {
   fade_out_function = 'EaseOut'
 }
 
+-- keybinds
+config.keys = {
+	{
+		key = 'q',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.CloseCurrentPane { confirm = false }
+	}
+}
+
 return config
