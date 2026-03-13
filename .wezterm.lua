@@ -42,7 +42,14 @@ config.colors = {
 			bg_color = '#0B1118',
 			fg_color = 'white'
 		}
-	}
+	},
+	visual_bell = '#4b0108'
+}
+config.audible_bell = 'Disabled'
+config.visual_bell = {
+  fade_in_duration_ms = 0,
+  fade_out_duration_ms = 500,
+  fade_out_function = 'EaseOut'
 }
 
 return config
