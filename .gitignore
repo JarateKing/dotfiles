@@ -22,6 +22,7 @@
 !.config/zellij/themes/custom-theme.kdl
 !.config/gitu/
 !.config/gitu/config.toml
+!.wezterm.lua
 
 # re-ignore some things
 .emacs.d/eln-cache/
