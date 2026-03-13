@@ -7,8 +7,19 @@ if (package.config:sub(1,1) == "\\") then
 end
 
 -- restyle
-config.font_size = 10
-config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+config.font_size = 9
+config.font = wezterm.font('JetBrains Mono', { weight = 'DemiBold' })
+config.harfbuzz_features = {
+	-- no ligatures
+	'calt=0',
+	'clig=0',
+	'liga=0',
+	-- slashed zero
+	'zero',
+	-- straight-angled K/k
+	'cv08',
+	-- less busy dollar sign
+	'cv14' }
 config.use_fancy_tab_bar = false
 config.window_padding = {
   left = 0,
