@@ -23,6 +23,8 @@
 !.config/gitu/
 !.config/gitu/config.toml
 !.wezterm.lua
+!docs/
+!docs/**
 
 # re-ignore some things
 .emacs.d/eln-cache/
