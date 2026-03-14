@@ -29,7 +29,7 @@ cs() {
             return
         fi
     fi
-    ls -A --color=auto
+    ls -A --color=auto --hyperlink --group-directories-first
     if [ -d ".git" ]; then
         echo ""
         git status -s -b
