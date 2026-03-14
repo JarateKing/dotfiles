@@ -64,7 +64,23 @@ config.visual_bell = {
 }
 
 -- keybinds
+config.disable_default_key_bindings = true
 config.keys = {
+	{
+		key = 'c',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.CopyTo 'Clipboard'
+	},
+	{
+		key = 'v',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.PasteFrom 'Clipboard'
+	},
+	{
+		key = 'x',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivateCopyMode
+	},
 	{
 		key = 'q',
 		mods = 'CTRL|SHIFT',
