@@ -25,7 +25,9 @@ alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.n
 ## with an argument, will cd to the directory and ls as well.
 cs() {
     if [ "$@" ]; then
-        cd "$@"
+        if ! cd "$@" ; then
+            return
+        fi
     fi
     ls -A --color=auto
     if [ -d ".git" ]; then
