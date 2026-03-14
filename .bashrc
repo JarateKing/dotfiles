@@ -82,7 +82,7 @@ setup_prompts() {
     if tput setaf 1 >&/dev/null; then
         local prompt_start='\[\e[0m\e[32m\e[1m\]'
         local prompt_end='\[\e[0m\e[39m\]'
-        local infoline_bracket='\[\e[0m\e[90m\e[1m\e[2m\]'
+        local infoline_bracket='\[\e[0m\e[90m\]'
     fi
     
     # apply to prompts
