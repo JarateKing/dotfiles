@@ -35,6 +35,14 @@ cs() {
         git status -s -b
     fi
 }
+## cs directories, edit files (in neovim)
+cse() {
+	if [ -d "$@" ]; then
+		cs "$@"
+	else
+		nvim "$@"
+	fi
+}
 
 # prompts
 parse_git_branch() {
