@@ -113,6 +113,11 @@ config.keys = {
 		key = 'q',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.CloseCurrentPane { confirm = false }
+	},
+	-- misc
+	{
+		key = 'F11',
+		action = wezterm.action.ToggleFullScreen
 	}
 }
 
