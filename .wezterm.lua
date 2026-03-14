@@ -86,7 +86,7 @@ config.keys = {
 	{
 		key = 'w',
 		mods = 'CTRL|SHIFT',
-		action = wezterm.action.ScrollByPage(-1)
+		action = wezterm.action.ScrollByPage(-0.5)
 	},
 	{
 		key = 'a',
@@ -96,7 +96,7 @@ config.keys = {
 	{
 		key = 's',
 		mods = 'CTRL|SHIFT',
-		action = wezterm.action.ScrollByPage(1)
+		action = wezterm.action.ScrollByPage(0.5)
 	},
 	{
 		key = 'd',
