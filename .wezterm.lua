@@ -66,6 +66,7 @@ config.visual_bell = {
 -- keybinds
 config.disable_default_key_bindings = true
 config.keys = {
+	-- copy/paste
 	{
 		key = 'c',
 		mods = 'CTRL|SHIFT',
@@ -80,6 +81,33 @@ config.keys = {
 		key = 'x',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.ActivateCopyMode
+	},
+	-- navigation
+	{
+		key = 'w',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ScrollByPage(-1)
+	},
+	{
+		key = 'a',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivateTabRelative(-1)
+	},
+	{
+		key = 's',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ScrollByPage(1)
+	},
+	{
+		key = 'd',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivateTabRelative(1)
+	},
+	-- create/destroy tabs
+	{
+		key = 'e',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.SpawnTab 'CurrentPaneDomain'
 	},
 	{
 		key = 'q',
