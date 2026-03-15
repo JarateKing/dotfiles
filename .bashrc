@@ -29,7 +29,7 @@ cs() {
             return
         fi
     fi
-    ls -A --color=auto --hyperlink --group-directories-first
+    ls -a --color=auto --hyperlink --group-directories-first --ignore=.
     if [ -d ".git" ]; then
         echo ""
         git status -s -b
