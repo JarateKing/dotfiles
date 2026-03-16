@@ -10,6 +10,7 @@ export PATH
 
 # env
 export GIT_EDITOR="nvim +startinsert"
+export YAZI_CONFIG_HOME=~/.config/yazi # for windows compatibility
 
 # aliases
 alias q="exit"
