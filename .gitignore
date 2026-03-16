@@ -25,6 +25,8 @@
 !.wezterm.lua
 !docs/
 !docs/**
+!.config/yazi/
+!.config/yazi/**
 
 # re-ignore some things
 .emacs.d/eln-cache/
