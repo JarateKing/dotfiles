@@ -21,6 +21,7 @@ config.harfbuzz_features = {
 	-- less busy dollar sign
 	'cv14' }
 config.use_fancy_tab_bar = false
+config.show_tab_index_in_tab_bar = false
 config.window_padding = {
   left = 0,
   right = 0,
@@ -62,6 +63,12 @@ config.visual_bell = {
   fade_out_duration_ms = 500,
   fade_out_function = 'EaseOut'
 }
+wezterm.on(
+  'format-tab-title',
+  function(tab, tabs, panes, config, hover, max_width)
+	return ' ' .. (tab.tab_index + 1) .. ' '
+  end
+)
 
 -- keybinds
 config.disable_default_key_bindings = true
