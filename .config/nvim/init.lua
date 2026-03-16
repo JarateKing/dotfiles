@@ -45,6 +45,10 @@ vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.shortmess:append('I') -- disable startup message
 
+-- keys
+vim.keymap.set({"i"}, "<up>", "<c-o>gk", {})
+vim.keymap.set({"i"}, "<down>", "<c-o>gj", {})
+
 -- theme
 vim.o.termguicolors = true
 vim.opt.background = "light"
