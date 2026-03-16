@@ -44,6 +44,20 @@ cse() {
 		nvim "$@"
 	fi
 }
+## cd using yazi
+yaz() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	if [ "$cwd" != "$PWD" ] && [ -d "$cwd" ]; then
+		builtin cd -- "$cwd"
+		if [ -d ".git" ]; then
+			echo ""
+			git status -s -b
+		fi
+	fi
+	rm -f -- "$tmp"
+}
 
 # prompts
 parse_git_branch() {
