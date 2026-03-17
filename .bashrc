@@ -45,7 +45,7 @@ cse() {
 	fi
 }
 ## cd using yazi
-yaz() {
+cz() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	command yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
