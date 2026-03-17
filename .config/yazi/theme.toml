@@ -1,6 +1,23 @@
+[mgr]
+border_style = { fg = "#000000" }
+cwd = { fg = "gray" }
+
+marker_copied = { fg = "green" }
+marker_cut = { fg = "red" }
+marker_marked = { fg = "cyan" }
+marker_selected = { fg = "yellow" }
+
 [indicator]
 padding = { open = "█", close = "█" }
 
 [status]
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
+
+[mode]
+normal_main = { bg = "#113354" }
+normal_alt = { bg = "#0d213a" }
+select_main = { bg = "#113354" }
+select_alt = { bg = "#0d213a" }
+unset_main = { bg = "#113354" }
+unset_alt = { bg = "#0d213a" }
