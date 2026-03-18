@@ -58,6 +58,14 @@ cz() {
 	fi
 	rm -f -- "$tmp"
 }
+## git log suited for overviews
+gitlogs() {
+	git log --graph --pretty=tformat:"%Cred%an %Creset%s %Cgreen%as" "$@"
+}
+## git log with all the info
+gitlogx() {
+	git log --pretty=tformat:" %C(auto,yellow)%H %Cgreen%s %Creset%n Author: %an %Cred%ae %Creset%aI %Cblue%G? %GS %Creset%n Commit: %cn %Cred%ce %Creset%cI %Cblue%GT %Creset%n %b%N %n" "$@"
+}
 
 # prompts
 parse_git_branch() {
