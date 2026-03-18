@@ -64,7 +64,13 @@ gitlogs() {
 }
 ## git log with all the info
 gitlogx() {
-	git log --pretty=tformat:"%C(auto,yellow)%H %Cgreen%s%Creset%nAuthor: %an %Cred%ae %Creset%aI %Cblue%G? %GS%Creset%nCommit: %cn %Cred%ce %Creset%cI %Cblue%GT%Creset%n%b%N" "$@"
+	git log --color=always --pretty=tformat:"%C(auto,ul)%C(auto,bold)%Cgreen%s%Creset%d
+Commit: %C(auto,yellow)%H%Creset
+Parent: %C(auto,yellow)%P%Creset
+Tree:   %C(auto,yellow)%T%Creset
+Author: %C(auto,brightwhite)%an %C(auto,ul)%Cred%ae%C(auto,noul) %C(auto,magenta)%aI %Cblue%G? %GS%Creset
+Commit: %C(auto,brightwhite)%cn %C(auto,ul)%Cred%ce%C(auto,noul) %C(auto,magenta)%cI %Cblue%GT%Creset
+%C(auto,italic)GITLOGBODYSTART%bGITLOGBODYEND%Creset%C(auto,cyan)%N" "$@" | sed -e 's/GITLOGBODYSTARTGITLOGBODYEND//; s/GITLOGBODYSTART//; s/GITLOGBODYEND//' | less -r -F
 }
 
 # prompts
