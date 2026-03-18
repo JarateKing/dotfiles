@@ -64,7 +64,7 @@ gitlogs() {
 }
 ## git log with all the info
 gitlogx() {
-	git log --pretty=tformat:" %C(auto,yellow)%H %Cgreen%s %Creset%n Author: %an %Cred%ae %Creset%aI %Cblue%G? %GS %Creset%n Commit: %cn %Cred%ce %Creset%cI %Cblue%GT %Creset%n %b%N %n" "$@"
+	git log --pretty=tformat:"%C(auto,yellow)%H %Cgreen%s%Creset%nAuthor: %an %Cred%ae %Creset%aI %Cblue%G? %GS%Creset%nCommit: %cn %Cred%ce %Creset%cI %Cblue%GT%Creset%n%b%N%n" "$@"
 }
 
 # prompts
