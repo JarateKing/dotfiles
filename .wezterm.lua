@@ -96,6 +96,11 @@ config.keys = {
 		action = wezterm.action.ScrollByPage(-0.5)
 	},
 	{
+		key = 'w',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.ScrollToTop
+	},
+	{
 		key = 'a',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.ActivateTabRelative(-1)
@@ -104,6 +109,11 @@ config.keys = {
 		key = 's',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.ScrollByPage(0.5)
+	},
+	{
+		key = 's',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.ScrollToBottom
 	},
 	{
 		key = 'd',
