@@ -106,6 +106,11 @@ config.keys = {
 		action = wezterm.action.ActivateTabRelative(-1)
 	},
 	{
+		key = 'a',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.ActivateWindowRelative(-1)
+	},
+	{
 		key = 's',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.ScrollByPage(0.5)
@@ -120,11 +125,21 @@ config.keys = {
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.ActivateTabRelative(1)
 	},
-	-- create/destroy tabs
+	{
+		key = 'd',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.ActivateWindowRelative(1)
+	},
+	-- create/destroy tabs/windows
 	{
 		key = 'e',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.SpawnTab 'CurrentPaneDomain'
+	},
+	{
+		key = 'e',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.SpawnWindow
 	},
 	{
 		key = 'q',
