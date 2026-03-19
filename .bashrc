@@ -64,7 +64,7 @@ gitlogs() {
 }
 ## git log with all the info
 gitlogx() {
-	git log --color=always --pretty=tformat:"%C(auto,ul)%C(auto,bold)%Cgreen%s%Creset%d
+	git log --color=always --pretty=tformat:"%C(auto,ul)%C(auto,bold)%Cgreen%s%Creset %C(auto,cyan)%(decorate:prefix=,suffix=,tag=:,pointer=→,separator= )
 Commit: %C(auto,yellow)%H%Creset
 Parent: %C(auto,yellow)%P%Creset
 Tree:   %C(auto,yellow)%T%Creset
