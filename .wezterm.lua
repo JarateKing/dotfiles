@@ -8,6 +8,7 @@ end
 
 -- restyle
 config.font_size = 9
+config.char_select_font_size = 9
 config.font = wezterm.font('JetBrains Mono', { weight = 'DemiBold' })
 config.harfbuzz_features = {
 	-- no ligatures
@@ -57,6 +58,8 @@ config.colors = {
 	},
 	visual_bell = '#4b0108'
 }
+config.char_select_bg_color = "#0B1118"
+config.char_select_fg_color = "silver"
 config.audible_bell = 'Disabled'
 config.visual_bell = {
   fade_in_duration_ms = 0,
@@ -150,6 +153,11 @@ config.keys = {
 	{
 		key = 'F11',
 		action = wezterm.action.ToggleFullScreen
+	},
+	{
+		key = 'r',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.CharSelect
 	}
 }
 
