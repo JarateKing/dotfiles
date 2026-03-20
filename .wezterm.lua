@@ -133,6 +133,11 @@ config.keys = {
 		mods = 'CTRL|SHIFT|ALT',
 		action = wezterm.action.ActivateWindowRelative(1)
 	},
+	{
+		key = 'f',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.Search 'CurrentSelectionOrEmptyString'
+	},
 	-- create/destroy tabs/windows
 	{
 		key = 'e',
