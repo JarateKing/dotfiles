@@ -9,6 +9,7 @@ end
 -- restyle
 config.font_size = 9
 config.char_select_font_size = 9
+config.command_palette_font_size = 9
 config.font = wezterm.font('JetBrains Mono', { weight = 'DemiBold' })
 config.harfbuzz_features = {
 	-- no ligatures
@@ -60,6 +61,9 @@ config.colors = {
 }
 config.char_select_bg_color = "#0B1118"
 config.char_select_fg_color = "silver"
+config.command_palette_bg_color = '#0B1118'
+config.command_palette_fg_color = 'silver'
+config.ui_key_cap_rendering = 'Emacs'
 config.audible_bell = 'Disabled'
 config.visual_bell = {
   fade_in_duration_ms = 0,
@@ -163,6 +167,11 @@ config.keys = {
 		key = 'r',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.CharSelect
+	},
+	{
+		key = 'p',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivateCommandPalette
 	}
 }
 
