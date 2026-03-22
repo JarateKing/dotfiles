@@ -18,7 +18,6 @@ Some important notes:
 - `C-<tab>` will cycle through displaying different information, ie. visible whitespace.
 - `C-t` will open a terminal emulator, which will automatically go away when you `exit` the shell.
 - a lot of common editor keybinds (copy/paste/cut, save, find, undo/redo) use the de facto standard instead of emacs conventions.
-- see [usage.md](/.emacs.d/docs/usage.md) for more details and instructions, especially for an emacs novice.
 
 ## Using (My Configuration of) Emacs
 
