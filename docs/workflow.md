@@ -19,6 +19,7 @@ I use both emacs and neovim for different purposes. The easiest way to think of 
 Let's say I want to do some programming on a git project named `website`. I might:
 
 - run `cz` to open `yazi` and navigate to the `website` root directory.
+- run `zellij`, create a new pane and run the serve command in that new pane.
 - `ctrl+shift+e` to spawn a new tab and go to it.
 - run `_emacs` to do development on `website`. Let's say I made some changes in the `src/pages/` directory.
 - `ctrl+shift+a` to return to the previous tab.
@@ -29,3 +30,4 @@ Let's say I want to do some programming on a git project named `website`. I migh
 ## Note On Windows
 
 Some of this workflow has to vary on Windows because not every tool supports windows. Some things might need to be substituted, but the general workflow should still function.
+
