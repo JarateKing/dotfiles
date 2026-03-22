@@ -1,5 +1,10 @@
 # Wezterm
 
+## Features
+
+- Wezterm naturally supports multiplexing. We have convenient keybinds that makes creating, destroying, and navigating between tabs (or windows) easy.
+- If you click a directory with the `cs` function (or generally anything that internally uses file hyperlinks, such as `ls --hyperlink`) it will run `cs` on that directory. Because this also shows the contents of that directory, this can be used to navigate between directories via the mouse.
+
 ## Keybinds
 
 All keybinds are done with either `CTRL+SHIFT` or `CTRL+SHIFT+ALT`, where `ALT` is either a variant or a more "extreme" version of the same keybind (ie. instead of scrolling up some, scroll to the top).
