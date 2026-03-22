@@ -26,3 +26,6 @@ Let's say I want to do some programming on a git project named `website`. I migh
 - run `gitu` to stage changes and make a commit.
 - making that commit will run `nvim`, where I write the commit message in neovim.
 
+## Note On Windows
+
+Some of this workflow has to vary on Windows because not every tool supports windows. Some things might need to be substituted, but the general workflow should still function.
