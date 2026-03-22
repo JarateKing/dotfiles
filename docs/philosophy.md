@@ -19,4 +19,6 @@ As well as a few important subdirectories:
 
 One concern was that this would mean every subdirectory in the home directory would also consider itself a part of the dotfiles repo when we run `git status`, but we were able to solve this by setting `GIT_CEILING_DIRECTORIES` and make it so that git only recognizes the dotfiles repo if our working directory is home, any subdirectories won't search the home directory for `.git`. To run git commands on this dotfiles repo, `cd ~` first.
 
+There are also some other stylistic choices. For example, I don't split configuration files up much. You'll see some people's neovim configs go as far as a new lua file for each plugin setup, which I find a bit excessive. I much prefer one 100-line configuration files than ten 10-line configuration files, it's quicker to scroll than to open a different file. The biggest exception to this would be my emacs config, for a few reasons (the template config is multi-file already, there are custom packages, some files are loaded conditionally, etc.) but even then we end up with fairly large configuration files that could be split up if we wanted to.
+
 All in all we end up with a fairly minimal setup that doesn't require much dependencies (namely, `git` itself to clone this repo, and even that's optional).
