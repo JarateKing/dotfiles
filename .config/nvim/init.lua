@@ -20,7 +20,6 @@ vim.g.maplocalleader = "\\"
 -- packages
 local plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { "petertriho/nvim-scrollbar", name = "scrollbar", priority = 900 },
   { "ojroques/nvim-hardline", name = "hardline", priority = 900 },
   { "nvim-telescope/telescope.nvim", name = "telescope", dependencies = { "nvim-lua/plenary.nvim" } },
   { "stevearc/oil.nvim", name = "oil", lazy = false },
@@ -86,14 +85,6 @@ require('hardline').setup {
     warning = {gui = "#96cfed", cterm = "NONE", cterm16 = "NONE"},
   }
 }
-require("scrollbar").setup({
-  marks = {
-    Cursor = {
-      text = "|",
-      color = "#96cfed"
-    }
-  }
-})
 local hooks = require "ibl.hooks"
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "IndentLineColor", { fg = "#b5daed" })
