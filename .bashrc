@@ -21,9 +21,14 @@ alias _emacs="nix-shell ~/nix-shells/emacs.nix"
 alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.nix"
 
 # functions
+## comment out within a pipeline
+### ie. `ls | __ sort -nr | grep .md` ignores the `sort`
+__() {
+	cat
+}
 ## cd and ls combined
-## with no argument, will ls with extra info (ie. git status)
-## with an argument, will cd to the directory and ls as well.
+### with no argument, will ls with extra info (ie. git status)
+### with an argument, will cd to the directory and ls as well.
 cs() {
     if [ "$@" ]; then
         if ! cd "$@" ; then
