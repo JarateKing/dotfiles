@@ -7,3 +7,6 @@ TAB: menu-complete
 
 # complete to `symlink/` instead of just `symlink` like directories
 set mark-symlinked-directories on
+
+# completion is case-insensitive
+set completion-ignore-case on
