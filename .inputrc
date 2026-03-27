@@ -4,3 +4,6 @@ TAB: menu-complete
 # up/down searches for history that start with the same text
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# complete to `symlink/` instead of just `symlink` like directories
+set mark-symlinked-directories on
