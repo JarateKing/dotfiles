@@ -29,11 +29,18 @@ __() {
 ## cd and ls combined
 ### with no argument, will ls with extra info (ie. git status)
 ### with an argument, will cd to the directory and ls as well.
+### with - as the argument, will go to the previous directory.
 cs() {
     if [ "$@" ]; then
-        if ! cd "$@" ; then
-            return
-        fi
+		if [ "$@" = "-" ]; then
+			if ! command popd > /dev/null ; then
+				return
+			fi
+		else
+			if ! command pushd "$@" > /dev/null ; then
+				return
+			fi
+		fi
     fi
     ls -a --color=auto --hyperlink --group-directories-first --ignore=.
     if [ -d ".git" ]; then
