@@ -70,11 +70,25 @@ config.visual_bell = {
   fade_out_duration_ms = 500,
   fade_out_function = 'EaseOut'
 }
-wezterm.on(
-  'format-tab-title',
-  function(tab, tabs, panes, config, hover, max_width)
-	return ' ' .. (tab.tab_index + 1) .. ' '
-  end
+wezterm.on('format-tab-title',
+	function(tab, tabs, panes, config, hover, max_width)
+		return ' ' .. (tab.tab_index + 1) .. ' '
+	end
+)
+-- darker background when out of focus
+wezterm.on('window-focus-changed',
+	function(window, pane)
+		local overrides = window:get_config_overrides() or {}
+		if window:is_focused() then
+			overrides.colors = config.colors
+			overrides.colors.background = '#0B1118'
+		else
+			overrides.colors = config.colors
+			overrides.colors.background = '#0A0C0F'
+		end
+		overrides.colors.tab_bar.background = overrides.colors.background
+		window:set_config_overrides(overrides)
+	end
 )
 
 -- keybinds
