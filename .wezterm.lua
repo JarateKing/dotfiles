@@ -75,7 +75,7 @@ wezterm.on('format-tab-title',
 		return ' ' .. (tab.tab_index + 1) .. ' '
 	end
 )
--- darker background when out of focus
+--- darker background when out of focus
 wezterm.on('window-focus-changed',
 	function(window, pane)
 		local overrides = window:get_config_overrides() or {}
@@ -90,6 +90,36 @@ wezterm.on('window-focus-changed',
 		window:set_config_overrides(overrides)
 	end
 )
+-- right status
+wezterm.on('update-status', function(window, pane)
+	local parts = {}
+	local date = wezterm.strftime '%H:%M'
+	table.insert(parts, date)
+
+	local host = ''
+	local cwd_uri = pane:get_current_working_dir()
+	if cwd_uri and cwd_uri.host then
+		host = cwd_uri.host
+	end
+	if host ~= '' then
+		table.insert(parts, host)
+	end
+
+	local battery = ''
+	for _, bat in ipairs(wezterm.battery_info()) do
+		battery = string.format('%.0f%%', bat.state_of_charge * 100)
+	end
+	if battery ~= '' then
+		table.insert(parts, battery)
+	end
+
+	local status = table.concat(parts, ' ')
+
+	-- Make it italic and underlined
+	window:set_right_status(wezterm.format {
+		{ Text = status },
+	})
+end)
 
 -- keybinds
 config.disable_default_key_bindings = true
