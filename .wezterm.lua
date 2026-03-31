@@ -207,6 +207,11 @@ config.keys = {
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.CloseCurrentPane { confirm = false }
 	},
+	{
+		key = 'q',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.CloseCurrentTab { confirm = false }
+	},
 	-- misc
 	{
 		key = 'F11',
