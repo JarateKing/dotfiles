@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+top="▄▄"
+bot="▀▀"
+div=" "
+
+echo -e "$div\e[90m$top$div\e[91m$top$div\e[93m$top$div\e[92m$top$div\e[96m$top$div\e[94m$top$div\e[95m$top$div\e[97m$top\e[0m"
+echo -e "$div\e[30m$bot$div\e[31m$bot$div\e[33m$bot$div\e[32m$bot$div\e[36m$bot$div\e[34m$bot$div\e[35m$bot$div\e[37m$bot\e[0m"
