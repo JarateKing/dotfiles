@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+if [ "$1" = "-h" ]; then
+	echo "addfile \$1 \$2"
+	echo "\$1: target to create"
+	echo "\$2: template to copy"
+	echo ""
+	echo "-h: display this help menu"
+	exit 0
+fi
+
 if [[ -z "$1" ]]; then
    echo "Missing target filename argument!"
    exit 1
