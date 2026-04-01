@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git log --graph --pretty=tformat:"%Cred%an %Creset%s %Cgreen%as" "$@"
