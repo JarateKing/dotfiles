@@ -7,6 +7,7 @@
 - The `cse` command extends this further. With a directory argument it'll act the same, but with a file argument it'll open it in neovim.
 - The `cz` command is similar, but uses `yazi` to navigate between directories. This is more convenient to browse directories as it's a full filemanager, but likely isn't as fast to directly go to a specific directory.
 - `q` will `exit` as a minor convenience.
+- `__` can be used mid-pipe to comment something out, ie. `ls | __ sort -nr | grep .md` will still `ls | grep .md` but ignore the `sort -nr` since it's been commented out.
 
 ## Utilities
 
