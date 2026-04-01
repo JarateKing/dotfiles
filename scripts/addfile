@@ -8,6 +8,13 @@ if [ "$1" = "-h" ]; then
 	echo "\$2: template to copy"
 	echo ""
 	echo "-h: display this help menu"
+	echo "-l: list all the templates"
+	exit 0
+fi
+
+if [ "$1" = "-l" ]; then
+	cd $scripts_path/addfile_data
+	find * -type f
 	exit 0
 fi
 
