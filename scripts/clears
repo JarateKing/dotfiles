@@ -3,7 +3,7 @@
 linetotal=$(tput lines)
 linecount=$((linetotal - 1))
 
-for i in $(seq 1 $linecount); do
+for ((i=0; i<$linecount; i++)); do
 	echo ""
 done
 
