@@ -10,6 +10,7 @@
 
 ## Utilities
 
+- `clears` will clear the screen, but preserve full history (unlike `clear`, and including what's currently on screen unlike `clear -x`).
 - `notfetch` is a quick-and-simple alternative to `neofetch` and programs like it, because I didn't really like anything of the existing options.
 - `show_prompts` will display each type of prompt (`$PS1-4`) as well as some information about them, useful for debugging.
 - `on_dotfiles_install.sh` is a script that's meant to run on install. This will just install some key programs (ie. `git`, `emacs`) and set some default settings in gnome.
