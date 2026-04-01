@@ -19,3 +19,8 @@
 - likewise with `reload_inputrc`.
 - `gitlogs` will show a git log that's suited for surface-level overviews.
 - `gitlogx` is similar but shows more extended information suited for analyzing individual commits.
+
+## Nix Shells
+
+- `_emacs` will start up emacs with any other programs it might use (ie. LSP servers).
+- `_art` will provide various tools useful for making art assets (ie. krita, blender, aseprite, etc.).
