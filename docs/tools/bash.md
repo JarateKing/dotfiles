@@ -17,3 +17,5 @@
 - `addfile` is a cli utility for making a copy of some predefined file. For example, `addfile .gitignore gitignore/latex` will copy over the `~/scripts/addfile_data/gitignore/latex` file (a .gitignore suited for LaTeX) and use it as `.gitignore` in the local directory.
 - `reload_bashrc` can be used to load any edits made to `.bashrc`.
 - likewise with `reload_inputrc`.
+- `gitlogs` will show a git log that's suited for surface-level overviews.
+- `gitlogx` is similar but shows more extended information suited for analyzing individual commits.
