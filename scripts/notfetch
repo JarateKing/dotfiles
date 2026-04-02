@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+## todo: reference neofetch? for portable ways to get this info
+## todo: make more options that can be added with cli arguments
+## todo: also make an option to not echo the blank clear lines.
+
 # draw text centered horizontally in terminal
 center() {
 	local termwidth="$(tput cols)"
