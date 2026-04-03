@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+linetotal=$(tput lines)
+linecount=$((linetotal - 1))
+
+for ((i=0; i<$linecount; i++)); do
+	echo ""
+done
+
+clear -x

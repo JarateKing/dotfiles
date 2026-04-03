@@ -1,4 +1,42 @@
-echo PS1: $(bash -ic 'echo -e $PS1' | sed 's=\\\[==g' | sed 's=\\\]==g') "| general prompt |" $(bash -ic 'echo $PS1')
-echo PS2: $(bash -ic 'echo -e $PS2' | sed 's=\\\[==g' | sed 's=\\\]==g') "| continued line |" $(bash -ic 'echo $PS2')
-echo PS3: $(bash -ic 'echo -e $PS3' | sed 's=\\\[==g' | sed 's=\\\]==g') "| select prompts |" $(bash -ic 'echo $PS3')
-echo PS4: $(bash -ic 'echo -e $PS4' | sed 's=\\\[==g' | sed 's=\\\]==g') "| set -x prompts |" $(bash -ic 'echo $PS4')
+#!/usr/bin/env bash
+
+if [ "$1" = "--old" ]; then
+	echo PS1: $(bash -ic 'echo -e $PS1' | sed 's=\\\[==g' | sed 's=\\\]==g') "| general prompt |" $(bash -ic 'echo $PS1')
+	echo PS2: $(bash -ic 'echo -e $PS2' | sed 's=\\\[==g' | sed 's=\\\]==g') "| continued line |" $(bash -ic 'echo $PS2')
+	echo PS3: $(bash -ic 'echo -e $PS3' | sed 's=\\\[==g' | sed 's=\\\]==g') "| select prompts |" $(bash -ic 'echo $PS3')
+	echo PS4: $(bash -ic 'echo -e $PS4' | sed 's=\\\[==g' | sed 's=\\\]==g') "| set -x prompts |" $(bash -ic 'echo $PS4')
+	exit 0
+fi
+
+strip_ansi() {
+	echo -e "$1" | sed -r "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | sed 's=\\\[==g' | sed 's=\\\]==g'
+	echo -n -e "\e[0m"
+}
+
+echo "# PS1"
+echo "general prompt"
+echo -e $(bash -ic 'echo -e $PS1' | sed 's=\\\[==g' | sed 's=\\\]==g')
+echo -n -e "\e[0m"
+strip_ansi "$(bash -ic 'echo $PS1')"
+echo -e "\e[0m"
+
+echo "# PS2"
+echo "continued line"
+echo -e $(bash -ic 'echo -e $PS2' | sed 's=\\\[==g' | sed 's=\\\]==g')
+echo -n -e "\e[0m"
+strip_ansi "$(bash -ic 'echo $PS2')"
+echo -e "\e[0m"
+
+echo "# PS3"
+echo "select prompts"
+echo -e $(bash -ic 'echo -e $PS3' | sed 's=\\\[==g' | sed 's=\\\]==g')
+echo -n -e "\e[0m"
+strip_ansi "$(bash -ic 'echo $PS3')"
+echo -e "\e[0m"
+
+echo "# PS4"
+echo "set -x prompts"
+echo -e $(bash -ic 'echo -e $PS4' | sed 's=\\\[==g' | sed 's=\\\]==g')
+echo -n -e "\e[0m"
+strip_ansi "$(bash -ic 'echo $PS4')"
+echo -e "\e[0m"

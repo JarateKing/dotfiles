@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 
+scripts_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+if [ "$1" = "-h" ]; then
+	echo "addfile \$1 \$2"
+	echo "\$1: target to create"
+	echo "\$2: template to copy"
+	echo ""
+	echo "-h: display this help menu"
+	echo "-l: list all the templates"
+	exit 0
+fi
+
+if [ "$1" = "-l" ]; then
+	cd $scripts_path/addfile_data
+	find * -type f
+	exit 0
+fi
+
 if [[ -z "$1" ]]; then
    echo "Missing target filename argument!"
    exit 1
@@ -10,9 +28,9 @@ if [[ -z "$2" ]]; then
    exit 1
 fi
 
-if [ ! -f ~/scripts/addfile_data/$2 ]; then
+if [ ! -f $scripts_path/addfile_data/$2 ]; then
    echo "Invalid file template $2"
    exit 1
 fi
 
-cp ~/scripts/addfile_data/$2 $1
+cp $scripts_path/addfile_data/$2 $1

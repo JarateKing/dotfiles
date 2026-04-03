@@ -66,20 +66,6 @@ cz() {
 	fi
 	rm -f -- "$tmp"
 }
-## git log suited for overviews
-gitlogs() {
-	git log --graph --pretty=tformat:"%Cred%an %Creset%s %Cgreen%as" "$@"
-}
-## git log with all the info
-gitlogx() {
-	git log --color=always --pretty=tformat:"%C(auto,ul)%C(auto,bold)%Cgreen%s%Creset %C(auto,cyan)%(decorate:prefix=,suffix=,tag=:,pointer=→,separator= )
-Commit: %C(auto,yellow)%H%Creset
-Parent: %C(auto,yellow)%P%Creset
-Tree:   %C(auto,yellow)%T%Creset
-Author: %C(auto,brightwhite)%an %C(auto,ul)%Cred%ae%C(auto,noul) %C(auto,magenta)%aI %Cblue%G? %GS%Creset
-Commit: %C(auto,brightwhite)%cn %C(auto,ul)%Cred%ce%C(auto,noul) %C(auto,magenta)%cI %Cblue%GT%Creset
-%C(auto,italic)GITLOGBODYSTART%bGITLOGBODYEND%Creset%C(auto,cyan)%N" "$@" | sed -e 's/GITLOGBODYSTARTGITLOGBODYEND//; s/GITLOGBODYSTART//; s/GITLOGBODYEND//' | less -r -F
-}
 
 # prompts
 parse_git_branch() {
