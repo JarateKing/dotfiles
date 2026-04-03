@@ -4,6 +4,11 @@ local config = wezterm.config_builder()
 -- use bash on windows
 if (package.config:sub(1,1) == "\\") then
 	config.default_prog = { "c:/Program Files/Git/bin/bash.exe", "--login", "-i" }
+
+	-- fix a rendering bug I was experiencing
+	if string.find(wezterm.hostname(), 'MSI') then
+		config.front_end = "WebGpu"
+	end
 end
 
 -- restyle
