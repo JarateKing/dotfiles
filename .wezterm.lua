@@ -75,6 +75,7 @@ config.visual_bell = {
   fade_out_duration_ms = 500,
   fade_out_function = 'EaseOut'
 }
+config.animation_fps = 30
 wezterm.on('format-tab-title',
 	function(tab, tabs, panes, config, hover, max_width)
 		return ' ' .. (tab.tab_index + 1) .. ' '
