@@ -4,6 +4,11 @@ local config = wezterm.config_builder()
 -- use bash on windows
 if (package.config:sub(1,1) == "\\") then
 	config.default_prog = { "c:/Program Files/Git/bin/bash.exe", "--login", "-i" }
+
+	-- fix a rendering bug I was experiencing
+	if string.find(wezterm.hostname(), 'MSI') then
+		config.front_end = "WebGpu"
+	end
 end
 
 -- restyle
@@ -71,6 +76,7 @@ config.visual_bell = {
   fade_out_duration_ms = 500,
   fade_out_function = 'EaseOut'
 }
+config.animation_fps = 30
 wezterm.on('format-tab-title',
 	function(tab, tabs, panes, config, hover, max_width)
 		return ' ' .. (tab.tab_index + 1) .. ' '
