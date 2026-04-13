@@ -43,7 +43,7 @@ cs() {
 		fi
     fi
     ls -a --color=auto --hyperlink --group-directories-first --ignore=.
-    if [ -d ".git" ]; then
+    if [ -e ".git" ]; then
         echo ""
         git status -s -b
     fi
