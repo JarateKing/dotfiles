@@ -4,6 +4,7 @@
 # selectively include things
 !.gitignore
 !.gitmodules
+!.gitattributes
 !readme.md
 !.bashrc
 !.inputrc
