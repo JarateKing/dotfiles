@@ -1,8 +1,9 @@
 # functionality
-HISTCONTROL=ignoreboth  # do not store duplicate lines or lines that start with space
-HISTSIZE=2000           # lines stored for the current session
-HISTFILESIZE=2000       # lines stored between sessions
-shopt -s globstar       # support ** wildcards
+HISTCONTROL=ignoreboth            # do not store duplicate lines or lines that start with space
+HISTSIZE=2000                     # lines stored for the current session
+HISTFILESIZE=2000                 # lines stored between sessions
+shopt -s globstar                 # support ** wildcards
+shopt -s no_empty_cmd_completion  # prevent long delay on tab with empty completion
 
 # path
 if ! [[ "$PATH" =~ "$HOME/scripts:" ]]; then PATH="$HOME/scripts:$PATH"; fi
