@@ -4,6 +4,7 @@ HISTSIZE=2000                     # lines stored for the current session
 HISTFILESIZE=2000                 # lines stored between sessions
 shopt -s globstar                 # support ** wildcards
 shopt -s no_empty_cmd_completion  # prevent long delay on tab with empty completion
+shopt -s dotglob                  # include dotfiles in *
 
 # path
 if ! [[ "$PATH" =~ "$HOME/scripts:" ]]; then PATH="$HOME/scripts:$PATH"; fi
