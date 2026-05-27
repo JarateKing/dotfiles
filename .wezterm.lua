@@ -198,7 +198,7 @@ config.keys = {
 		mods = 'CTRL|SHIFT|ALT',
 		action = wezterm.action.QuickSelect
 	},
-	-- create/destroy tabs/windows
+	-- create/destroy panes/tabs/windows
 	{
 		key = 'e',
 		mods = 'CTRL|SHIFT',
@@ -218,6 +218,47 @@ config.keys = {
 		key = 'q',
 		mods = 'CTRL|SHIFT|ALT',
 		action = wezterm.action.CloseCurrentTab { confirm = false }
+	},
+	-- navigate/split panes
+	{
+		key = 'i',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivatePaneDirection 'Up'
+	},
+	{
+		key = 'i',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.SplitPane  { direction = 'Up' }
+	},
+	{
+		key = 'j',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivatePaneDirection 'Left'
+	},
+	{
+		key = 'j',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.SplitPane  { direction = 'Left' }
+	},
+	{
+		key = 'k',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivatePaneDirection 'Down'
+	},
+	{
+		key = 'k',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.SplitPane { direction = 'Down' }
+	},
+	{
+		key = 'l',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivatePaneDirection 'Right'
+	},
+	{
+		key = 'l',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.SplitPane { direction = 'Right' }
 	},
 	-- misc
 	{
