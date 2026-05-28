@@ -271,6 +271,11 @@ config.keys = {
 		action = wezterm.action.CharSelect
 	},
 	{
+		key = 'r',
+		mods = 'CTRL|SHIFT|ALT',
+		action = wezterm.action.ShowLauncher
+	},
+	{
 		key = 'p',
 		mods = 'CTRL|SHIFT',
 		action = wezterm.action.ActivateCommandPalette
@@ -295,11 +300,14 @@ local function add_launch_entry(launch_menu, args, label, domain)
 end
 
 local launch_menu = {}
+
+add_launch_entry(launch_menu, { 'bash', '--login', '-i' }, 'Bash', 'local')
 add_launch_entry(launch_menu, { 'fish' }, 'Fish', 'local')
 add_launch_entry(launch_menu, { 'zsh' }, 'Fish', 'local')
 add_launch_entry(launch_menu, { 'pwsh', '-NoLogo' }, 'Powershell (pwsh)', 'local')
 add_launch_entry(launch_menu, { 'powershell', '-NoLogo' }, 'Powershell (win)', 'local')
 add_launch_entry(launch_menu, { 'cmd', }, 'Command Prompt', 'local')
+
 config.launch_menu = launch_menu
 
 -- directory/file hyperlink support
