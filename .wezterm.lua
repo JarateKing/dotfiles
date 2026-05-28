@@ -277,6 +277,31 @@ config.keys = {
 	}
 }
 
+-- launch menu
+-- modified from github.com/pasanec/wezterm_win
+local function exe_exists(name)
+	local ok, _stdout, _stderr = wezterm.run_child_process { 'where', name }
+	return ok
+end
+
+local function add_launch_entry(launch_menu, args, label, domain)
+	if exe_exists(args[1]) then
+		table.insert(launch_menu, {
+			label = label,
+			domain = { DomainName = domain },
+			args = args,
+		})
+	end
+end
+
+local launch_menu = {}
+add_launch_entry(launch_menu, { 'fish' }, 'Fish', 'local')
+add_launch_entry(launch_menu, { 'zsh' }, 'Fish', 'local')
+add_launch_entry(launch_menu, { 'pwsh', '-NoLogo' }, 'Powershell (pwsh)', 'local')
+add_launch_entry(launch_menu, { 'powershell', '-NoLogo' }, 'Powershell (win)', 'local')
+add_launch_entry(launch_menu, { 'cmd', }, 'Command Prompt', 'local')
+config.launch_menu = launch_menu
+
 -- directory/file hyperlink support
 -- modified from wezterm.org/recipes/hyperlinks.html#configuration
 local function is_shell(foreground_process_name)
