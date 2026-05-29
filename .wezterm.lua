@@ -11,6 +11,9 @@ if (package.config:sub(1,1) == "\\") then
 	end
 end
 
+-- functionality
+config.scrollback_lines = 10000
+
 -- restyle
 config.font_size = 9
 config.char_select_font_size = 9
