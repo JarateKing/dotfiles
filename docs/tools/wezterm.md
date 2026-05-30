@@ -21,6 +21,7 @@ All keybinds are done with either `CTRL+SHIFT` or `CTRL+SHIFT+ALT`, where `ALT` 
 - `X`: enters "copy" mode for selecting text via the keyboard.
 - `R`: opens menu to select unicode/emoji/nerdfont/etc. characters.
 - `P`: opens menu to select wezterm commands.
+- `I`, `J`, `K`, `L`: moves to a split panel, based on the direction. Alt creates a split panel.
 
 As well, `F11` (with no modifiers) will toggle fullscreen mode.
 
