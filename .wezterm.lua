@@ -130,6 +130,17 @@ wezterm.on('update-status', function(window, pane)
 		{ Text = status },
 	})
 end)
+-- title
+wezterm.on('format-window-title', function(tab, pane, tabs, panes, config)
+	local parts = {}
+	
+	local index = string.format('%d/%d', tab.tab_index + 1, #tabs)
+	table.insert(parts, index)
+	
+	local status = ' [' .. table.concat(parts, ' ') .. ']'
+	
+	return 'wezterm: ' .. tab.active_pane.title .. status
+end)
 
 -- keybinds
 config.disable_default_key_bindings = true
