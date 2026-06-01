@@ -299,7 +299,12 @@ config.keys = {
 -- launch menu
 -- modified from github.com/pasanec/wezterm_win
 local function exe_exists(name)
-	local ok, _stdout, _stderr = wezterm.run_child_process { 'where', name }
+	local cmd = 'which'
+	if (package.config:sub(1,1) == "\\") then
+		cmd = 'where'
+	end
+	
+	local ok, _stdout, _stderr = wezterm.run_child_process { cmd, name }
 	return ok
 end
 
