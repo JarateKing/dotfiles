@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+name=$(git config user.name)
+email=$(git config user.email)
+
+if [[ ! -n "$name" ]]; then
+	echo "user.name not set"
+	exit 1
+fi
+if [[ ! -n "$email" ]]; then
+	echo "user.email not set"
+	exit 1
+fi
+
+email="$email"
+
+echo -e "user:      $name \e[0;33m<$email>\e[0m"
+
+authorname=$(git config author.name)
+authoremail=$(git config author.email)
+committername=$(git config committer.name)
+committeremail=$(git config committer.email)
+
+if [[ ! -n "$authorname" ]]; then
+	authorname="\e[1;30m$name\e[0m"
+fi
+if [[ ! -n "$committername" ]]; then
+	committername="\e[1;30m$name\e[0m"
+fi
+if [[ ! -n "$authoremail" ]]; then
+	authoremail="\e[1;30m<$email>"
+else
+	authoremail="\e[0;33m<$authoremail>"
+fi
+if [[ ! -n "$committeremail" ]]; then
+	committeremail="\e[1;30m<$email>"
+else
+	committeremail="\e[0;33m<$committeremail>"
+fi
+
+echo -e "author:    $authorname $authoremail\e[0m"
+echo -e "committer: $committername $committeremail\e[0m"
