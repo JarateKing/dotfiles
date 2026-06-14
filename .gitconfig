@@ -1,3 +1,7 @@
+[alias]
+	# these exist as scripts, but we can use them via `git logs` now too
+	logs = !"gitlogs"
+	logx = !"gitlogx"
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
