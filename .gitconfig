@@ -3,16 +3,20 @@
 	logs = !"gitlogs"
 	logx = !"gitlogx"
 	diffs = !"gitdiffs"
+
 	# these are common commands that by default have forgettable syntax
 	unstage = restore --staged
+	uncommit = reset --soft HEAD~
 	amend = commit --amend
 	contributors = shortlog -n -s -e
 	discard = checkout -p
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
 [push]
 	autoSetupRemote = true
 
