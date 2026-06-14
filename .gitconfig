@@ -2,6 +2,7 @@
 	# these exist as scripts, but we can use them via `git logs` now too
 	logs = !"gitlogs"
 	logx = !"gitlogx"
+	unstage = restore --staged
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
