@@ -42,6 +42,19 @@ There are also some fonts that ideally should be installed:
 - install https://github.com/davestewart/minimap-font/tree/master
 - install https://www.jetbrains.com/lp/mono/
 
+You should also setup your personal git configuration in a new `.gitconfig-private` file. For example,
+
+```
+# global default username
+[user]
+	email = yournamehere@email.com
+	name = UsernameHere
+
+# per-project override(s)
+[includeIf "gitdir:~/work/"]
+	path = ~/work/.gitconfig
+```
+
 #### Windows
 
 For the most part these dotfiles can be installed on windows as well, by cloning this repo into the user's home directory (usually `c:/Users/<username>/`). Not everything is guaranteed to work, but most should.

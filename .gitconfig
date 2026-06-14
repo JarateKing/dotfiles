@@ -1,0 +1,11 @@
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[push]
+	autoSetupRemote = true
+
+# for configurations like "user" that's personal
+[include]
+	path = .gitconfig-private
