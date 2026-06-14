@@ -5,6 +5,7 @@
 	unstage = restore --staged
 	amend = commit --amend
 	contributors = shortlog -n -s -e
+	discard = checkout -p
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
