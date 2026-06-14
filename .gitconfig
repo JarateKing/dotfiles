@@ -3,6 +3,7 @@
 	logs = !"gitlogs"
 	logx = !"gitlogx"
 	unstage = restore --staged
+	amend = commit --amend
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
