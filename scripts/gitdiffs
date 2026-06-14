@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+staged=$(git diff --name-only --cached)
+if [[ -n "$staged" ]]; then
+	echo -e "\e[1;34m# Staged\e[0m"
+	git diff --cached
+fi
+
+unstaged=$(git diff --name-only)
+if [[ -n "$unstaged" ]]; then
+	echo -e "\e[1;34m# Unstaged\e[0m"
+	git diff
+fi

@@ -2,6 +2,8 @@
 	# these exist as scripts, but we can use them via `git logs` now too
 	logs = !"gitlogs"
 	logx = !"gitlogx"
+	diffs = !"gitdiffs"
+	# these are common commands that by default have forgettable syntax
 	unstage = restore --staged
 	amend = commit --amend
 	contributors = shortlog -n -s -e
