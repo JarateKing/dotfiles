@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+prev_dir="placeholder"
+
+# most of this is to create a `tree`-like display
+# I can't guarantee `tree` is available though...
+# so instead I just do a simple version manually.
+
+get_output() {
+	lines=$(git ls-files)
+	
+	echo "$lines" | while read line ; do
+		current_dir=$(dirname "$line")
+		if [[ "$prev_dir" != "$current_dir"* ]]; then
+			parent_dir=""
+			for parent in ${current_dir//\// }; do
+				parent_dir="$parent_dir/$parent"
+				parent_dir=$(echo "$parent_dir" | sed -e 's/^\///')
+				# echo "$parent_dir"
+				if [[ "$parent_dir" != "." && "$prev_dir" != "$parent_dir"* ]]; then
+					display_line=$(echo "$parent_dir" | sed -e 's/[^\/]*\//| /g')
+					echo -e "\e[1;34m$display_line\e[0m"
+				fi
+			done
+			
+			prev_dir="$current_dir"
+		fi
+		
+		display_line=$(echo "$line" | sed -e 's/[^\/]*\//| /g')
+		file_info=$(git log -1 --date="short" --pretty="format:\e[0;32m%cd \e[0;33m%cn" "$line")
+		echo -e "$display_line $file_info\e[0m"
+	done
+}
+
+#get_output | less -r -F
+get_output

@@ -25,6 +25,7 @@ There are a few aliases that either serve as shortcuts for common options, or ne
 - `git contributors` will show the repo's contributors as well as how many commits they made.
 - `git diffs` will show the diffs of both staged and unstaged files.
 - `git discard` will open an interactive menu that can discard individual changes within files.
+- `git list-files` lists all currently tracked files, along with basic info like time/author of last modification.
 - `git local-branches` lists all local branches, sorted by date.
 - `git logs` will show a git log that's suited for surface-level overviews.
 - `git logx` is similar but shows more extended information suited for analyzing individual commits.
