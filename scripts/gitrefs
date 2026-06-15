@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+format="%(color:magenta)%(authordate:short) %(color:cyan)%(refname:lstrip=2)%(color:bold red)%(HEAD) %(color:reset)"
+
+git for-each-ref --color=always --sort='-authordate' --format="$format" "$1" | less -r -F

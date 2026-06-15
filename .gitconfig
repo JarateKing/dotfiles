@@ -13,6 +13,12 @@
 	discard = checkout -p
 	staging = add -p
 	unstaging = restore --staged -p
+	
+	# listing branches and tags
+	branches = !"gitrefsall"
+	local-branches = !"gitrefs refs/heads"
+	remote-branches = !"gitrefs refs/remotes"
+	tags = !"gitrefs refs/tags"
 
 [filter "lfs"]
 	required = true

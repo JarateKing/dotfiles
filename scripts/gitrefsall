@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+get_output() {
+	echo -e "\e[1;34m# Local Branches\e[0m"
+	gitrefs refs/heads
+	
+	echo -e "\n\e[1;34m# Remote Branches\e[0m"
+	gitrefs refs/remotes
+}
+
+get_output | less -r -F
