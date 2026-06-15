@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+get_output() {
+	lines=$(git config -l | grep alias | cut -c 7- | sort)
+	
+	echo "$lines" | while read line ; do
+		name=$(echo $line | grep -o '.*=' | sed 's/.$//')
+		cmd=$(echo $line | grep -o '=.*' | sed 's/^.//')
+		
+		if [[ ${cmd::1} == "!" ]]; then
+			cmd=$(echo "$cmd" | sed 's/^.//')
+		else
+			cmd="git $cmd"
+		fi
+		
+		echo -e "\e[1;34mgit $name \e[0;36m$cmd\e[0m"
+	done
+}
+
+get_output | less -r -F

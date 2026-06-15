@@ -4,6 +4,7 @@
 	logx = !"gitlogx"
 	diffs = !"gitdiffs"
 	who = !"gitwho"
+	aliases = !"gitaliases"
 
 	# these are common commands that by default have forgettable syntax
 	unstage = restore --staged

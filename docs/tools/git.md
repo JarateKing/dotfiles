@@ -19,6 +19,7 @@ To setup git, you should start by creating a `.gitconfig-private` with your user
 
 There are a few aliases that either serve as shortcuts for common options, or new utilities entirely.
 
+- `git aliases` will show all aliases added to the config.
 - `git amend` will modify the most recent commit.
 - `git branches` will combine both `git local-branches` and `git remote-branches`.
 - `git contributors` will show the repo's contributors as well as how many commits they made.
