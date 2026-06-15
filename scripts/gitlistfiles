@@ -18,19 +18,20 @@ get_output() {
 				parent_dir=$(echo "$parent_dir" | sed -e 's/^\///')
 				# echo "$parent_dir"
 				if [[ "$parent_dir" != "." && "$prev_dir" != "$parent_dir"* ]]; then
-					display_line=$(echo "$parent_dir" | sed -e 's/[^\/]*\//| /g')
-					echo -e "\e[1;34m$display_line\e[0m"
+					dirname=$(basename "$parent_dir")
+					indent=$(echo "$parent_dir" | sed -e 's/[^\/]*\//| /g' -e 's/^\(\(| \)*\)\(.\)*/\1/g')
+					echo -e "\e[0;90m$indent\e[1;34m$dirname\e[0m"
 				fi
 			done
 			
 			prev_dir="$current_dir"
 		fi
 		
-		display_line=$(echo "$line" | sed -e 's/[^\/]*\//| /g')
+		filename=$(basename "$line")
+		indent=$(echo "$line" | sed -e 's/[^\/]*\//| /g' -e 's/^\(\(| \)*\)\(.\)*/\1/g')
 		file_info=$(git log -1 --date="short" --pretty="format:\e[0;32m%cd \e[0;33m%cn" "$line")
-		echo -e "$display_line $file_info\e[0m"
+		echo -e "\e[0;90m$indent\e[0m$filename $file_info\e[0m"
 	done
 }
 
-#get_output | less -r -F
-get_output
+get_output | less -r -F
