@@ -11,6 +11,8 @@
 	amend = commit --amend
 	contributors = shortlog -n -s -e
 	discard = checkout -p
+	staging = add -p
+	unstaging = restore --staged -p
 
 [filter "lfs"]
 	required = true
