@@ -29,8 +29,13 @@ get_output() {
 		
 		filename=$(basename "$line")
 		indent=$(echo "$line" | sed -e 's/[^\/]*\//| /g' -e 's/^\(\(| \)*\)\(.\)*/\1/g')
-		file_info=$(git log -1 --date="short" --pretty="format:\e[0;32m%cd \e[0;33m%cn" "$line")
-		echo -e "\e[0;90m$indent\e[0m$filename $file_info\e[0m"
+		file_info=$(git log -1 --date="short" --pretty="format:\e[0;32m%cd \e[0;35m%cn" "$line")
+		file_status=$(git status -s "$line")
+		filename_colour="\e[0m"
+		if [[ -n $file_status ]]; then
+			filename_colour="\e[0;33m"
+		fi
+		echo -e "\e[0;90m$indent$filename_colour$filename\e[0m $file_info\e[0m"
 	done
 }
 
