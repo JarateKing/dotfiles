@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-prev_dir="placeholder"
+prev_dir=""
 
 # most of this is to create a `tree`-like display
 # I can't guarantee `tree` is available though...
 # so instead I just do a simple version manually.
 
 get_output() {
-	lines=$(git ls-files)
+	lines=$(git ls-files "$@")
 	
 	echo "$lines" | while read line ; do
 		current_dir=$(dirname "$line")
@@ -39,4 +39,4 @@ get_output() {
 	done
 }
 
-get_output | less -r -F
+get_output "$@" | less -r -F
