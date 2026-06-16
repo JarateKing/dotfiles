@@ -22,6 +22,7 @@ There are a few aliases that either serve as shortcuts for common options, or ne
 - `git aliases` will show all aliases added to the config.
 - `git amend` will modify the most recent commit.
 - `git branches` will combine both `git local-branches` and `git remote-branches`.
+- `git churn` will show how frequently files were edited.
 - `git contributors` will show the repo's contributors as well as how many commits they made.
 - `git diffs` will show the diffs of both staged and unstaged files.
 - `git discard` will open an interactive menu that can discard individual changes within files.
