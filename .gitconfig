@@ -8,7 +8,7 @@
 	list-files = !"gitlistfiles"
 	churn = !"gitchurn"
 
-	# these are common commands that by default have forgettable syntax
+	# these are common or useful commands that can have simplified syntax
 	unstage = restore --staged
 	uncommit = reset --soft HEAD~
 	amend = commit --amend
@@ -16,6 +16,7 @@
 	discard = checkout -p
 	staging = add -p
 	unstaging = restore --staged -p
+	default-branch = !"git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/"
 	
 	# listing branches and tags
 	branches = !"gitrefsall"
