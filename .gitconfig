@@ -9,12 +9,14 @@
 	logs = !"gitlogs"
 	logx = !"gitlogx"
 	remote-branches = !"gitrefs refs/remotes"
+	summary = !"gitsummary"
 	tags = !"gitrefs refs/tags"
 	who = !"gitwho"
 
 	# these are common or useful commands that can have simplified syntax
 	amend = commit --amend
 	contributors = shortlog -n -s -e
+	current-branch = !"git rev-parse --abbrev-ref HEAD"
 	default-branch = !"git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/"
 	directory = rev-parse --show-toplevel
 	discard = checkout -p

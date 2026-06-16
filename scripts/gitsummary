@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+get_output() {
+	echo -e "\e[1;34m# Repository\e[0m"
+
+	echo -e "Default branch: \e[0;36m$(git default-branch)\e[0m"
+
+	echo ""
+	echo -e "\e[1;34m# Local Copy\e[0m"
+	
+	echo -e "Directory: \e[0;35m$(git directory)\e[0m"
+
+	echo ""
+	echo -e "\e[1;34m# Working State\e[0m"
+
+	echo -e "Local branch: \e[0;36m$(git rev-parse --abbrev-ref HEAD)\e[0m"
+	echo -e "Last commit: $(git log --color=always -n 1 --date='short' --pretty='format:%Cred%cn %Creset%s %Cgreen%cd%Creset')"
+	git -c color.ui=always status -s
+}
+
+get_output | less -r -F
