@@ -6,4 +6,4 @@ Parent: %C(auto,yellow)%P%Creset
 Tree:   %C(auto,yellow)%T%Creset
 Author: %C(auto,brightwhite)%an %C(auto,ul)%Cred%ae%C(auto,noul) %C(auto,magenta)%aI %Cblue%G? %GS%Creset
 Commit: %C(auto,brightwhite)%cn %C(auto,ul)%Cred%ce%C(auto,noul) %C(auto,magenta)%cI %Cblue%GT%Creset
-%C(auto,italic)GITLOGBODYSTART%bGITLOGBODYEND%Creset%C(auto,cyan)%N" "$@" | sed -e 's/GITLOGBODYSTARTGITLOGBODYEND//; s/GITLOGBODYSTART//; s/GITLOGBODYEND//' | less -r -F
+%C(auto,italic)GITLOGBODYSTART%bGITLOGBODYEND%Creset%C(auto,cyan)%N%Creset" "$@" | sed -e 's/GITLOGBODYSTARTGITLOGBODYEND//; s/GITLOGBODYSTART//; s/GITLOGBODYEND//' | less -r -F
