@@ -1,29 +1,27 @@
 [alias]
-	# these exist as scripts, but we can use them via `git logs` now too
+	# these exist as scripts, but we can use them via `git churn` now too
+	aliases = !"gitaliases"
+	branches = !"gitrefsall"
+	churn = !"gitchurn"
+	diffs = !"gitdiffs"
+	list-files = !"gitlistfiles"
+	local-branches = !"gitrefs refs/heads"
 	logs = !"gitlogs"
 	logx = !"gitlogx"
-	diffs = !"gitdiffs"
-	who = !"gitwho"
-	aliases = !"gitaliases"
-	list-files = !"gitlistfiles"
-	churn = !"gitchurn"
-
-	# these are common or useful commands that can have simplified syntax
-	unstage = restore --staged
-	uncommit = reset --soft HEAD~
-	amend = commit --amend
-	contributors = shortlog -n -s -e
-	discard = checkout -p
-	staging = add -p
-	unstaging = restore --staged -p
-	default-branch = !"git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/"
-	directory = rev-parse --show-toplevel
-	
-	# listing branches and tags
-	branches = !"gitrefsall"
-	local-branches = !"gitrefs refs/heads"
 	remote-branches = !"gitrefs refs/remotes"
 	tags = !"gitrefs refs/tags"
+	who = !"gitwho"
+
+	# these are common or useful commands that can have simplified syntax
+	amend = commit --amend
+	contributors = shortlog -n -s -e
+	default-branch = !"git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/"
+	directory = rev-parse --show-toplevel
+	discard = checkout -p
+	staging = add -p
+	uncommit = reset --soft HEAD~
+	unstage = restore --staged
+	unstaging = restore --staged -p
 
 [filter "lfs"]
 	required = true
