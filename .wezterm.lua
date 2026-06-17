@@ -103,6 +103,10 @@ wezterm.on('window-focus-changed',
 -- right status
 wezterm.on('update-status', function(window, pane)
 	local parts = {}
+	
+	local prog = pane:get_user_vars().WEZTERM_PROG
+	table.insert(parts, prog)
+	
 	local date = wezterm.strftime '%H:%M'
 	table.insert(parts, date)
 
