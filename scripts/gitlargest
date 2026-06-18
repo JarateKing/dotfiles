@@ -3,4 +3,4 @@
 scriptdir="$(dirname -- $0)"
 
 commits="$(git log --pretty='format:c%s%nn%cn' --shortstat -m)"
-echo "$commits" | python "$scriptdir/helpers/gitlargest.py" | less -r -F
+echo "$commits" | python "$scriptdir/helpers/gitlargest.py" $@ | less -r -F

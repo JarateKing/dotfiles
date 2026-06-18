@@ -1,11 +1,11 @@
-import fileinput, re
+import re, sys
 
 index = 0
 lines = ['', '', '', '']
 
 commits = []
 
-for line in fileinput.input():
+for line in sys.stdin:
 	lines[index] = line.strip()
 	index = (index + 1) % 4
 	
@@ -35,7 +35,28 @@ for line in fileinput.input():
 		
 		commits.append((lines[0], lines[1], files, inserts, deletions, total, delta))
 
-ordered = sorted(commits, key=lambda x: -x[5])
+sorttype = 5
+sortorder = -1
+for arg in sys.argv[1:]:
+	if arg == '--reversed' or arg == '-r':
+		sortorder = 1
+	
+	if arg == '--files' or arg == '-f':
+		sorttype = 2
+	
+	if arg == '--added' or arg == '-a':
+		sorttype = 3
+	
+	if arg == '--deleted' or arg == '-d':
+		sorttype = 4
+	
+	if arg == '--total' or arg == '-t':
+		sorttype = 5
+	
+	if arg == '--delta' or arg == '-x':
+		sorttype = 6
+
+ordered = sorted(commits, key=lambda x: sortorder * x[sorttype])
 
 for commit in ordered:
 	print('{} {} [f{} +{} -{} #{} ={}]'.format(commit[0], commit[1], commit[2], commit[3], commit[4], commit[5], commit[6]))
