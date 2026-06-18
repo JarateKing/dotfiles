@@ -137,4 +137,6 @@ setup_prompts
 export GIT_CEILING_DIRECTORIES="$HOME"
 
 # shell integrations
-source "./scripts/wezterm_shell_integration.sh"
+if [ -n "$WEZTERM_EXECUTABLE" ]; then
+	source "./scripts/wezterm_shell_integration.sh"
+fi
