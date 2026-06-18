@@ -34,12 +34,14 @@ There are a few aliases that either serve as shortcuts for common options, or ne
 - `git logs` will show a git log that's suited for surface-level overviews.
 - `git logx` is similar but shows more extended information suited for analyzing individual commits.
 - `git remote-branches` lists all remote branches, sorted by date.
+- `git raw` shows the raw commit info for the most recent commit, or a given commit passed in by argument.
 - `git staging` will open an interactive menu that can stage individual changes within files.
 - `git summary` will show various bits of info about the repository.
 - `git tags` lists all tags, sorted by date.
 - `git uncommit` will undo the most recent commit, bringing the changes back to staging.
 - `git unstage` will unstage files that are currently staged.
 - `git unstaging` will open an interactive menu that can unstage individual changes within files.
+- `git untrack-ignored` will mark files for deletion if they've been added to `.gitignore`.
 - `git who` will show the current user's name and email, as well as author and committer overrides if need be. Useful if dealing with multiple git identities across different configs.
 
 ## Why No Shortcut Aliases?
