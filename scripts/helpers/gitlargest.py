@@ -10,8 +10,6 @@ for line in sys.stdin:
 	index = (index + 1) % 4
 	
 	if index == 3:
-		print(lines)
-	
 		# remove the field markers
 		lines[0] = lines[0][1:]
 		lines[1] = lines[1][1:]
