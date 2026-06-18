@@ -59,4 +59,4 @@ for arg in sys.argv[1:]:
 ordered = sorted(commits, key=lambda x: sortorder * x[sorttype])
 
 for commit in ordered:
-	print('{} {} [f{} +{} -{} #{} ={}]'.format(commit[0], commit[1], commit[2], commit[3], commit[4], commit[5], commit[6]))
+	print('f\033[0;33m{}\033[0m\t+\033[0;32m{}\033[0m\t-\033[0;31m{}\033[0m\t#\033[0;36m{}\033[0m\t=\033[0;35m{}\033[0m\t {} \033[0;34m{}\033[0m'.format(commit[2], commit[3], commit[4], commit[5], commit[6], commit[0], commit[1]))
