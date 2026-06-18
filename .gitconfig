@@ -34,6 +34,9 @@
 [push]
 	autoSetupRemote = true
 
+[init]
+	defaultBranch = main
+
 # for configurations like "user" that's personal
 [include]
 	path = .gitconfig-private
