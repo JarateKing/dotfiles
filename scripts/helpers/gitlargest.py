@@ -9,7 +9,9 @@ for line in sys.stdin:
 	lines[index] = line.strip()
 	index = (index + 1) % 4
 	
-	if index == 2:
+	if index == 3:
+		print(lines)
+	
 		# remove the field markers
 		lines[0] = lines[0][1:]
 		lines[1] = lines[1][1:]
