@@ -138,5 +138,5 @@ export GIT_CEILING_DIRECTORIES="$HOME"
 
 # shell integrations
 if [ -n "$WEZTERM_EXECUTABLE" ]; then
-	source "./scripts/wezterm_shell_integration.sh"
+	source "$HOME/scripts/wezterm_shell_integration.sh"
 fi
