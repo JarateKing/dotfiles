@@ -6,7 +6,7 @@ This document describes how I tend to use the various commands and features in t
 
 ### Terminal Navigation
 
-... zellij for ... Otherwise, when each task is a bit more separated, I'll create different tabs in wezterm (via `CTRL+SHIFT+E` to spawn a new tab and `CTRL+SHIFT+A`/`D` to navigate to it) and use them that way.
+Most of my terminal splitting needs is handled by wezterm. Most of the time I only create new tabs (via `CTRL+SHIFT+E` to spawn a new tab and `CTRL+SHIFT+A`/`D` to navigate to it), but I can split them sometimes (`CTRL+SHIFT+ALT+I`/`J`/`K`/`L` to split in that direction, `CTRL+SHIFT+I`/`J`/`K`/`L` to switch, and `CTRL+SHIFT+Q` to close it). I've also used zellij for similar purposes.
 
 To navigate directories, I'll either use `cs` (which is like `cd` that also runs `ls` and may run `git status` afterwards, since I'd usually run those anyway after `cd`) if I know exactly what directory to go to, or I'll use `cz` (which uses `yazi`) which is better for browsing directories if I need to go looking around more.
 
@@ -30,4 +30,3 @@ Let's say I want to do some programming on a git project named `website`. I migh
 ## Note On Windows
 
 Some of this workflow has to vary on Windows because not every tool supports windows. Some things might need to be substituted, but the general workflow should still function.
-
