@@ -29,6 +29,8 @@
 !docs/**
 !.config/yazi/
 !.config/yazi/**
+!.config/git/
+!.config/git/ignore
 
 # re-ignore some things
 .emacs.d/eln-cache/

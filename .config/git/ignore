@@ -1,0 +1,10 @@
+# OS-related files
+.DS_Store
+Thumbs.db
+
+# debugging
+*.env
+*.venv
+
+# editor files
+*~
