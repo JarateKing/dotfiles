@@ -19,12 +19,12 @@ if [ "$1" = "-l" ]; then
 fi
 
 if [[ -z "$1" ]]; then
-   echo "Missing target filename argument!"
+   echo "Missing target filename argument! Use 'addfile -h' for the help menu."
    exit 1
 fi
 
 if [[ -z "$2" ]]; then
-   echo "Missing file template argument!"
+   echo "Missing file template argument! Use 'addfile -h' for the help menu."
    exit 1
 fi
 
