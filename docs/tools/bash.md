@@ -11,6 +11,8 @@
 
 ## Utilities
 
+Some of these utilities are useful for configuring a terminal, others are generally useful utilities for working in bash, and some are just useful random scripts to solve tasks that come up every so often.
+
 - `clears` will clear the screen, but preserve full history (unlike `clear`, and including what's currently on screen unlike `clear -x`).
 - `notfetch` is a quick-and-simple alternative to `neofetch` and programs like it, because I didn't really like anything of the existing options.
 - `show_prompts` will display each type of prompt (`$PS1-4`) as well as some information about them, useful for debugging.
@@ -18,6 +20,8 @@
 - `addfile` is a cli utility for making a copy of some predefined file. For example, `addfile .gitignore gitignore/latex` will copy over the `~/scripts/addfile_data/gitignore/latex` file (a .gitignore suited for LaTeX) and use it as `.gitignore` in the local directory.
 - `reload_bashrc` can be used to load any edits made to `.bashrc`.
 - likewise with `reload_inputrc`.
+- `palette` will show the terminal's ANSI escape sequence colours, in a nice clean palette.
+- `dict_search` will grab a word list and match each word against regex.
 
 ## Nix Shells
 
