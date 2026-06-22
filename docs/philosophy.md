@@ -10,6 +10,8 @@ For this reason, our dotfiles are mostly just stored as-is, with a repo directly
 
 - a `readme.md` that also acts as an install script
 - `.gitignore` to handle filtering files in/out of the repo, making managing dotfiles under source control much easier
+- `.gitattributes` to deal with OS-specific line endings
+- a `license.md` (MIT license) for legal reasons
 
 As well as a few important subdirectories:
 
