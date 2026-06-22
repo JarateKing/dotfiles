@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
+
+# download words list if doesn't exist
+if [ ! -f "$script_dir/dictionary/words.txt" ]; then
+	mkdir -p "$script_dir/dictionary/" > /dev/null
+	curl -o "$script_dir/dictionary/words.txt" "https://raw.githubusercontent.com/dwyl/english-words/refs/heads/master/words.txt" > /dev/null 2>&1
+fi
+
+python "$script_dir/helpers/dict_search.py" "$script_dir/dictionary/words.txt"  "$@"
