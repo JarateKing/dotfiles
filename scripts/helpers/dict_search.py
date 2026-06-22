@@ -56,4 +56,6 @@ with open(sys.argv[1]) as words:
 				print(word)
 
 if should_count:
+	if (should_print):
+		print() # bit of spacing for summaries
 	print("{}/{} ({:.4f}%)".format(count, total, count / total * 100))
