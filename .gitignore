@@ -6,6 +6,7 @@
 !.gitmodules
 !.gitattributes
 !readme.md
+!license.md
 !.bashrc
 !.inputrc
 !.gitconfig
