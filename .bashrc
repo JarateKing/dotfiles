@@ -140,3 +140,8 @@ export GIT_CEILING_DIRECTORIES="$HOME"
 if [ -n "$WEZTERM_EXECUTABLE" ]; then
 	source "$HOME/scripts/wezterm_shell_integration.sh"
 fi
+
+# personal stuff
+if [ -f "$HOME/.bashrc-private" ]; then
+	source "$HOME/.bashrc-private"
+fi
