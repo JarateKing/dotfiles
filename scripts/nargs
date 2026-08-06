@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+index=0
+for arg in "$@"; do
+	echo "$index:"$'\t'"$arg"
+	((index++))
+done
