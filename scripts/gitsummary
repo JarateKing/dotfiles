@@ -4,7 +4,10 @@ get_output() {
 	echo -e "\e[1;34m# Repository\e[0m"
 
 	echo -e "Default branch: \e[0;36m$(git default-branch)\e[0m"
-	echo -e "Branches:       $(git remote-branches | wc -l)"
+	
+	# need to subtract one for origin/HEAD
+	remotebranches=$(git remote-branches | wc -l)
+	echo -e "Branches:       $((remotebranches - 1))"
 
 	echo ""
 	echo -e "\e[1;34m# Local Repo\e[0m"
