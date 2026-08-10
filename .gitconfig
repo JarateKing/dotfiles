@@ -28,6 +28,17 @@
 	unstaging = restore --staged -p
 	untrack-ignored = !"git rm -r --cached . && git add . && git restore --staged ."
 
+[pager]
+	aliases = on
+	churn = on
+	diffs = on
+	list-files = on
+	local-branches = on
+	logx = on
+	remote-branches = on
+	summary = on
+	tags = on
+
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

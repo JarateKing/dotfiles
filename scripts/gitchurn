@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 
-get_output() {
-	git log --all --name-only --format='format:' "$@" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn
-}
-
-get_output "$@" | less -r -F
+git log --all --name-only --format='format:' "$@" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -rn

@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 
-get_output() {
-	staged=$(git diff --name-only --cached)
-	if [[ -n "$staged" ]]; then
-		echo -e "\e[1;34m# Staged\e[0m"
-		git diff --cached --color=always
-	fi
+staged=$(git diff --name-only --cached)
+if [[ -n "$staged" ]]; then
+	echo -e "\e[1;34m# Staged\e[0m"
+	git --no-pager diff --cached --color=always
+fi
 
-	unstaged=$(git diff --name-only)
-	if [[ -n "$unstaged" ]]; then
-		echo -e "\e[1;34m# Unstaged\e[0m"
-		git diff --color=always
-	fi
-}
+unstaged=$(git diff --name-only)
+if [[ -n "$unstaged" ]]; then
+	echo -e "\e[1;34m# Unstaged\e[0m"
+	git --no-pager diff --color=always
+fi
 
-get_output | less -r -F

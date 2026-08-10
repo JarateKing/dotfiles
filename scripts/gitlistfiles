@@ -6,37 +6,33 @@ prev_dir=""
 # I can't guarantee `tree` is available though...
 # so instead I just do a simple version manually.
 
-get_output() {
-	lines=$(git ls-files "$@")
-	
-	echo "$lines" | while read line ; do
-		current_dir=$(dirname "$line")
-		if [[ "$prev_dir" != "$current_dir"* ]]; then
-			parent_dir=""
-			for parent in ${current_dir//\// }; do
-				parent_dir="$parent_dir/$parent"
-				parent_dir=$(echo "$parent_dir" | sed -e 's/^\///')
-				# echo "$parent_dir"
-				if [[ "$parent_dir" != "." && "$prev_dir" != "$parent_dir"* ]]; then
-					dirname=$(basename "$parent_dir")
-					indent=$(echo "$parent_dir" | sed -e 's/[^\/]*\//| /g' -e 's/^\(\(| \)*\)\(.\)*/\1/g')
-					echo -e "\e[0;90m$indent\e[1;34m$dirname\e[0m"
-				fi
-			done
-			
-			prev_dir="$current_dir"
-		fi
-		
-		filename=$(basename "$line")
-		indent=$(echo "$line" | sed -e 's/[^\/]*\//| /g' -e 's/^\(\(| \)*\)\(.\)*/\1/g')
-		file_info=$(git log -1 --date="short" --pretty="format:\e[0;32m%cd \e[0;35m%cn" "$line")
-		file_status=$(git status -s "$line")
-		filename_colour="\e[0m"
-		if [[ -n $file_status ]]; then
-			filename_colour="\e[0;33m"
-		fi
-		echo -e "\e[0;90m$indent$filename_colour$filename\e[0m $file_info\e[0m"
-	done
-}
+lines=$(git ls-files "$@")
 
-get_output "$@" | less -r -F
+echo "$lines" | while read line ; do
+	current_dir=$(dirname "$line")
+	if [[ "$prev_dir" != "$current_dir"* ]]; then
+		parent_dir=""
+		for parent in ${current_dir//\// }; do
+			parent_dir="$parent_dir/$parent"
+			parent_dir=$(echo "$parent_dir" | sed -e 's/^\///')
+			# echo "$parent_dir"
+			if [[ "$parent_dir" != "." && "$prev_dir" != "$parent_dir"* ]]; then
+				dirname=$(basename "$parent_dir")
+				indent=$(echo "$parent_dir" | sed -e 's/[^\/]*\//| /g' -e 's/^\(\(| \)*\)\(.\)*/\1/g')
+				echo -e "\e[0;90m$indent\e[1;34m$dirname\e[0m"
+			fi
+		done
+		
+		prev_dir="$current_dir"
+	fi
+	
+	filename=$(basename "$line")
+	indent=$(echo "$line" | sed -e 's/[^\/]*\//| /g' -e 's/^\(\(| \)*\)\(.\)*/\1/g')
+	file_info=$(git log -1 --date="short" --pretty="format:\e[0;32m%cd \e[0;35m%cn" "$line")
+	file_status=$(git status -s "$line")
+	filename_colour="\e[0m"
+	if [[ -n $file_status ]]; then
+		filename_colour="\e[0;33m"
+	fi
+	echo -e "\e[0;90m$indent$filename_colour$filename\e[0m $file_info\e[0m"
+done
