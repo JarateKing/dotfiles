@@ -63,6 +63,10 @@ Emacs on windows usually looks for `.emacs.d` in `%APPDATA%` rather than in the 
 
 These dotfiles on windows do assume that git is installed and git-bash is found at `c:/Program Files/Git/bin/bash.exe`.
 
+### Updating
+
+Getting the latest copy of these dotfiles is easy, because it's just a regular github repo. Run `git pull` and you should get all pushed changes, assuming no merge conflict or something.
+
 ### Modifying
 
 If you wish to make changes to any files that have already been included, feel free! You can then commit and push them through git as usual.
