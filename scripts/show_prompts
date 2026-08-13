@@ -4,9 +4,10 @@
 export sep=$'\x1e'
 capture=$(bash -ic '
 	printf "%s" "$sep"
-	for v in PS1 PS2 PS3 PS4; do
+	for v in PS1 PS2 PS3 PS4 PS0; do
 		printf "%s%s%s%s" "${!v}" "$sep" "${!v@P}" "$sep"
 	done
+	printf "%s%s" "$PROMPT_COMMAND" "$sep"
 ' 2>/dev/null)
 rest=${capture#*"$sep"}
 
@@ -17,7 +18,7 @@ next() {
 }
 
 skip_newline=true
-prompts=("PS1 (general prompt)" "PS2 (continued line)" "PS3 (select prompt)" "PS4 (set -x prompt)")
+prompts=("PS1 (general prompt)" "PS2 (continued line)" "PS3 (select prompt)" "PS4 (set -x prompt)" "PS0 (before command executes)")
 for i in "${prompts[@]}"; do
 	next; raw=$field
 	next; rendered=${field//$'\001'/}; rendered=${rendered//$'\002'/}
@@ -33,3 +34,10 @@ for i in "${prompts[@]}"; do
 	echo -e "$rendered"
 	echo -ne "\e[0m"
 done
+
+next
+echo ""
+echo "PROMPT_COMMAND:"
+if [ -n "$field" ]; then
+	echo "$field"
+fi
