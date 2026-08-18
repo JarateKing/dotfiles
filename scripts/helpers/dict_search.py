@@ -4,6 +4,7 @@ should_print = True
 should_count = False
 include_next = False
 exclude_next = False
+sort_type = "none"
 
 include_regex = []
 exclude_regex = []
@@ -29,11 +30,21 @@ for arg in sys.argv[2:]:
 		include_next = True
 	elif arg == '--exclude' or arg == '-e':
 		exclude_next = True
+	elif arg == "--ascending":
+		sort_type = "ascending"
+	elif arg == "--descending":
+		sort_type = "descending"
+	elif arg == "--smallest":
+		sort_type = "smallest"
+	elif arg == "--largest":
+		sort_type = "largest"
 	else:
 		include_regex.append(arg)
 
 total = 0
 count = 0
+
+wordlist = []
 
 with open(sys.argv[1]) as words:
 	for word in words:
@@ -53,7 +64,19 @@ with open(sys.argv[1]) as words:
 		if is_good:
 			count += 1
 			if should_print:
-				print(word)
+				wordlist.append(word)
+
+if should_print:
+	if sort_type == "ascending":
+		wordlist = sorted(wordlist, key=str.lower)
+	elif sort_type == "descending":
+		wordlist = reversed(sorted(wordlist, key=str.lower))
+	elif sort_type == "smallest":
+		wordlist = sorted(wordlist, key=len)
+	elif sort_type == "largest":
+		wordlist = reversed(sorted(wordlist, key=len))
+	
+	print('\n'.join(wordlist))
 
 if should_count:
 	if (should_print):
