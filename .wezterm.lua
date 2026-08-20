@@ -326,10 +326,10 @@ local launch_menu = {}
 
 add_launch_entry(launch_menu, { 'bash', '--login', '-i' }, 'Bash', 'local')
 add_launch_entry(launch_menu, { 'fish' }, 'Fish', 'local')
-add_launch_entry(launch_menu, { 'zsh' }, 'Fish', 'local')
+add_launch_entry(launch_menu, { 'zsh' }, 'Zsh', 'local')
 add_launch_entry(launch_menu, { 'pwsh', '-NoLogo' }, 'Powershell (pwsh)', 'local')
 add_launch_entry(launch_menu, { 'powershell', '-NoLogo' }, 'Powershell (win)', 'local')
-add_launch_entry(launch_menu, { 'cmd', }, 'Command Prompt', 'local')
+add_launch_entry(launch_menu, { 'cmd' }, 'Command Prompt', 'local')
 
 config.launch_menu = launch_menu
 
