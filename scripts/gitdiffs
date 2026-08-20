@@ -3,12 +3,12 @@
 staged=$(git diff --name-only --cached)
 if [[ -n "$staged" ]]; then
 	echo -e "\e[1;34m# Staged\e[0m"
-	git --no-pager diff --cached --color=always
+	git --no-pager diff --cached --color=always $@
 fi
 
 unstaged=$(git diff --name-only)
 if [[ -n "$unstaged" ]]; then
 	echo -e "\e[1;34m# Unstaged\e[0m"
-	git --no-pager diff --color=always
+	git --no-pager diff --color=always $@
 fi
 
