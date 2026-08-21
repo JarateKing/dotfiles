@@ -1,2 +1,5 @@
 # lf even on windows
 * text eol=lf
+
+# except for batch files
+*.bat text eol=crlf

@@ -59,7 +59,7 @@ You should also setup your personal git configuration in a new `.gitconfig-priva
 
 For the most part these dotfiles can be installed on windows as well, by cloning this repo into the user's home directory (usually `c:/Users/<username>/`). Not everything is guaranteed to work, but most should.
 
-Emacs on windows usually looks for `.emacs.d` in `%APPDATA%` rather than in the user's home directory. The easy way around this is with a symlink: `mklink "%AppData%\.emacs.d" "%UserProfile%\.emacs.d"`. Similar must be done for neovim: `mklink "%LocalAppData%\nvim" "%UserProfile%\.config\nvim"`.
+Emacs on windows usually looks for `.emacs.d` in `%APPDATA%` rather than in the user's home directory. The easy way around this is with a symlink: `mklink "%AppData%\.emacs.d" "%UserProfile%\.emacs.d"`. Similar must be done for neovim: `mklink "%LocalAppData%\nvim" "%UserProfile%\.config\nvim"`. There is a `scripts/windows_setup_symlinks.bat` script that can simplify this process, simply run it with admin privileges and you should be good to go.
 
 These dotfiles on windows do assume that git is installed and git-bash is found at `c:/Program Files/Git/bin/bash.exe`.
 
