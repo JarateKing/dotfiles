@@ -27,6 +27,12 @@ def print_help():
     print('--descending     sort in descending alphabetical order')
     print('--smallest       sort in ascending order by string length')
     print('--largest        sort in descending order by string length')
+    print('')
+    print('examples:')
+    print('dict_search hi               words that contain "hi"')
+    print('dict_search ^h.*i$           words that start with "h" and end with "i"')
+    print('dict_search q --exclude qu   words with "q" but no "qu"')
+    print('dict_search --pool aboo      words with at most 1 a, 1 b, 2 o')
 
 for arg in sys.argv[2:]:
     # priority:
