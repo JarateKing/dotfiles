@@ -11,6 +11,23 @@ include_regex = []
 exclude_regex = []
 letterpool = ""
 
+def print_help():
+    print('a utility to search through a wordlist with regex')
+    print('usage: dict_search [options/regex]')
+    print('')
+    print('options:')
+    print('--help/-h        prints this help text')
+    print('--exclude/-e     excludes any words that match the following regex')
+    print('--include/-i     only include words that match the following regex')
+    print('--summary/-s     also list count/percent of words matched')
+    print('--only-count/-c  only list count/percent of words matched')
+    print('--pool           limit words to a set number of letters by argument')
+    print('                 a ? character indicates a wildcard')
+    print('--ascending      sort in ascending alphabetical order')
+    print('--descending     sort in descending alphabetical order')
+    print('--smallest       sort in ascending order by string length')
+    print('--largest        sort in descending order by string length')
+
 for arg in sys.argv[2:]:
     # priority:
     # - the argument of `-i .` and `-e .`
@@ -25,6 +42,9 @@ for arg in sys.argv[2:]:
     elif pool_next:
         pool_next = False
         letterpool = arg.lower()
+    elif arg == '--help' or arg == '-h':
+        print_help()
+        exit()
     elif arg == '--only-count' or arg == '-c':
         should_print = False
         should_count = True
