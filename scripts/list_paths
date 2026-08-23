@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+IFS=":" read -ra items <<< "$PATH"
+for item in "${items[@]}"; do
+	filecount="-"
+	if [ -d "$item" ]; then
+		filecount=$(find "$item" -maxdepth 1 -type f | wc -l)
+	fi
+	
+	echo "$item $filecount"
+done
