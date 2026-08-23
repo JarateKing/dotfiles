@@ -23,6 +23,7 @@ Some of these utilities are useful for configuring a terminal, others are genera
 - `palette` will show the terminal's ANSI escape sequence colours, in a nice clean palette.
 - `dict_search` will grab a word list and match each word against regex.
 - `args` and `nargs` will list each of the arguments of the command that follows it. `args` will just list each argument on a new line, `nargs` will include line numbers.
+- `list_paths` will list each entry in `$PATH` as well as how many files that directory contains.
 
 ## Nix Shells
 
