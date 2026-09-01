@@ -86,22 +86,50 @@ wezterm.on('format-tab-title',
 	end
 )
 --- darker background when out of focus
-wezterm.on('window-focus-changed',
-	function(window, pane)
-		local overrides = window:get_config_overrides() or {}
-		if window:is_focused() then
-			overrides.colors = config.colors
-			overrides.colors.background = '#0B1118'
-		else
-			overrides.colors = config.colors
-			overrides.colors.background = '#0A0C0F'
-		end
-		overrides.colors.tab_bar.background = overrides.colors.background
-		window:set_config_overrides(overrides)
+--- tinted blue when state file exists, for external integration
+local FOCUSED_BG = '#0B1118'
+local UNFOCUSED_BG = '#0A0C0F'
+local TINT_BG = '#0B2268'
+
+local function pane_tint_requested(pane)
+	if not pane then return false end
+	local state_file = wezterm.home_dir .. '/.pane-tint/state-' .. pane:pane_id()
+	return #wezterm.glob(state_file) > 0
+end
+
+local function apply_colors(window)
+	local overrides = window:get_config_overrides() or {}
+	local colors = {}
+	for k, v in pairs(config.colors) do colors[k] = v end
+	local tab_bar = {}
+	for k, v in pairs(config.colors.tab_bar) do tab_bar[k] = v end
+	colors.tab_bar = tab_bar
+
+	local bg
+	if pane_tint_requested(window:active_pane()) then
+		bg = TINT_BG
+	elseif window:is_focused() then
+		bg = FOCUSED_BG
+	else
+		bg = UNFOCUSED_BG
 	end
-)
+
+	colors.background = bg
+	colors.tab_bar.background = bg
+	overrides.colors = colors
+	window:set_config_overrides(overrides)
+end
+
+wezterm.on('window-focus-changed', function(window, pane)
+	apply_colors(window)
+end)
+
+config.status_update_interval = 300
+
 -- right status
 wezterm.on('update-status', function(window, pane)
+	apply_colors(window)
+
 	local parts = {}
 	
 	local prog = pane:get_user_vars().WEZTERM_PROG
