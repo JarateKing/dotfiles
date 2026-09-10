@@ -32,6 +32,7 @@
 !.config/yazi/**
 !.config/git/
 !.config/git/ignore
+!.ripgreprc
 
 # re-ignore some things
 .emacs.d/eln-cache/

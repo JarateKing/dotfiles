@@ -1,0 +1,20 @@
+# case-insensitive if pattern is all lowercase
+--smart-case
+
+# include hidden files in search
+--hidden
+
+# setup hyperlinks
+--hyperlink-format=file://{host}{path}
+
+# follow symbolic links
+--follow
+
+# add some information to search
+--stats
+
+# remove whitespace at start of line
+--trim
+
+# windows line ending compatibility
+--crlf

@@ -13,6 +13,7 @@ export PATH
 # env
 export GIT_EDITOR="nvim +startinsert"
 export YAZI_CONFIG_HOME=~/.config/yazi # for windows compatibility
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # aliases
 alias q="exit"
