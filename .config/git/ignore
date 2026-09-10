@@ -8,3 +8,6 @@ Thumbs.db
 
 # editor files
 *~
+
+# personal files
+.todo.txt
