@@ -29,6 +29,7 @@ There are a few aliases that either serve as shortcuts for common options, or ne
 - `git diffs` will show the diffs of both staged and unstaged files.
 - `git directory` will show the top-level directory of the current git repo.
 - `git discard` will open an interactive menu that can discard individual changes within files.
+- `git ignored` will list files and directories that are ignored by .gitignore.
 - `git largest` will order git commits by number of lines changed. `-f` sorts by files changed, `-a` sorts by lines added, `-d` sorts by lines deleted, `-t` sorts by total lines changed (added + deleted), `-x` sorts by the delta (added - deleted), `-r` sorts in reverse (ascending) order.
 - `git list-files` lists all currently tracked files, along with basic info like time/author of last modification.
 - `git local-branches` lists all local branches, sorted by date.

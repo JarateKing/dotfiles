@@ -21,6 +21,7 @@
 	default-branch = !"git symbolic-ref refs/remotes/origin/HEAD | cut -f4 -d/"
 	directory = rev-parse --show-toplevel
 	discard = checkout -p
+	ignored = !"git -c color.status=never status --ignored -s | grep '!!' | cut -c 4-"
 	raw = show --format="raw" --raw -p -m
 	staging = add -p
 	uncommit = reset --soft HEAD~
@@ -32,6 +33,7 @@
 	aliases = on
 	churn = on
 	diffs = on
+	ignored = on
 	list-files = on
 	local-branches = on
 	logx = on
