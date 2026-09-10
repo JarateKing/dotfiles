@@ -25,6 +25,8 @@
 !.config/zellij/themes/custom-theme.kdl
 !.config/gitu/
 !.config/gitu/config.toml
+!.config/doggo/
+!.config/doggo/config.toml
 !.wezterm.lua
 !docs/
 !docs/**

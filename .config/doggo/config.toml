@@ -1,0 +1,5 @@
+# query some important record types
+type = ["A", "AAAA", "CNAME", "MX", "TXT"]
+
+# show how long a response took
+time = true

@@ -15,9 +15,11 @@ shopt -s histappend                         # better history with multiple sessi
 PROMPT_COMMAND="$PROMPT_COMMAND;history -a" # keep history updated even if closing suddenly
 
 # env
+## config paths are usually for windows compatibility
 export GIT_EDITOR="nvim +startinsert"
-export YAZI_CONFIG_HOME=~/.config/yazi # for windows compatibility
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export YAZI_CONFIG_HOME=~/.config/yazi
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
+export DOGGO_CONFIG=~/.config/doggo/config.toml
 
 # aliases
 alias q="exit"
