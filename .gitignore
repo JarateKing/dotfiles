@@ -33,6 +33,7 @@
 !.config/git/
 !.config/git/ignore
 !.ripgreprc
+!.tokeirc
 
 # re-ignore some things
 .emacs.d/eln-cache/
