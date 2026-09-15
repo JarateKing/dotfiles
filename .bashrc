@@ -75,6 +75,10 @@ cz() {
 	fi
 	rm -f -- "$tmp"
 }
+mkcs() {
+	mkdir "$@"
+	cs "$@"
+}
 
 # prompts
 parse_git_branch() {
