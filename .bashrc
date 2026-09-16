@@ -76,7 +76,7 @@ cz() {
 	rm -f -- "$tmp"
 }
 mkcs() {
-	mkdir "$@"
+	mkdir -p "$@"
 	cs "$@"
 }
 
