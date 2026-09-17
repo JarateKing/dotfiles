@@ -100,15 +100,15 @@ parse_infoline()
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
         if tput setaf 1 >&/dev/null; then
-            infoline+="\[\e[0m\e[37m\]Nix:\[\e[0m\e[1m\e[2m\]$(($SHLVL-1)) "
+            infoline+="\[\e[0m\e[40m\e[37m\]Nix:\[\e[0m\e[40m\e[1m\e[2m\]$(($SHLVL-1)) "
         else
             infoline+="Nix:$(($SHLVL-1)) "
         fi
     fi
 
     if tput setaf 1 >&/dev/null; then
-        infoline+='\[\e[0m\e[37m\]$(parse_directory)'
-        infoline+='\[\e[0m\e[32m\e[2m\]$(parse_git_branch)'
+        infoline+='\[\e[0m\e[40m\e[37m\]$(parse_directory)'
+        infoline+='\[\e[0m\e[40m\e[32m\e[2m\]$(parse_git_branch)'
     else
         infoline+='$(parse_directory)'
         infoline+='$(parse_git_branch)'
@@ -116,15 +116,36 @@ parse_infoline()
 
     echo -e $infoline
 }
+strip_colors() {
+	echo "$1" | sed -E 's/\x1b\[[0-9;]*[a-zA-Z]//g; s/\\\[//g; s/\\\]//g; s/\x01//g; s/\x02//g'
+}
+pad_line() {
+	local raw="$(strip_colors "$1")"
+	local pad=$(( COLUMNS - ${#raw} ))
+	
+	if (( $pad < 0 )); then
+		pad=0
+	fi
+	
+	printf '%*s' "$pad" '' | tr ' ' '.'
+}
 setup_prompts() {
     if tput setaf 1 >&/dev/null; then
         local prompt_start='\[\e[0m\e[32m\e[1m\]'
         local prompt_end='\[\e[0m\e[39m\]'
-        local infoline_bracket='\[\e[0m\e[90m\]'
+        local infoline_bracket='\[\e[0m\e[40m\e[90m\]'
     fi
-    
+
+	local infoline="$infoline_bracket[$(parse_infoline)$infoline_bracket]"
+
+	# the infoline is supposed to have a black bg
+	# this fills the rest of the line with the bg
+	if tput setaf 1 >&/dev/null; then
+		local hfill='\[\e[30m\]$(pad_line "'"$infoline"'")\[\e[0m\]'
+	fi
+
     # apply to prompts
-    PS1="$infoline_bracket[$(parse_infoline)$infoline_bracket]"$'\n'"$prompt_start > $prompt_end"
+    PS1="$infoline$hfill"$'\n'"$prompt_start > $prompt_end"
     PS2="$prompt_start . $prompt_end"
     PS4="$prompt_start + $prompt_end"
 
