@@ -8,11 +8,13 @@ if ! [[ "$PATH" =~ "$HOME/scripts:" ]]; then PATH="$HOME/scripts:$PATH"; fi
 export PATH
 
 # history
-HISTCONTROL=ignoreboth:erasedups            # do not store duplicate lines or lines that start with space
-HISTSIZE=2000                               # lines stored for the current session
-HISTFILESIZE=2000                           # lines stored between sessions
-shopt -s histappend                         # better history with multiple sessions
-PROMPT_COMMAND="$PROMPT_COMMAND;history -a" # keep history updated even if closing suddenly
+HISTCONTROL=ignoreboth:erasedups  # do not store duplicate lines or lines that start with space
+HISTSIZE=2000                     # lines stored for the current session
+HISTFILESIZE=2000                 # lines stored between sessions
+shopt -s histappend               # better history with multiple sessions
+
+# keep history updated even if closing suddenly
+if ! [[ "$PROMPT_COMMAND" =~ "history -a" ]]; then PROMPT_COMMAND="$PROMPT_COMMAND;history -a"; fi
 
 # env
 ## config paths are usually for windows compatibility
@@ -76,7 +78,7 @@ cz() {
 	rm -f -- "$tmp"
 }
 mkcs() {
-	mkdir "$@"
+	mkdir -p "$@"
 	cs "$@"
 }
 
@@ -169,8 +171,9 @@ setup_prompts
 export GIT_CEILING_DIRECTORIES="$HOME"
 
 # shell integrations
-if [ -n "$WEZTERM_EXECUTABLE" ]; then
+if [ -n "$WEZTERM_EXECUTABLE" ] && [ -z "$WEZTERM_INTEGRATION_LOADED" ]; then
 	source "$HOME/scripts/wezterm_shell_integration.sh"
+	WEZTERM_INTEGRATION_LOADED="True"
 fi
 
 # personal stuff
