@@ -98,8 +98,15 @@ parse_directory() {
         echo "~"
     else
 		local startdir=$(dirname "$fulldir")
+		if [[ "$startdir" = "/" ]]; then
+			startdir=""
+		fi
 		local enddir=$(basename "$fulldir")
-        echo -e "$startdir/\e[1m$enddir"
+		divider="/"
+		if [[ "$enddir" = "/" ]]; then
+			divider=""
+		fi
+        echo -e "$startdir$divider\e[1m$enddir"
     fi
 }
 parse_infoline()
