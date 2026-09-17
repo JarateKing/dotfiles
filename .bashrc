@@ -142,7 +142,7 @@ pad_line() {
 		pad=0
 	fi
 	
-	printf '%*s' "$pad" '' | tr ' ' '.'
+	printf '%*s' "$pad" '' | tr ' ' '-'
 }
 setup_prompts() {
     if tput setaf 1 >&/dev/null; then
