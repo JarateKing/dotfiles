@@ -14,7 +14,13 @@ HISTFILESIZE=2000                 # lines stored between sessions
 shopt -s histappend               # better history with multiple sessions
 
 # keep history updated even if closing suddenly
-if ! [[ "$PROMPT_COMMAND" =~ "history -a" ]]; then PROMPT_COMMAND="$PROMPT_COMMAND;history -a"; fi
+if ! [[ "$PROMPT_COMMAND" =~ "history -a" ]]; then
+	if [[ -n "$PROMPT_COMMAND" ]]; then
+		PROMPT_COMMAND="$PROMPT_COMMAND;history -a";
+	else
+		PROMPT_COMMAND="history -a"
+	fi
+fi
 
 # env
 ## config paths are usually for windows compatibility
