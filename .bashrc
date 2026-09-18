@@ -155,7 +155,7 @@ setup_prompts() {
 
 	# the infoline is supposed to have a black bg
 	# this fills the rest of the line with the bg
-	if tput setaf 1 >&/dev/null; then
+	if tput setaf 1 >&/dev/null && [ -n "$WEZTERM_EXECUTABLE" ]; then
 		local hfill='\[\e[30m\]$(pad_line "'"$infoline"'")\[\e[0m\]'
 	fi
 
