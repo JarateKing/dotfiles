@@ -54,6 +54,7 @@ vim.keymap.set({"i"}, "<down>", "<c-o>gj", {})
 -- theme
 vim.o.termguicolors = true
 vim.opt.background = "light"
+vim.opt.cursorline = true
 require("catppuccin").setup {
   color_overrides = {
     all = {
