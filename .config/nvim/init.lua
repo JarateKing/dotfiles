@@ -44,6 +44,7 @@ vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.shortmess:append('I') -- disable startup message
 vim.opt.virtualedit = 'onemore'
+vim.opt.whichwrap:append('<,>,h,l,[,]')
 
 -- keys
 vim.keymap.set({"i"}, "<up>", "<c-o>gk", {})
