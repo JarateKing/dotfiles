@@ -25,6 +25,7 @@ Some of these utilities are useful for configuring a terminal, others are genera
 - `args` and `nargs` will list each of the arguments of the command that follows it. `args` will just list each argument on a new line, `nargs` will include line numbers.
 - `list_paths` will list each entry in `$PATH` as well as how many files that directory contains.
 - `todo` will open `.todo.txt` (a globally gitignored file) in neovim, to write down any personal todos or notes.
+- `gen_password` will generate random (base64) characters. A number argument can be supplied to set the number of characters (default 8).
 
 ## Nix Shells
 
