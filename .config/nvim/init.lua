@@ -42,7 +42,8 @@ require("lazy").setup(plugins, opts)
 -- general editor settings
 vim.opt.number = true
 vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 0 -- use tabstop value
+vim.opt.softtabstop = -1 -- use shiftwidth value
 vim.opt.shortmess:append('I') -- disable startup message
 vim.opt.virtualedit = 'onemore'
 vim.opt.whichwrap:append('<,>,h,l,[,]')
