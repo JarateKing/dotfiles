@@ -48,6 +48,7 @@ vim.opt.shortmess:append('I') -- disable startup message
 vim.opt.virtualedit = 'onemore'
 vim.opt.whichwrap:append('<,>,h,l,[,]')
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.scrolloff = 6
 
 -- keys
 vim.keymap.set({"i"}, "<up>", "<c-o>gk", {})
