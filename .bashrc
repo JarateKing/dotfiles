@@ -28,6 +28,7 @@ export GIT_EDITOR="nvim +startinsert"
 export YAZI_CONFIG_HOME=~/.config/yazi
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export DOGGO_CONFIG=~/.config/doggo/config.toml
+export BAT_CONFIG_PATH=~/.config/bat/bat.conf
 
 # aliases
 alias q="exit"

@@ -27,6 +27,8 @@
 !.config/gitu/config.toml
 !.config/doggo/
 !.config/doggo/config.toml
+!.config/bat
+!.config/bat/bat.conf
 !.wezterm.lua
 !docs/
 !docs/**
