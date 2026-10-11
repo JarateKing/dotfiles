@@ -44,6 +44,15 @@ alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.n
 __() {
 	cat
 }
+## print commands as they're executed within scripts
+### ie. `verbose palette`
+verbose() {
+	trap "{ set +x; } 2>/dev/null" SIGINT
+	set -x
+	{ export SHELLOPTS; } 2>/dev/null
+	"$@"
+	{ set +x; } 2>/dev/null
+}
 ## cd and ls combined
 ### with no argument, will ls with extra info (ie. git status)
 ### with an argument, will cd to the directory and ls as well.
