@@ -93,9 +93,14 @@ cz() {
 	fi
 	rm -f -- "$tmp"
 }
+## mkdir then cs to it
 mkcs() {
 	mkdir -p "$@"
 	cs "$@"
+}
+## cs to a temporary directory
+tempcs() {
+	cs "$(mktemp -d)"
 }
 
 # prompts
