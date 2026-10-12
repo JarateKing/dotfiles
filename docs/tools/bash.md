@@ -4,8 +4,7 @@
 
 - prompts are a green `>` by default, and then `.` for additional lines, `?` for `select` prompts, and `+` for `set -x` lines. Above this prompt will be a line with some information, such as the current directory, which branch this is on (within a git repo), and which level of nested nix shell we're in (when using nix).
 - The `cs` command is intended to replace both `cd` and `ls`. With an argument (ie. `cs ~`) it'll `cd` to that directory and then show additional info such as `ls`. Without an argument it'll act like `ls` with better defaults. `cs -` will go to the previous directory.
-- The `cse` command extends this further. With a directory argument it'll act the same, but with a file argument it'll open it in neovim.
-- The `cz` command is similar, but uses `yazi` to navigate between directories. This is more convenient to browse directories as it's a full filemanager, but likely isn't as fast to directly go to a specific directory.
+- Many variations of `cs`: `cse` will also edit in neovim if the target is a file. `cz` will use yazi to move between directories. `mkcs` will make the target directory first if it doesn't exist. `tempcs` will create a new tmp directory and move to that.
 - `q` will `exit` as a minor convenience.
 - `__` can be used mid-pipe to comment something out, ie. `ls | __ sort -nr | grep .md` will still `ls | grep .md` but ignore the `sort -nr` since it's been commented out.
 
