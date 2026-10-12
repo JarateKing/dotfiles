@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+scripts_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+if [ "$1" = "-h" ]; then
+	echo "replacements \$1 \$2"
+	echo "\$1: file to perform replacements on"
+	echo "\$2: list of tab-separated regex replacements to apply"
+	echo ""
+	echo "-h: display this help menu"
+	echo "-l: list all the replacement lists available"
+	exit 0
+fi
+
+if [ "$1" = "-l" ]; then
+	cd $scripts_path/replacements_data
+	find * -type f
+	exit 0
+fi
+
+if [[ -z "$1" ]]; then
+   echo "Missing target filename argument! Use 'replacements -h' for the help menu."
+   exit 1
+fi
+
+if [[ -z "$2" ]]; then
+   echo "Missing replacements list argument! Use 'replacements -h' for the help menu."
+   exit 1
+fi
+
+if [ ! -f $scripts_path/replacements_data/$2 ]; then
+   echo "Invalid replacements list $2"
+   exit 1
+fi
+
+python $scripts_path/helpers/replacements.py $1 $scripts_path/replacements_data/$2
