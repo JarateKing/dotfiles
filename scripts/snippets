@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+scripts_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+if [ "$1" = "-h" ]; then
+	echo "snippets \$1"
+	echo "\$1: snippet to print"
+	echo ""
+	echo "-h: display this help menu"
+	echo "-l: list all the templates"
+	exit 0
+fi
+
+if [ "$1" = "-l" ]; then
+	cd $scripts_path/snippets_data
+	find * -type f
+	exit 0
+fi
+
+if [[ -z "$1" ]]; then
+   echo "Missing snippet argument! Use 'snippets -h' for the help menu."
+   exit 1
+fi
+
+cat $scripts_path/snippets_data/$1
