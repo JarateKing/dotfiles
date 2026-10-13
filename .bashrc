@@ -1,3 +1,8 @@
+# for use within this bashrc
+if tput setaf 1 >&/dev/null; then
+	HAS_COLOR=1
+fi
+
 # general functionality
 shopt -s globstar                 # support ** wildcards
 shopt -s no_empty_cmd_completion  # prevent long delay on tab with empty completion
@@ -132,14 +137,14 @@ parse_infoline()
     local infoline=''
 
     if [[ -n "$IN_NIX_SHELL" ]]; then
-        if tput setaf 1 >&/dev/null; then
+        if [[ -n "$HAS_COLOR" ]]; then
             infoline+="\[\e[0m\e[40m\e[37m\]Nix:\[\e[0m\e[40m\e[1m\e[2m\]$(($SHLVL-1)) "
         else
             infoline+="Nix:$(($SHLVL-1)) "
         fi
     fi
 
-    if tput setaf 1 >&/dev/null; then
+    if [[ -n "$HAS_COLOR" ]]; then
         infoline+='\[\e[0m\e[40m\e[37m\]$(parse_directory)'
         infoline+='\[\e[0m\e[40m\e[32m\e[2m\]$(parse_git_branch)'
     else
@@ -163,7 +168,7 @@ pad_line() {
 	printf '%*s' "$pad" '' | tr ' ' '-'
 }
 setup_prompts() {
-    if tput setaf 1 >&/dev/null; then
+    if [[ -n "$HAS_COLOR" ]]; then
         local prompt_start='\[\e[0m\e[32m\e[1m\]'
         local prompt_end='\[\e[0m\e[39m\]'
         local infoline_bracket='\[\e[0m\e[40m\e[90m\]'
@@ -173,7 +178,7 @@ setup_prompts() {
 
 	# the infoline is supposed to have a black bg
 	# this fills the rest of the line with the bg
-	if tput setaf 1 >&/dev/null && [ -n "$WEZTERM_EXECUTABLE" ]; then
+	if [[ -n "$HAS_COLOR" ]] && [ -n "$WEZTERM_EXECUTABLE" ]; then
 		local hfill='\[\e[30m\]$(pad_line "'"$infoline"'")\[\e[0m\]'
 	fi
 
@@ -183,7 +188,7 @@ setup_prompts() {
     PS4="$prompt_start + $prompt_end"
 
     # PS3 needs special handling for escape sequences
-    if tput setaf 1 >&/dev/null; then
+    if [[ -n "$HAS_COLOR" ]]; then
         PS3=$'\e[0m\e[32m\e[1m ? \e[0m\e[39m'
     else
         PS3=" ? "
