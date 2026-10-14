@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# wrapper for copying text to clipboard
+
+if [[ "$OSTYPE" == "msys" ]]; then
+	cat > /dev/clipboard
+elif hash xclip 2>/dev/null; then
+	xclip -selection clipboard
+elif hash pbcopy 2>/dev/null; then
+	pbcopy
+else
+	echo "no known way to copy detected"
+	exit 1
+fi

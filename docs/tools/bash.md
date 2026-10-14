@@ -15,6 +15,7 @@ Some of these utilities are useful for configuring a terminal, others are genera
 - `addfile` is a cli utility for making a copy of some predefined file. For example, `addfile .gitignore gitignore/latex` will copy over the `~/scripts/addfile_data/gitignore/latex` file (a .gitignore suited for LaTeX) and use it as `.gitignore` in the local directory.
 - `args` and `nargs` will list each of the arguments of the command that follows it. `args` will just list each argument on a new line, `nargs` will include line numbers.
 - `clears` will clear the screen, but preserve full history (unlike `clear`, and including what's currently on screen unlike `clear -x`).
+- `copy` will copy text to the clipboard. It's meant to be a portable wrapper, so you can use it like `echo "hi" | copy` on any OS.
 - `dict_search` will grab a word list and match each word against regex.
 - `gen_password` will generate random (base64) characters. A number argument can be supplied to set the number of characters (default 8).
 - `list_paths` will list each entry in `$PATH` as well as how many files that directory contains.
