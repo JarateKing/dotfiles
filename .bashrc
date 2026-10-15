@@ -181,15 +181,18 @@ setup_prompts() {
 	if [[ -n "$HAS_COLOR" ]] && [ -n "$WEZTERM_EXECUTABLE" ]; then
 		local hfill='\[\e[30m\]$(pad_line "'"$infoline"'")\[\e[0m\]'
 	fi
+	
+	# handle when stdout doesn't end with a newline
+	local newline_correction="\r"
 
     # apply to prompts
-    PS1="$infoline$hfill"$'\n'"$prompt_start > $prompt_end"
-    PS2="$prompt_start . $prompt_end"
-    PS4="$prompt_start + $prompt_end"
+    PS1="$newline_correction$infoline$hfill"$'\n'"$prompt_start > $prompt_end"
+    PS2="$newline_correction$prompt_start . $prompt_end"
+    PS4="$newline_correction$prompt_start + $prompt_end"
 
     # PS3 needs special handling for escape sequences
     if [[ -n "$HAS_COLOR" ]]; then
-        PS3=$'\e[0m\e[32m\e[1m ? \e[0m\e[39m'
+        PS3=$'\r\e[0m\e[32m\e[1m ? \e[0m\e[39m'
     else
         PS3=" ? "
     fi
