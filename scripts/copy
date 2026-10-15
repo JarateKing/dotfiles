@@ -2,12 +2,46 @@
 
 # wrapper for copying text to clipboard
 
+helpmenu() {
+	echo "... | copy [options]"
+	echo ""
+	echo "-h, --help     Show this"
+	echo "-s, --secret   Don't output text copied"
+}
+
+SHOW_OUTPUT=true
+
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+		-h|--help)
+			helpmenu
+			exit 0
+			;;
+		-s|--secret)
+			SHOW_OUTPUT=false
+			;;
+	esac
+	shift
+done
+
 if [[ "$OSTYPE" == "msys" ]]; then
-	cat > /dev/clipboard
+	if [ "$SHOW_OUTPUT" = "true" ]; then
+		exec tee -p >(cat > /dev/clipboard)
+	else
+		cat > /dev/clipboard
+	fi
 elif hash xclip 2>/dev/null; then
-	xclip -selection clipboard
+	if [ "$SHOW_OUTPUT" = "true" ]; then
+		exec tee -p >(xclip -selection clipboard)
+	else
+		xclip -selection clipboard
+	fi
 elif hash pbcopy 2>/dev/null; then
-	pbcopy
+	if [ "$SHOW_OUTPUT" = "true" ]; then
+		exec tee -p >(pbcopy)
+	else
+		pbcopy
+	fi
 else
 	echo "no known way to copy detected"
 	exit 1
