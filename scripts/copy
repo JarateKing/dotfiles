@@ -5,11 +5,13 @@
 helpmenu() {
 	echo "... | copy [options]"
 	echo ""
-	echo "-h, --help     Show this"
-	echo "-s, --secret   Don't output text copied"
+	echo "-h, --help        Show this help menu"
+	echo "-s, --secret      Don't output text copied"
+	echo "-w, --whitespace  Don't strip whitespace"
 }
 
 SHOW_OUTPUT=true
+STRIP_WHITESPACE=true
 
 while [[ $# -gt 0 ]]; do
 	case "$1" in
@@ -20,29 +22,30 @@ while [[ $# -gt 0 ]]; do
 		-s|--secret)
 			SHOW_OUTPUT=false
 			;;
+		-w|--whitespace)
+			STRIP_WHITESPACE=false
+			;;
 	esac
 	shift
 done
 
 if [[ "$OSTYPE" == "msys" ]]; then
-	if [ "$SHOW_OUTPUT" = "true" ]; then
-		exec tee -p >(cat > /dev/clipboard)
-	else
-		cat > /dev/clipboard
-	fi
+	toexec="cat > /dev/clipboard"
 elif hash xclip 2>/dev/null; then
-	if [ "$SHOW_OUTPUT" = "true" ]; then
-		exec tee -p >(xclip -selection clipboard)
-	else
-		xclip -selection clipboard
-	fi
+	toexec="xclip -selection clipboard"
 elif hash pbcopy 2>/dev/null; then
-	if [ "$SHOW_OUTPUT" = "true" ]; then
-		exec tee -p >(pbcopy)
-	else
-		pbcopy
-	fi
+	toexec="pbcopy"
 else
 	echo "no known way to copy detected"
 	exit 1
+fi
+
+if [ "$STRIP_WHITESPACE" = "true" ]; then
+	toexec="xargs echo -n | $toexec"
+fi
+
+if [ "$SHOW_OUTPUT" = "true" ]; then
+	exec tee -p >(eval "$toexec")
+else
+	eval "$toexec"
 fi
