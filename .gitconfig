@@ -10,6 +10,7 @@
 	logs = !"gitlogs"
 	logx = !"gitlogx"
 	remote-branches = !"gitrefs refs/remotes"
+	state = !"gitstate"
 	summary = !"gitsummary"
 	tags = !"gitrefs refs/tags"
 	who = !"gitwho"
@@ -38,6 +39,7 @@
 	local-branches = on
 	logx = on
 	remote-branches = on
+	state = on
 	summary = on
 	tags = on
 

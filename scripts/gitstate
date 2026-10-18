@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+git logs -n 1
+git status -sb
