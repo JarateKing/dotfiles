@@ -4,6 +4,7 @@
 	branches = !"gitrefsall"
 	churn = !"gitchurn"
 	diffs = !"gitdiffs"
+	ignore = !"gitignore"
 	largest = !"gitlargest"
 	list-files = !"gitlistfiles"
 	local-branches = !"gitrefs refs/heads"

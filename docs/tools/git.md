@@ -29,6 +29,7 @@ There are a few aliases that either serve as shortcuts for common options, or ne
 - `git diffs` will show the diffs of both staged and unstaged files.
 - `git directory` will show the top-level directory of the current git repo.
 - `git discard` will open an interactive menu that can discard individual changes within files.
+- `git ignore` will add the file/directory/string passed in as an argument to the repo's .gitignore.
 - `git ignored` will list files and directories that are ignored by .gitignore.
 - `git largest` will order git commits by number of lines changed. `-f` sorts by files changed, `-a` sorts by lines added, `-d` sorts by lines deleted, `-t` sorts by total lines changed (added + deleted), `-x` sorts by the delta (added - deleted), `-r` sorts in reverse (ascending) order.
 - `git list-files` lists all currently tracked files, along with basic info like time/author of last modification.
@@ -38,6 +39,7 @@ There are a few aliases that either serve as shortcuts for common options, or ne
 - `git remote-branches` lists all remote branches, sorted by date.
 - `git raw` shows the raw commit info for the most recent commit, or a given commit passed in by argument.
 - `git staging` will open an interactive menu that can stage individual changes within files.
+- `git state` is a replacement for `git status` with some more information.
 - `git summary` will show various bits of info about the repository.
 - `git tags` lists all tags, sorted by date.
 - `git uncommit` will undo the most recent commit, bringing the changes back to staging.
