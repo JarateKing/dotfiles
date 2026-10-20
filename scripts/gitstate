@@ -1,4 +1,19 @@
 #!/usr/bin/env bash
 
+## most recent commit
 git logs -n 1
+
+## status
+echo ""
 git status -sb
+
+## files changed/added, lines added/removed
+if [[ `git status --porcelain` ]]; then
+	echo ""
+	git diff --shortstat
+	
+	untracked_files=$(git ls-files --others --exclude-standard)
+	filecount=$(printf '%s' "$untracked_files" | grep -c '^')
+	linecount=$(printf '%s' "$untracked_files" | xargs -r -d '\n' cat | wc -l)
+	echo " $filecount new files, $linecount lines total(+)"
+fi
