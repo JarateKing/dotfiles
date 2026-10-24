@@ -14,6 +14,7 @@
 	state = !"gitstate"
 	summary = !"gitsummary"
 	tags = !"gitrefs refs/tags"
+	wordiffs = !"gitdiffs -w --word-diff=color"
 	who = !"gitwho"
 
 	# these are common or useful commands that can have simplified syntax
@@ -30,6 +31,7 @@
 	unstage = restore --staged
 	unstaging = restore --staged -p
 	untrack-ignored = !"git rm -r --cached . && git add . && git restore --staged ."
+	wordiff = diff -w --word-diff=color
 
 [pager]
 	aliases = on
@@ -43,6 +45,8 @@
 	state = on
 	summary = on
 	tags = on
+	wordiff = on
+	wordiffs = on
 
 [filter "lfs"]
 	required = true

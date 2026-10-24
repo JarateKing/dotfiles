@@ -46,6 +46,7 @@ There are a few aliases that either serve as shortcuts for common options, or ne
 - `git unstage` will unstage files that are currently staged.
 - `git unstaging` will open an interactive menu that can unstage individual changes within files.
 - `git untrack-ignored` will mark files for deletion if they've been added to `.gitignore`.
+- `git wordiff` and `git wordiffs` work like `git diff` and `git diffs`, but show individual word changes rather than line changes.
 - `git who` will show the current user's name and email, as well as author and committer overrides if need be. Useful if dealing with multiple git identities across different configs.
 
 ## Why No Shortcut Aliases?
