@@ -10,7 +10,7 @@ git status -sb
 ## files changed/added, lines added/removed
 if [[ `git status --porcelain` ]]; then
 	echo ""
-	git diff --shortstat
+	git diff HEAD --shortstat
 	
 	untracked_files=$(git ls-files --others --exclude-standard)
 	filecount=$(printf '%s' "$untracked_files" | grep -c '^')
