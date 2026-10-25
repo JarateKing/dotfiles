@@ -113,94 +113,110 @@ source ~/scripts/completions.sh
 
 # prompts
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+	PROMPT_GIT_BRANCH=""
+	local dir="$PWD"
+	local head=""
+	
+	while [[ -n "$dir" ]]; do
+		if [[ -f "$dir/.git/HEAD" ]]; then
+			read -r head < "$dir/.git/HEAD"
+			break
+		fi
+		
+		# need to ask git directly for worktrees and submodules
+		if [[ -f "$dir/.git" ]]; then
+			head=$(git symbolic-ref --short -q HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+			PROMPT_GIT_BRANCH=" $head"
+			return
+		fi
+		
+		dir="${dir%/*}"
+		
+		# copy GIT_CEILING_DIRECTORIES behaviour
+		if [[ "$dir" = "$HOME" ]]; then
+			return
+		fi
+	done
+
+	if [[ "$head" = "ref: refs/heads/"* ]]; then
+		PROMPT_GIT_BRANCH=" ${head#ref: refs/heads/}"
+	elif [[ -n "$head" ]]; then
+		PROMPT_GIT_BRANCH=" ${head:0:7}"
+	fi
 }
 parse_directory() {
-    local fulldir=$(dirs +0)
-    if [[ "$fulldir" = "~" ]]; then
-        echo "~"
-    else
-		local startdir=$(dirname "$fulldir")
-		if [[ "$startdir" = "/" ]]; then
-			startdir=""
-		fi
-		local enddir=$(basename "$fulldir")
-		divider="/"
-		if [[ "$enddir" = "/" ]]; then
-			divider=""
-		fi
-        echo -e "$startdir$divider\e[1m$enddir"
-    fi
-}
-parse_infoline()
-{
-    local infoline=''
-
-    if [[ -n "$IN_NIX_SHELL" ]]; then
-        if [[ -n "$HAS_COLOR" ]]; then
-            infoline+="\[\e[0m\e[40m\e[37m\]Nix:\[\e[0m\e[40m\e[1m\e[2m\]$(($SHLVL-1)) "
-        else
-            infoline+="Nix:$(($SHLVL-1)) "
-        fi
-    fi
-
-    if [[ -n "$HAS_COLOR" ]]; then
-        infoline+='\[\e[0m\e[40m\e[37m\]$(parse_directory)'
-        infoline+='\[\e[0m\e[40m\e[32m\e[2m\]$(parse_git_branch)'
-    else
-        infoline+='$(parse_directory)'
-        infoline+='$(parse_git_branch)'
-    fi
-
-    echo -e $infoline
-}
-strip_colors() {
-	echo "$1" | sed -E 's/\x1b\[[0-9;]*[a-zA-Z]//g; s/\\\[//g; s/\\\]//g; s/\x01//g; s/\x02//g'
-}
-pad_line() {
-	local raw="$(strip_colors "$1")"
-	local pad=$(( COLUMNS - ${#raw} ))
+	local fulldir="${PWD/#$HOME/\~}"
 	
-	if (( $pad < 0 )); then
-		pad=0
+	if [[ "$fulldir" = "~" ]]; then
+		PROMPT_START_DIR=""
+		PROMPT_END_DIR="~"
+	elif [[ "$fulldir" = "/" ]]; then
+		PROMPT_START_DIR=""
+		PROMPT_END_DIR="/"
+	else
+		PROMPT_START_DIR="${fulldir%/*}/"
+		PROMPT_END_DIR="${fulldir##*/}"
 	fi
-	
-	printf '%*s' "$pad" '' | tr ' ' '-'
+}
+update_prompt() {
+	parse_directory
+	parse_git_branch
 }
 setup_prompts() {
-    if [[ -n "$HAS_COLOR" ]]; then
-        local prompt_start='\[\e[0m\e[32m\e[1m\]'
-        local prompt_end='\[\e[0m\e[39m\]'
-        local infoline_bracket='\[\e[0m\e[40m\e[90m\]'
-    fi
+	if [[ -n "$HAS_COLOR" ]]; then
+		local prompt_start='\[\e[0m\e[32m\e[1m\]'
+		local prompt_end='\[\e[0m\e[39m\]'
+		local infoline_bracket='\[\e[0m\e[40m\e[90m\]'
+		local nix_color='\[\e[0m\e[40m\e[37m\]'
+		local nix_level_color='\[\e[0m\e[40m\e[1m\e[2m\]'
+		local start_dir_color='\[\e[0m\e[40m\e[37m\]'
+		local end_dir_color='\[\e[1m\]'
+		local git_branch_color='\[\e[0m\e[40m\e[32m\e[2m\]'
+	fi
 
-	local infoline="$infoline_bracket[$(parse_infoline)$infoline_bracket]"
+	local infoline="$infoline_bracket["
+	if [[ -n "$IN_NIX_SHELL" ]]; then
+		infoline+="${nix_color}Nix:$nix_level_color$(($SHLVL-1)) "
+	fi
+	infoline+="$start_dir_color"'$PROMPT_START_DIR'
+	infoline+="$end_dir_color"'$PROMPT_END_DIR'
+	infoline+="$git_branch_color"'$PROMPT_GIT_BRANCH'
+	infoline+="$infoline_bracket]"
 
 	# the infoline is supposed to have a black bg
-	# this fills the rest of the line with the bg
+	# erasing to the end of the line fills the rest of it with the bg
 	if [[ -n "$HAS_COLOR" ]] && [ -n "$WEZTERM_EXECUTABLE" ]; then
-		local hfill='\[\e[30m\]$(pad_line "'"$infoline"'")\[\e[0m\]'
+		local hfill='\[\e[K\e[0m\]'
 	fi
-	
+
 	# handle when stdout doesn't end with a newline
 	local newline_correction="\r"
 
-    # apply to prompts
-    PS1="$newline_correction$infoline$hfill"$'\n'"$prompt_start > $prompt_end"
-    PS2="$newline_correction$prompt_start . $prompt_end"
-    PS4="$newline_correction$prompt_start + $prompt_end"
+	# apply to prompts
+	PS1="$newline_correction$infoline$hfill"$'\n'"$prompt_start > $prompt_end"
+	PS2="$newline_correction$prompt_start . $prompt_end"
+	PS4="$newline_correction$prompt_start + $prompt_end"
 
-    # PS3 needs special handling for escape sequences
-    if [[ -n "$HAS_COLOR" ]]; then
-        PS3=$'\r\e[0m\e[32m\e[1m ? \e[0m\e[39m'
-    else
-        PS3=" ? "
-    fi
+	# PS3 needs special handling for escape sequences
+	if [[ -n "$HAS_COLOR" ]]; then
+		PS3=$'\r\e[0m\e[32m\e[1m ? \e[0m\e[39m'
+	else
+		PS3=" ? "
+	fi
 
-    # make nix shells use our prompt
-    if [[ -n "$IN_NIX_SHELL" ]]; then
-        export NIX_SHELL_PRESERVE_PROMPT=1
-    fi
+	# refresh the infoline values before each prompt
+	if ! [[ "$PROMPT_COMMAND" =~ "update_prompt" ]]; then
+		if [[ -n "$PROMPT_COMMAND" ]]; then
+			PROMPT_COMMAND="update_prompt;$PROMPT_COMMAND"
+		else
+			PROMPT_COMMAND="update_prompt"
+		fi
+	fi
+
+	# make nix shells use our prompt
+	if [[ -n "$IN_NIX_SHELL" ]]; then
+		export NIX_SHELL_PRESERVE_PROMPT=1
+	fi
 }
 setup_prompts
 
@@ -213,6 +229,12 @@ export GIT_CEILING_DIRECTORIES="$HOME"
 if [ -n "$WEZTERM_EXECUTABLE" ] && [ -z "$WEZTERM_INTEGRATION_LOADED" ]; then
 	source "$HOME/scripts/wezterm_shell_integration.sh"
 	WEZTERM_INTEGRATION_LOADED="True"
+
+	# assume user vars don't change, override to stop recomputing each prompt
+	WEZTERM_USER_VARS="$(__wezterm_user_vars_precmd)"
+	__wezterm_user_vars_precmd() {
+		printf '%s' "$WEZTERM_USER_VARS"
+	}
 fi
 
 # personal stuff
