@@ -1,5 +1,9 @@
-# with multiple autocomplete options, scroll between them
+# with multiple autocomplete options, scroll between them. SHIFT+TAB scrolls backwards
 TAB: menu-complete
+"\e[Z": menu-complete-backward
+
+# complete the shared part before scrolling
+set menu-complete-display-prefix on
 
 # up/down searches for history that start with the same text
 "\e[A": history-search-backward
