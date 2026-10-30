@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ "$1" = "-h" ]; then
+	echo "pyrun \"2 + 2\""
+	echo ""
+	echo "executes whatever python code is passed in as args"
+	echo "supports multi-line arg, or treats multiple args as multiple lines"
+	echo "only prints the output of the last command, like jupyter"
+	echo ""
+	echo "-h: display this help menu"
+	exit 0
+fi
+
+python -c '
+import ast, sys
+
+scope = {}
+*body, last = ast.parse("\n".join(sys.argv[1:])).body
+
+exec(compile(ast.Module(body, type_ignores=[]), "<string>", "exec"), scope)
+exec(compile(ast.Interactive([last]), "<string>", "single"), scope)
+' "$@"
