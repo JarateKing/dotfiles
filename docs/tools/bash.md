@@ -22,6 +22,7 @@ Some of these utilities are useful for configuring a terminal, others are genera
 - `notfetch` is a quick-and-simple alternative to `neofetch` and programs like it, because I didn't really like anything of the existing options.
 - `on_dotfiles_install.sh` is a script that's meant to run on install. This will just install some key programs (ie. `git`, `emacs`) and set some default settings in gnome.
 - `palette` will show the terminal's ANSI escape sequence colours, in a nice clean palette.
+- `pyrun` lets you run python quickly. It's similar to `python -c` except that it shows the return of the last expression, ie. `pyrun "2+2"` shows `4` while `python -c "2+2"` outputs nothing. Meant for one-offs where the full REPL is excessive.
 - `reload_bashrc` and `reload_inputrc` can be used to load any edits made to `.bashrc` and `.inputrc`.
 - `replacements` will run a list of regex replacements on a file and output the resulting text, ie. `replacements example.txt smart_to_dumb` to turn smart quotes into regular `"` characters.
 - `show_prompts` will display each type of prompt (`$PS1-4`) as well as some information about them, useful for debugging.
