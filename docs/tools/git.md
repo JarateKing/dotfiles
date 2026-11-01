@@ -15,6 +15,8 @@ To setup git, you should start by creating a `.gitconfig-private` with your user
 	path = ~/work/.gitconfig
 ```
 
+This keeps it outside of the dotfiles git repo, so your personal changes to the git config don't get committed.
+
 ## Aliases
 
 There are a few aliases that either serve as shortcuts for common options, or new utilities entirely.
