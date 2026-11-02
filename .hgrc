@@ -1,0 +1,10 @@
+# load user-specific stuff, like username
+%include ~/.hgrc-private
+
+[ui]
+editor = nvim +startinsert
+relative-paths = True
+
+[commands]
+commit.post-status = True
+status.relative = True
