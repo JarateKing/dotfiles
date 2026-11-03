@@ -18,7 +18,7 @@ sys.displayhook = _displayhook_q
 
 # import important modules by default
 _importlist = ['sys', 'importlib']
-for alias, pkg in {"np": "numpy", "cv": "cv2"}.items():
+for alias, pkg in {"np": "numpy", "cv": "cv2", "pd": "pandas"}.items():
 	try:
 		globals()[alias] = importlib.import_module(pkg)
 		if alias != pkg:
