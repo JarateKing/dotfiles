@@ -1,3 +1,6 @@
+# auto-run when starting the REPL via running `python`
+# needs `export PYTHONSTARTUP=~/.pythonrc` in .bashrc.
+
 import sys, importlib, os, subprocess
 
 # red prompts, distinguished from .bashrc green
