@@ -39,6 +39,7 @@
 !.ripgreprc
 !.tokeirc
 !.hgrc
+!.pythonrc
 
 # re-ignore some things
 .emacs.d/eln-cache/

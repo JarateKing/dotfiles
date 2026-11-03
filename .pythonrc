@@ -1,0 +1,13 @@
+import sys
+
+def q():
+	exit()
+
+# make `q` work as `q()`
+_quit_func = q
+_displayhook = sys.displayhook
+def _displayhook_q(value):
+	if value is _quit_func:
+		q()
+	_displayhook(value)
+sys.displayhook = _displayhook_q
