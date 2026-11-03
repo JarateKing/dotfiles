@@ -1,4 +1,4 @@
-import sys, importlib
+import sys, importlib, os, subprocess
 
 # red prompts, distinguished from .bashrc green
 sys.ps1 = "\033[31m\033[1m > \033[0m"
@@ -16,8 +16,13 @@ def _displayhook_q(value):
 	_displayhook(value)
 sys.displayhook = _displayhook_q
 
+# bash shortcut
+_bashdir = r"c:\\Program Files\\Git\\bin\\bash.exe" if os.name == 'nt' else "/bin/bash"
+def bash(arg):
+	subprocess.run([_bashdir, "-c", arg])
+
 # import important modules by default
-_importlist = ['sys', 'importlib']
+_importlist = ['sys', 'importlib', 'subprocess', 'os']
 for alias, pkg in {"np": "numpy", "cv": "cv2", "pd": "pandas"}.items():
 	try:
 		globals()[alias] = importlib.import_module(pkg)
