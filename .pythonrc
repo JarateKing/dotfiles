@@ -1,12 +1,13 @@
-import sys
+import sys, importlib
 
+# red prompts, distinguished from .bashrc green
 sys.ps1 = "\033[31m\033[1m > \033[0m"
 sys.ps2 = "\033[31m\033[1m . \033[0m"
 
+# exit shortcut `q()`
 def q():
 	exit()
-
-# make `q` work as `q()`
+## make `q` work as `q()`
 _quit_func = q
 _displayhook = sys.displayhook
 def _displayhook_q(value):
@@ -14,3 +15,18 @@ def _displayhook_q(value):
 		q()
 	_displayhook(value)
 sys.displayhook = _displayhook_q
+
+# import important modules by default
+_importlist = ['sys', 'importlib']
+for alias, pkg in {"np": "numpy", "cv": "cv2"}.items():
+	try:
+		globals()[alias] = importlib.import_module(pkg)
+		if alias != pkg:
+			_importlist += [alias + " (" + pkg + ")"]
+		else:
+			_importlist += [pkg]
+	except:
+		pass
+
+print('Imports:', ", ".join(sorted(_importlist)))
+print()
