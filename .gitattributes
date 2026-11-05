@@ -3,3 +3,6 @@
 
 # except for batch files
 *.bat text eol=crlf
+
+# language detection
+.pythonrc linguist-language=Python
