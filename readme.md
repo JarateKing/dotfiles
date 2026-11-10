@@ -67,27 +67,6 @@ These dotfiles on windows do assume that git is installed and git-bash is found 
 
 Getting the latest copy of these dotfiles is easy, because it's just a regular github repo. Run `git pull` and you should get all pushed changes, assuming no merge conflict or something.
 
-### Modifying
-
-If you wish to make changes to any files that have already been included, feel free! You can then commit and push them through git as usual.
-
-If you're adding new files, you may need to add them to `.gitignore`, in a format like `!.bashrc` to tell git to specifically *not* ignore these files (as our `.gitignore` ignores everything by default). We use `.gitignore` to keep our git statuses clean, but it does mean we need to manually unignore things when we add them.
-
-You can unignore individual files or entire directories, as well as re-ignore parts of unignored directories:
-
-```
-# individual files
-!.bashrc
-
-# entire directories
-!.emacs.d/
-!.emacs.d/**
-
-# and re-ignore files/subdirectories in unignored directories
-# this should be placed after unignoring the parent directory
-.emacs.d/elpa/
-```
-
 ## Documentation
 
 Further documentation can be found within the [docs directory](/docs) in this repo. This includes information about specific tools, as well as more meta-level documentation like the design philosophy of this dotfiles management style.
