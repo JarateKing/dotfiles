@@ -36,30 +36,13 @@ Run the install script (this `readme.md` file) from anywhere. If you've manually
 
 Manual installation can be done by cloning or downloading this repo and moving it to the home directory yourself.
 
-When you're done installing, you can optionally delete the `.git` folder, `.gitignore`, and `readme.md` files. Doing so would mean your dotfiles are no longer under source control, but would still be functional as dotfiles.
-
-There are also some fonts that ideally should be installed:
-- install https://github.com/davestewart/minimap-font/tree/master
-- install https://www.jetbrains.com/lp/mono/
-
-You should also setup your personal git configuration in a new `.gitconfig-private` file. For example,
-
-```
-# global default username
-[user]
-	email = yournamehere@email.com
-	name = UsernameHere
-
-# per-project override(s)
-[includeIf "gitdir:~/work/"]
-	path = ~/work/.gitconfig
-```
+There are some (optional) post-install steps. Check [the documentation](/docs/postinstall.md) for details.
 
 #### Windows
 
 For the most part these dotfiles can be installed on windows as well, by cloning this repo into the user's home directory (usually `c:/Users/<username>/`). Not everything is guaranteed to work, but most should.
 
-Emacs on windows usually looks for `.emacs.d` in `%APPDATA%` rather than in the user's home directory. The easy way around this is with a symlink: `mklink "%AppData%\.emacs.d" "%UserProfile%\.emacs.d"`. Similar must be done for neovim: `mklink "%LocalAppData%\nvim" "%UserProfile%\.config\nvim"`. There is a `scripts/windows_setup_symlinks.bat` script that can simplify this process, simply run it with admin privileges and you should be good to go.
+Some programs (ie. emacs, nvim) expect configuration in `%APPDATA%` rather than the home directory. We can use symlinks for this. Run `scripts/windows_setup_symlinks.bat` with admin privileges and you should be good to go.
 
 These dotfiles on windows do assume that git is installed and git-bash is found at `c:/Program Files/Git/bin/bash.exe`.
 
