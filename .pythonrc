@@ -1,7 +1,7 @@
 # auto-run when starting the REPL via running `python`
 # needs `export PYTHONSTARTUP=~/.pythonrc` in .bashrc.
 
-import sys, importlib, os, subprocess
+import sys, importlib, os, subprocess, math
 
 # red prompts, distinguished from .bashrc green
 sys.ps1 = "\033[31m\033[1m > \033[0m"
@@ -25,7 +25,7 @@ def bash(arg):
 	subprocess.run([_bashdir, "-c", arg])
 
 # import important modules by default
-_importlist = ['sys', 'importlib', 'subprocess', 'os']
+_importlist = ['sys', 'importlib', 'subprocess', 'os', 'math']
 for alias, pkg in {"np": "numpy", "cv": "cv2", "pd": "pandas"}.items():
 	try:
 		globals()[alias] = importlib.import_module(pkg)
