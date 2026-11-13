@@ -80,6 +80,10 @@ cs() {
         echo ""
         git status -s -b
     fi
+	if [ -e ".hg" ]; then
+		echo ""
+		hg status
+	fi
 }
 ## cs directories, edit files (in neovim)
 cse() {
