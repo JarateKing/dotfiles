@@ -29,6 +29,7 @@ fi
 
 # env
 ## config paths are usually for windows compatibility
+export EDITOR="nvim"
 export GIT_EDITOR="nvim +startinsert"
 export YAZI_CONFIG_HOME=~/.config/yazi
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
