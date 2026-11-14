@@ -36,6 +36,7 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export DOGGO_CONFIG=~/.config/doggo/config.toml
 export BAT_CONFIG_PATH=~/.config/bat/bat.conf
 export PYTHONSTARTUP=~/.pythonrc
+export P4ENVIRO=~/.p4enviro
 
 # aliases
 alias q="exit"

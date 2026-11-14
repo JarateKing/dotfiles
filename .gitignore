@@ -40,6 +40,7 @@
 !.tokeirc
 !.hgrc
 !.pythonrc
+!.p4enviro
 
 # re-ignore some things
 .emacs.d/eln-cache/
