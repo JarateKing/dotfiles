@@ -43,8 +43,12 @@ alias q="exit"
 alias please="sudo -E "
 alias reload_bashrc="source ~/.bashrc"
 alias reload_inputrc="bind -f ~/.inputrc"
-alias _emacs="nix-shell ~/nix-shells/emacs.nix"
-alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.nix"
+
+# aliases for nix-shells, if available
+if command -v nix-shell 2>/dev/null; then
+	alias _emacs="nix-shell ~/nix-shells/emacs.nix"
+	alias _art="export NIXPKGS_ALLOW_UNFREE=1; nix-shell --impure ~/nix-shells/art.nix"
+fi
 
 # functions
 ## comment out within a pipeline
