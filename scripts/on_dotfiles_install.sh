@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ## Nix
 
 curl -fsSL https://install.determinate.systems/nix | sh -s -- install

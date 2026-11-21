@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # script to setup bash completions
 
 OLD_PWD=$PWD
